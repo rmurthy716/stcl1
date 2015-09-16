@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STC L1 GUI</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+</head>
+<style>
+.myJumbotron {
+    background-color:rgb(28, 168, 221);
+    background-image:linear-gradient(rgb(19, 116, 153), rgb(28, 168, 221));
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 0px;
+    font-size:xx-large;
+}
+
+h2 {
+    text-align : center;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.65+0,0+100;Neutral+Density */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+img {
+    float: right;
+}
+
+.navbar-form input, .form-inline input {
+	width:auto;
+}
+
+header {
+	height:270px;
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+  	margin-top:25px;
+  	width:228px;
+  }
+  
+  #sidebar.affix {
+    position: fixed;
+    top:25px;
+    width:228px;
+  }
+}
+
+.affix,.affix-top {
+   position:static;
+}
+
+</style>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">STC L1 GUI</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="/PHY">PHY</a></li>
+        <li><a href="/FrontEnd">Front End</a></li>
+        <li><a href="/FPGA">FPGA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="jumbotron myJumbotron"
+      <h1 style="margin-bottom: 0px;"> Spirent Layer 1 Debug Tool <img src="spirentx.jpg" class="img-responsive" width="145" height="160">
+</h1><br><br><br>
+    </div>
+  </div>
+</div>
+<div id="title">
+</div>
+<div class="container-fluid">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <h3><b><u> Layer 1 Controls</u></b> </h3>
+            <li><h4> Layer 1 Spirent Firmware</h4><input id="hwmgrd" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
+            <li><h4> Auto Negotiation</h4><input id="AN" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
+            <li><h4> Forward Error Correction</h4><input id="FEC" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
+            <li><h4> Layer 1 Polling</h4><input id="poll" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
+          </ul>
+	</div>
+	<div id="section">
+	</div>
+</div>	
+<footer>
+  <p>&copy; Spirent Communications 2015</p>
+</footer>
+<script src="parseJson.js"></script>
+</script>
+</body>
+</html>
