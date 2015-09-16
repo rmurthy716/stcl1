@@ -1,0 +1,1070 @@
+{
+    "boardFamily": "Colossus QSFP28",
+    "memoryMap": [
+        {
+            "bar1_register": {
+                "address": 512,
+                "name": "PhySfpCsr",
+                "values": [
+                    {
+                        "attribute": "Alarm1",
+                        "defaultValue": true,
+                        "location": 1,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "RxLoss",
+                        "defaultValue": false,
+                        "location": 8,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "ModuleAbsent",
+                        "defaultValue": false,
+                        "location": 16,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "GlobalAlarm",
+                        "defaultValue": false,
+                        "location": 128,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "TxDisable",
+                        "defaultValue": false,
+                        "location": 2048,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "LowPower",
+                        "defaultValue": false,
+                        "location": 4096,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "CfpReset",
+                        "defaultValue": true,
+                        "location": 8192,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "BcmReset",
+                        "defaultValue": true,
+                        "location": 16384,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            }
+        },
+        {
+            "bar1_register": {
+                "address": 516,
+                "name": "FramerPCSPMARegister",
+                "values": [
+                    {
+                        "attribute": "LocalFault",
+                        "defaultValue": false,
+                        "location": 1,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "RemoteFault",
+                        "defaultValue": false,
+                        "location": 2,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            }
+        },
+        {
+            "bar1_register": {
+                "address": 520,
+                "name": "StickyRegister",
+                "values": [
+                    {
+                        "attribute": "StickyLocalFault",
+                        "defaultValue": false,
+                        "location": 1,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "StickyRemoteFault",
+                        "defaultValue": false,
+                        "location": 2,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "HsecError",
+                        "defaultValue": false,
+                        "location": 4,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "LossOfSignal",
+                        "defaultValue": false,
+                        "location": 16,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "RxLossRecovered",
+                        "defaultValue": false,
+                        "location": 32,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            }
+        },
+        {
+            "devAddr": 1,
+            "mdio_register": {
+                "address": 38912,
+                "name": "RxCdrLock",
+                "values": [
+                    {
+                        "attribute": "Lane1",
+                        "defaultValue": true,
+                        "location": 16,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "Lane2",
+                        "defaultValue": true,
+                        "location": 32,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "Lane3",
+                        "defaultValue": true,
+                        "location": 64,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "Lane4",
+                        "defaultValue": true,
+                        "location": 128,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            },
+            "portAddr": 0
+        },
+        {
+            "devAddr": 1,
+            "mdio_register": {
+                "address": 49616,
+                "name": "PllStatus",
+                "values": [
+                    {
+                        "attribute": "PmdPllRxSigDet",
+                        "defaultValue": true,
+                        "location": 3840,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "PmdPllTxValid",
+                        "defaultValue": true,
+                        "location": 240,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "PmdPllRxLock",
+                        "defaultValue": true,
+                        "location": 15,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            },
+            "portAddr": 1
+        },
+        {
+            "devAddr": 1,
+            "mdio_register": {
+                "address": 201,
+                "name": "RxFecStatus",
+                "values": [
+                    {
+                        "attribute": "FecAlignStatus",
+                        "defaultValue": true,
+                        "location": 16384,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "PcsAlignStatus",
+                        "defaultValue": true,
+                        "location": 32768,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            },
+            "portAddr": 1
+        },
+        {
+            "devAddr": 1,
+            "mdio_register": {
+                "address": 35330,
+                "name": "ForcedModeDecode",
+                "values": [
+                    {
+                        "attribute": "FecForced",
+                        "defaultValue": true,
+                        "location": 8,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            },
+            "portAddr": 1
+        },
+        {
+            "devAddr": 1,
+            "mdio_register": {
+                "address": 35333,
+                "name": "ForcedModeDecodeValue",
+                "values": [
+                    {
+                        "attribute": "FecEnabled",
+                        "defaultValue": false,
+                        "location": 8,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            },
+            "portAddr": 1
+        },
+        {
+            "devAddr": 7,
+            "mdio_register": {
+                "address": 0,
+                "name": "ANControl",
+                "values": [
+                    {
+                        "attribute": "ANEnable",
+                        "defaultValue": false,
+                        "location": 4096,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+		    {
+			"attribute": "AN Reset",
+			"defaultValue": false,
+			"location": 32768,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    }
+		    
+                ]
+            },
+            "portAddr": 14
+        },
+        {
+            "devAddr": 7,
+            "mdio_register": {
+                "address": 1,
+                "name": "ANStatus",
+                "values": [
+		    {
+			"attribute": "AN Link Status",
+			"defaultValue": false,
+			"location": 4,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+                    {
+                        "attribute": "AN Complete",
+                        "defaultValue": false,
+                        "location": 32,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            },
+            "portAddr": 14
+        },
+        {
+            "busSel": 9,
+            "devAddr": 80,
+            "i2c_register": {
+                "address": 147,
+                "name": "DeviceTechnology",
+                "values": [
+                    {
+                        "attribute": "850nmVCSEL",
+                        "defaultValue": false,
+                        "location": 0,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "1310nmVCSEL",
+                        "defaultValue": false,
+                        "location": 1,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "1550nmVCSEL",
+                        "defaultValue": false,
+                        "location": 2,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "1310nmFP",
+                        "defaultValue": false,
+                        "location": 3,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "1310nmDFB",
+                        "defaultValue": false,
+                        "location": 4,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "1550nmDFB",
+                        "defaultValue": false,
+                        "location": 5,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "1310nmEML",
+                        "defaultValue": false,
+                        "location": 6,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "1550nmEML",
+                        "defaultValue": false,
+                        "location": 7,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "undefined",
+                        "defaultValue": false,
+                        "location": 8,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "1490nmDFB",
+                        "defaultValue": false,
+                        "location": 9,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "CopperUnequalized",
+                        "defaultValue": false,
+                        "location": 10,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "CopperPassiveEqualized",
+                        "defaultValue": false,
+                        "location": 11,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "CopperNearAndFarActive",
+                        "defaultValue": false,
+                        "location": 12,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "CopperFarActive",
+                        "defaultValue": false,
+                        "location": 13,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "CopperNearActive",
+                        "defaultValue": false,
+                        "location": 14,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    },
+                    {
+                        "attribute": "CopperLinearActive",
+                        "defaultValue": false,
+                        "location": 15,
+			"comparisonOperator": "EQ",
+			"returnOperator": "EQ"
+                    }
+                ]
+            },
+            "page": 0
+        },
+        {
+            "busSel": 9,
+            "devAddr": 80,
+            "i2c_register": {
+                "address": 131,
+                "name": "SpecificationCompliance",
+                "values": [
+                    {
+                        "attribute": "ExtendedAbilitiesFound",
+                        "defaultValue": true,
+                        "location": 128,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            },
+            "page": 0
+        },
+        {
+            "busSel": 9,
+            "devAddr": 80,
+            "i2c_register": {
+                "address": 192,
+                "name": "ExtendedCompliance",
+                "values": [
+                    {
+                        "attribute": "AOC",
+                        "defaultValue": false,
+                        "location": 1,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "SR4",
+                        "defaultValue": false,
+                        "location": 2,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "LR4",
+                        "defaultValue": false,
+                        "location": 3,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "ER4",
+                        "defaultValue": false,
+                        "location": 4,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "SR10",
+                        "defaultValue": false,
+                        "location": 5,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "CWDM4FEC",
+                        "defaultValue": false,
+                        "location": 6,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "PSM4",
+                        "defaultValue": false,
+                        "location": 7,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "ACC",
+                        "defaultValue": false,
+                        "location": 8,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "CWDM4NoFEC",
+                        "defaultValue": false,
+                        "location": 9,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "CR4",
+                        "defaultValue": false,
+                        "location": 11,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    },
+                    {
+                        "attribute": "CLR4",
+                        "defaultValue": false,
+                        "location": 23,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+                    }
+                ]
+            },
+            "page": 0
+        },
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 34,
+		"name": "Rx1 Power",
+		"values": [
+		    {
+			"attribute": "Rx Power 1",
+			"defaultValue": 1000,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 35
+				}
+			    ],
+			    "combinationOperator": "SLR"	    
+			}
+		    }
+		]	
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 36,
+		"name": "Rx2 Power",
+		"values": [
+		    {
+			"attribute": "Rx Power 2",
+			"defaultValue": 1000,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 37
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 38,
+		"name": "Rx3 Power",
+		"values": [
+		    {
+			"attribute": "Rx Power 3",
+			"defaultValue": 1000,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 39
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 40,
+		"name": "Rx4 Power",
+		"values": [
+		    {
+			"attribute": "Rx Power 4",
+			"defaultValue": 1000,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 41
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 42,
+		"name": "Tx1 Bias",
+		"values": [
+		    {
+			"attribute": "Tx Bias 1",
+			"defaultValue": 500,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 43
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 44,
+		"name": "Tx2 Bias",
+		"values": [
+		    {
+			"attribute": "Tx Bias 2",
+			"defaultValue": 500,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 45
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 46,
+		"name": "Tx3 Bias",
+		"values": [
+		    {
+			"attribute": "Tx Bias 3",
+			"defaultValue": 500,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 47
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 48,
+		"name": "Tx4 Bias",
+		"values": [
+		    {
+			"attribute": "Tx Bias 4",
+			"defaultValue": 500,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 49
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 50,
+		"name": "Tx1 Power",
+		"values": [
+		    {
+			"attribute": "Tx Power 1",
+			"defaultValue": 1000,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 51
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 52,
+		"name": "Tx2 Power",
+		"values": [
+		    {
+			"attribute": "Tx Power 2",
+			"defaultValue": 1000,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 53
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 54,
+		"name": "Tx3 Power",
+		"values": [
+		    {
+			"attribute": "Tx Power 3",
+			"defaultValue": 1000,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 55
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 56,
+		"name": "Tx4 Power",
+		"values": [
+		    {
+			"attribute": "Tx Power 4",
+			"defaultValue": 1000,
+			"location": 255,
+			"comparisonOperator": "GEQ",
+			"returnOperator": "READ",
+			"links": {
+			    "registers" : [
+				{
+				    "address": 57
+				}
+			    ],
+			    "combinationOperator": "SLR"
+			}
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 86,
+		"name": "Tx Enable",
+		"values": [
+		    {
+			"attribute": "Tx Enable",
+			"defaultValue": true,
+			"location": 0,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "EQ"
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 3,
+		"name": "Loss of Signal Tx/Rx",
+		"values": [
+		    {
+			"attribute": "Tx LOS 1",
+			"defaultValue": false,
+			"location": 16,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx LOS 2",
+			"defaultValue": false,
+			"location": 32,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx LOS 3",
+			"defaultValue": false,
+			"location": 64,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx LOS 4",
+			"defaultValue": false,
+			"location": 128,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx LOS 1",
+			"defaultValue": false,
+			"location": 1,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx LOS 2",
+			"defaultValue": false,
+			"location": 2,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx LOS 3",
+			"defaultValue": false,
+			"location": 4,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx LOS 4",
+			"defaultValue": false,
+			"location": 8,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 3,
+		"name": "Loss of Lock Tx/Rx",
+		"values": [
+		    {
+			"attribute": "Tx LOL 1",
+			"defaultValue": false,
+			"location": 16,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx LOL 2",
+			"defaultValue": false,
+			"location": 32,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx LOL 3",
+			"defaultValue": false,
+			"location": 64,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx LOL 4",
+			"defaultValue": false,
+			"location": 128,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx LOL 1",
+			"defaultValue": false,
+			"location": 1,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx LOL 2",
+			"defaultValue": false,
+			"location": 2,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx LOL 3",
+			"defaultValue": false,
+			"location": 4,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx LOL 4",
+			"defaultValue": false,
+			"location": 8,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    }
+		]
+	    },
+	    "page": 0
+	},
+	{
+	    "busSel": 9,
+	    "devAddr": 80,
+	    "i2c_register": {
+		"address": 98,
+		"name": "CDR Control",
+		"values": [
+		    {
+			"attribute": "Tx1 CDR",
+			"defaultValue": true,
+			"location": 16,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx2 CDR",
+			"defaultValue": true,
+			"location": 32,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx3 CDR",
+			"defaultValue": true,
+			"location": 64,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Tx4 CDR",
+			"defaultValue": true,
+			"location": 128,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx1 CDR",
+			"defaultValue": true,
+			"location": 1,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx2 CDR",
+			"defaultValue": true,
+			"location": 2,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx3 CDR",
+			"defaultValue": true,
+			"location": 4,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    },
+		    {
+			"attribute": "Rx4 CDR",
+			"defaultValue": true,
+			"location": 8,
+			"comparisonOperator": "NEQ",
+			"returnOperator": "AND"
+		    }
+		]
+	    },
+	    "page": 0
+	}
+    ]
+}
