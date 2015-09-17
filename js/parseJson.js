@@ -3,7 +3,8 @@ createHTML();
 function createHTML()
 {
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://hw-ci-n11u-01.calenglab.spirentcom.com:51485/colossus.json";
+    var current_url = window.location;
+    var url = current_url.protocol + "//" + current_url.host + "/colossus.json";
     xmlhttp.onreadystatechange = function() {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	    var parsedJson = JSON.parse(xmlhttp.responseText);
@@ -15,6 +16,11 @@ function createHTML()
 
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
+
+    // refresh every 2 seconds if polling toggle is on
+    if($('#poll').is(":checked")) {
+	setTimeout(createHTML, 2000);
+    }
 }
 
 
@@ -37,12 +43,15 @@ function isTrue(value){
 
 function initializeButton(button, value)
 {
-    var state = isTrue(value);
-    if(state) {
-      $(button).bootstrapToggle('on');
-    }
-    else {
-	$(button).bootstrapToggle('off');
+    var new_state = isTrue(value);
+    var current_state = isTrue($(button).is(":checked"));
+    if(new_state != current_state) {
+	if(new_state) {
+	    $(button).bootstrapToggle('on');
+	}
+	else {
+	    $(button).bootstrapToggle('off');
+	}
     }
 }    
 

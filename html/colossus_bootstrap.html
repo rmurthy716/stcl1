@@ -37,47 +37,21 @@ h2 {
 img {
     float: right;
 }
-
-.navbar-form input, .form-inline input {
-	width:auto;
-}
-
-header {
-	height:270px;
-}
-
-@media (min-width: 979px) {
-  #sidebar.affix-top {
-    position: static;
-  	margin-top:25px;
-  	width:228px;
-  }
-  
-  #sidebar.affix {
-    position: fixed;
-    top:25px;
-    width:228px;
-  }
-}
-
-.affix,.affix-top {
-   position:static;
-}
-
 </style>
 
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">STC L1 GUI</a>
+      <a class="navbar-brand">STC L1 GUI</a>
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="/">Home</a></li>
         <li><a href="/PHY">PHY</a></li>
         <li><a href="/FrontEnd">Front End</a></li>
         <li><a href="/FPGA">FPGA</a></li>
+        <li><a href="/All">All</a></li>
       </ul>
     </div>
   </div>
@@ -106,11 +80,40 @@ header {
 	</div>
 	<div id="section">
 	</div>
-</div>	
+</div>
 <footer>
   <p>&copy; Spirent Communications 2015</p>
 </footer>
 <script src="parseJson.js"></script>
+<script>
+  $(function() {
+    $('#poll').change(function() {
+      createHTML();
+    })
+  })
 </script>
+<script>
+  $(function() {
+    $('#AN').change(function() {
+      $.post("AN", {"ANEnable": ($("#AN").is(":checked"))});
+		   })
+           })
+</script>
+<script>
+  $(function() {
+    $('#hwmgrd').change(function() {
+      $.post("hwmgrd", {"hwmgrd": ($("#hwmgrd").is(":checked"))});
+                   })
+           })
+</script>
+<script>
+  $(function() {
+    $('#FEC').change(function() {
+      $.post("FEC", {"FEC": ($("#FEC").is(":checked"))});
+                   })
+           })
+</script>
+
+
 </body>
 </html>

@@ -4,9 +4,12 @@ import socket
 import fcntl
 import struct
 import json
-import urlparse
+from urlparse import urlparse, parse_qs
+from cgi import parse_header, parse_multipart
 
 class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+
+
     """
     The RequestHandler class for our server.
 
@@ -15,43 +18,64 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     client.
     """
     def do_GET (self):
-	parsed_path = urlparse.urlparse(self.path)
+	parsed_path = urlparse(self.path)
         message_parts = [
-            'CLIENT VALUES:',
-            'client_address=%s (%s)' % (self.client_address,
-                                        self.address_string()),
-            'command=%s' % self.command,
-            'path=%s' % self.path,
-            'real path=%s' % parsed_path.path,
-            'query=%s' % parsed_path.query,
-            'request_version=%s' % self.request_version,
-            '',
-            'SERVER VALUES:',
-            'server_version=%s' % self.server_version,
-            'sys_version=%s' % self.sys_version,
-            'protocol_version=%s' % self.protocol_version,
-            '',
-            'HEADERS RECEIVED:',
-        ]
+                'CLIENT VALUES:',
+                'client_address=%s (%s)' % (self.client_address,
+                                            self.address_string()),
+                'command=%s' % self.command,
+                'path=%s' % self.path,
+                'real path=%s' % parsed_path.path,
+                'query=%s' % parsed_path.query,
+                'request_version=%s' % self.request_version,
+                '',
+                'SERVER VALUES:',
+                'server_version=%s' % self.server_version,
+                'sys_version=%s' % self.sys_version,
+                'protocol_version=%s' % self.protocol_version,
+                '',
+                'HEADERS RECEIVED:',
+                ]
         for name, value in sorted(self.headers.items()):
             message_parts.append('%s=%s' % (name, value.rstrip()))
-            message_parts.append('')
-            message = '\r\n'.join(message_parts)
-            print message_parts
+        message_parts.append('')
+        message = '\r\n'.join(message_parts)
+        print message_parts
         if self.path == "/parseJson.js":
-	    response = open("parseJson.js").read()
+	    response = open("../js/parseJson.js").read()
         elif self.path == "/colossus.json":
-            response = open("colossus.json").read()
+            response = open("../json/colossus.json").read()
         elif self.path == "/spirentx.jpg":
-            response = open("spirentx.jpg").read()
+            response = open("../jpg/spirentx.jpg").read()
         else:
-            response = open("colossus_bootstrap.html").read()
+            response = open("../html/colossus_bootstrap.html").read()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.send_header("Content-Length", "%d" % len(response))
         self.end_headers ()
         self.wfile.write (response)
 
+    def parse_POST(self):
+        ctype, pdict = parse_header(self.headers['content-type'])
+        if ctype == 'multipart/form-data':
+            postvars = parse_multipart(self.rfile, pdict)
+        elif ctype == 'application/x-www-form-urlencoded':
+            length = int(self.headers['content-length'])
+            postvars = parse_qs(
+                    self.rfile.read(length), 
+                    keep_blank_values=1)
+        else:
+            postvars = {}
+        return postvars
+
+    def do_POST(self):
+        postvars = self.parse_POST()
+        response = ""
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.send_header("Content-Length", "%d" % len(response))
+        self.end_headers ()
+        self.wfile.write (response)
 
 class MyTCPServer(SocketServer.TCPServer):
     def server_bind(self):
