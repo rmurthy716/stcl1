@@ -59,9 +59,9 @@ def get_hw_info(protocol, json_data):
     # initialize return operator dictionary
     # return types correspond to types specified in default value of bits
     return_operator_dict = {}
-    return_operator_dict['AND'] = lambda data, location: (data & location) == location
-    return_operator_dict['EQ'] = lambda data, location: data == location
-    return_operator_dict['READ'] = lambda data, location: data
+    return_operator_dict['AND'] = lambda data, bitMap: (data & bitMap) == bitMap
+    return_operator_dict['EQ'] = lambda data, bitMap: data == bitMap
+    return_operator_dict['READ'] = lambda data, bitMap: data
 
     # initialize combination operator dictionary
     # currently only used to combine numeric data (Power, Counters, etc)
@@ -116,16 +116,16 @@ def get_hw_info(protocol, json_data):
                 for attribute in register["values"]:
                     # iterate through attributes
 
-                    # get the location of the attribute
+                    # get the bitMap of the attribute
                     # For example bits[x:y]
-                    location = attribute["location"]
+                    bitMap = attribute["bitMap"]
 
                     # get the return operator
                     return_operator = return_operator_dict[attribute["returnOperator"]]
 
                     if data is not None:
                         # make sure data is valid (no exception occurred in read)
-                        ret_val = return_operator(data, location)
+                        ret_val = return_operator(data, bitMap)
 
                         if "links" in attribute.keys():
                             link_object = attribute["links"]

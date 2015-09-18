@@ -38,7 +38,7 @@
                         "string"
                     ]
                 },
-                "location": {
+                "bitMap": {
                     "minimum": 0,
                     "type": "number"
                 },
@@ -82,7 +82,7 @@
             },
             "required": [
                 "attribute",
-                "location",
+                "bitMap",
                 "defaultValue",
 		"comparisonOperator",
 		"returnOperator"
@@ -162,7 +162,7 @@
                 "name": {
                     "type": "string"
                 },
-		"tag": {
+		"device": {
 		    "type": "string"
 		},
                 "values": {

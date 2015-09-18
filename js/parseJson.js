@@ -64,8 +64,8 @@ function initializeButton(button, value)
 }
 /**************************************************************************************/
 
-function getTagCounts(arr) {
-    var tagCounts = {
+function getDeviceCounts(arr) {
+    var deviceCounts = {
 	"FPGA" : 0,
 	"PHY" : 0,
 	"Front End": 0
@@ -78,12 +78,12 @@ function getTagCounts(arr) {
 	var register = data[i];
 	for(var key in register) {
 	    if(key.indexOf("register") > -1) {
-		var htmlKeyId = register[key].tag;
-		tagCounts[htmlKeyId] += 1;
+		var htmlKeyId = register[key].device;
+		deviceCounts[htmlKeyId] += 1;
 	    }
 	}
     }
-    return tagCounts;
+    return deviceCounts;
 }
     
 /**************************************************************************************/
@@ -117,7 +117,7 @@ function parseJson(arr) {
     // second element gives us the port data
     data = arr[1];
 
-    var tagCounts = getTagCounts(data);
+    var deviceCounts = getDeviceCounts(data);
     
     for(var i = 0; i < data.length; i++) {
         var register = data[i];
@@ -127,7 +127,7 @@ function parseJson(arr) {
 	    
             if(key.indexOf("register") > -1) {
 		// get counter for formatting three tables per row
-		var htmlKeyId = register[key].tag;
+		var htmlKeyId = register[key].device;
 		var keyIdCounter = outputCounter[key];
 		
 		if((keyIdCounter % 3) == 0) {
@@ -181,7 +181,7 @@ function parseJson(arr) {
 		
                 // close the column
                 outputObject[htmlKeyId] += "</div>";
-                if(((keyIdCounter % 3) == 2) || (keyIdCounter == tagCounts[htmlKeyId] - 1))
+                if(((keyIdCounter % 3) == 2) || (keyIdCounter == deviceCounts[htmlKeyId] - 1))
                 {
                     /*
                           If we're at an element index which is a multiple of 3
