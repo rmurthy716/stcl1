@@ -71,9 +71,7 @@ class Colossus(pspam.Pci):
             except:
                 continue
         self.port = port
-        self.mdio = Mdio(0, port)
-        self.i2c = I2c(0, port)
-
+        
     def __str__ (self):
         version = self.read (Colossus.VERSION)
         return "  FPGA version (%06X = 0x%08X)/" % (Colossus.VERSION, version)
@@ -102,18 +100,7 @@ class Mdio():
                 return
         raise Exception("MDIO failure")
 
-    def write(self, reg, data ):
-        self.spam.write (MDIO_DATA_REG, data)
-        self.spam.write (MDIO_CMD_REG, mdioWriteBit + reg)
-        self.wait_done()
-
-    def read(self, reg):
-        self.spam.write (MDIO_CMD_REG, 0x40010000 + reg)
-        self.wait_done()
-        data = self.spam.read (MDIO_DATA_REG)
-        return data & 0xffff
-
-    def MdioRead(self, portAddr, devAddr, regAddr):
+    def read(self, portAddr, devAddr, regAddr):
         # implicit assumption for clause 45
         cmd = 0x0
         cmd |= READ_WRITE_BIT # read/write bit
@@ -125,7 +112,7 @@ class Mdio():
         data = self.spam.read(MDIO_DATA_REG)
         return data & DATA_MASK
 
-    def MdioWrite(self, portAddr, devAddr, regAddr, data):
+    def write(self, portAddr, devAddr, regAddr, data):
         cmd = 0x0
         cmd |= ((portAddr & PORT_ADDR_MASK) << PORT_ADDR_SHIFT)
         cmd |= ((devAddr & DEV_ADDR_MASK) << DEV_ADDR_SHIFT)

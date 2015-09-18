@@ -5,6 +5,7 @@
             "bar1_register": {
                 "address": 512,
                 "name": "PhySfpCsr",
+		"tag" : "FPGA",
                 "values": [
                     {
                         "attribute": "Alarm1",
@@ -69,6 +70,7 @@
             "bar1_register": {
                 "address": 516,
                 "name": "FramerPCSPMARegister",
+		"tag": "FPGA",
                 "values": [
                     {
                         "attribute": "LocalFault",
@@ -91,6 +93,7 @@
             "bar1_register": {
                 "address": 520,
                 "name": "StickyRegister",
+		"tag": "FPGA",
                 "values": [
                     {
                         "attribute": "StickyLocalFault",
@@ -135,6 +138,7 @@
             "mdio_register": {
                 "address": 38912,
                 "name": "RxCdrLock",
+		"tag": "PHY",
                 "values": [
                     {
                         "attribute": "Lane1",
@@ -170,10 +174,11 @@
         },
         {
             "devAddr": 1,
-            "mdio_register": {
+	    "mdio_register": {
                 "address": 49616,
                 "name": "PllStatus",
-                "values": [
+		"tag": "PHY",
+		"values": [
                     {
                         "attribute": "PmdPllRxSigDet",
                         "defaultValue": true,
@@ -197,14 +202,15 @@
                     }
                 ]
             },
-            "portAddr": 1
+            "portAddr": 14
         },
         {
             "devAddr": 1,
-            "mdio_register": {
+	    "mdio_register": {
                 "address": 201,
                 "name": "RxFecStatus",
-                "values": [
+		"tag": "PHY",
+		"values": [
                     {
                         "attribute": "FecAlignStatus",
                         "defaultValue": true,
@@ -221,13 +227,14 @@
                     }
                 ]
             },
-            "portAddr": 1
+            "portAddr": 14
         },
         {
             "devAddr": 1,
-            "mdio_register": {
+	    "mdio_register": {
                 "address": 35330,
                 "name": "ForcedModeDecode",
+		"tag": "PHY",
                 "values": [
                     {
                         "attribute": "FecForced",
@@ -238,13 +245,14 @@
                     }
                 ]
             },
-            "portAddr": 1
+            "portAddr": 14
         },
         {
             "devAddr": 1,
-            "mdio_register": {
+	    "mdio_register": {
                 "address": 35333,
                 "name": "ForcedModeDecodeValue",
+		"tag": "PHY",
                 "values": [
                     {
                         "attribute": "FecEnabled",
@@ -255,13 +263,14 @@
                     }
                 ]
             },
-            "portAddr": 1
+            "portAddr": 14
         },
         {
             "devAddr": 7,
-            "mdio_register": {
+	    "mdio_register": {
                 "address": 0,
                 "name": "ANControl",
+		"tag": "PHY",
                 "values": [
                     {
                         "attribute": "ANEnable",
@@ -284,9 +293,10 @@
         },
         {
             "devAddr": 7,
-            "mdio_register": {
+	    "mdio_register": {
                 "address": 1,
                 "name": "ANStatus",
+		"tag": "PHY",
                 "values": [
 		    {
 			"attribute": "AN Link Status",
@@ -309,9 +319,10 @@
         {
             "busSel": 9,
             "devAddr": 80,
-            "i2c_register": {
+	    "i2c_register": {
                 "address": 147,
                 "name": "DeviceTechnology",
+		"tag": "Front End",
                 "values": [
                     {
                         "attribute": "850nmVCSEL",
@@ -432,9 +443,10 @@
         {
             "busSel": 9,
             "devAddr": 80,
-            "i2c_register": {
+	    "i2c_register": {
                 "address": 131,
                 "name": "SpecificationCompliance",
+		"tag": "Front End",
                 "values": [
                     {
                         "attribute": "ExtendedAbilitiesFound",
@@ -450,9 +462,10 @@
         {
             "busSel": 9,
             "devAddr": 80,
-            "i2c_register": {
+	    "i2c_register": {
                 "address": 192,
                 "name": "ExtendedCompliance",
+		"tag": "Front End",
                 "values": [
                     {
                         "attribute": "AOC",
@@ -541,6 +554,7 @@
 	    "i2c_register": {
 		"address": 34,
 		"name": "Rx1 Power",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Rx Power 1",
@@ -549,11 +563,9 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 35
-				}
-			    ],
+			    "register" : {
+				"address": 35
+			    },
 			    "combinationOperator": "SLR"	    
 			}
 		    }
@@ -567,6 +579,7 @@
 	    "i2c_register": {
 		"address": 36,
 		"name": "Rx2 Power",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Rx Power 2",
@@ -575,11 +588,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 37
-				}
-			    ],
+			    "register" :
+			    {
+				"address": 37
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -593,6 +605,7 @@
 	    "i2c_register": {
 		"address": 38,
 		"name": "Rx3 Power",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Rx Power 3",
@@ -601,11 +614,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 39
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 39
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -619,6 +631,7 @@
 	    "i2c_register": {
 		"address": 40,
 		"name": "Rx4 Power",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Rx Power 4",
@@ -627,11 +640,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 41
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 41
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -645,6 +657,7 @@
 	    "i2c_register": {
 		"address": 42,
 		"name": "Tx1 Bias",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Bias 1",
@@ -653,11 +666,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 43
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 43
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -671,6 +683,7 @@
 	    "i2c_register": {
 		"address": 44,
 		"name": "Tx2 Bias",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Bias 2",
@@ -679,11 +692,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 45
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 45
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -697,6 +709,7 @@
 	    "i2c_register": {
 		"address": 46,
 		"name": "Tx3 Bias",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Bias 3",
@@ -705,11 +718,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 47
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 47
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -723,6 +735,7 @@
 	    "i2c_register": {
 		"address": 48,
 		"name": "Tx4 Bias",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Bias 4",
@@ -731,11 +744,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 49
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 49
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -749,6 +761,7 @@
 	    "i2c_register": {
 		"address": 50,
 		"name": "Tx1 Power",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Power 1",
@@ -757,11 +770,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 51
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 51
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -775,6 +787,7 @@
 	    "i2c_register": {
 		"address": 52,
 		"name": "Tx2 Power",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Power 2",
@@ -783,11 +796,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 53
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 53
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -801,6 +813,7 @@
 	    "i2c_register": {
 		"address": 54,
 		"name": "Tx3 Power",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Power 3",
@@ -809,11 +822,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 55
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 55
+			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -827,6 +839,7 @@
 	    "i2c_register": {
 		"address": 56,
 		"name": "Tx4 Power",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Power 4",
@@ -835,11 +848,10 @@
 			"comparisonOperator": "GEQ",
 			"returnOperator": "READ",
 			"links": {
-			    "registers" : [
-				{
-				    "address": 57
-				}
-			    ],
+			    "register" : 
+			    {
+				"address": 57
+ 			    },
 			    "combinationOperator": "SLR"
 			}
 		    }
@@ -853,6 +865,7 @@
 	    "i2c_register": {
 		"address": 86,
 		"name": "Tx Enable",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx Enable",
@@ -871,6 +884,7 @@
 	    "i2c_register": {
 		"address": 3,
 		"name": "Loss of Signal Tx/Rx",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx LOS 1",
@@ -936,8 +950,9 @@
 	    "busSel": 9,
 	    "devAddr": 80,
 	    "i2c_register": {
-		"address": 3,
+		"address": 5,
 		"name": "Loss of Lock Tx/Rx",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx LOL 1",
@@ -1005,6 +1020,7 @@
 	    "i2c_register": {
 		"address": 98,
 		"name": "CDR Control",
+		"tag": "Front End",
 		"values": [
 		    {
 			"attribute": "Tx1 CDR",

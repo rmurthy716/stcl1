@@ -51,31 +51,24 @@
 		"links": {
 		    "type": "object",
 		    "properties": {
-			"registers": {
-			    "type": "array",
-			    "items": {
-				"type": "object",
-				"properties": {
-				    "address" : {
-					"type" : "number",
-					"minimum": 0
-				    },
-				    "value": {
-					"type": "number",
-					"minimum": 0
-				    }
-				},
-				"required": [
-				    "address"
-				]
-			    }
+			"register": {
+			    "type": "object",
+			    "properties": {
+				"address" : {
+				    "type" : "number",
+				    "minimum": 0
+				}
+			    },
+			    "required": [
+				"address"
+			    ]
 			},
 			"combinationOperator": {
 			    "type": "string"
 			}
 		    },
 		    "required": [
-			"registers",
+			"register",
 			"combinationOperator"
 			]
 		},	    
@@ -107,10 +100,6 @@
                 },
                 "i2c_register": {
                     "$ref": "#/definitions/register"
-                },
-                "length": {
-                    "minimum": 1,
-                    "type": "number"
                 },
                 "page": {
                     "maximum": 3,
@@ -146,10 +135,6 @@
                 "devAddr": {
                     "type": "number"
                 },
-                "length": {
-                    "minimum": 1,
-                    "type": "number"
-                },
                 "mdio_register": {
                     "$ref": "#/definitions/register"
                 },
@@ -177,6 +162,9 @@
                 "name": {
                     "type": "string"
                 },
+		"tag": {
+		    "type": "string"
+		},
                 "values": {
                     "items": {
                         "$ref": "#/definitions/bits"
