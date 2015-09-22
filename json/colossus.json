@@ -380,105 +380,105 @@
 			},
 			{
 			    "attribute": "1310nmVCSEL",
-			    "expectedValue": 1,
+			    "expectedValue": 16,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "1550nmVCSEL",
-			    "expectedValue": 2,
+			    "expectedValue": 32,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "1310nmFP",
-			    "expectedValue": 3,
+			    "expectedValue": 48,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "1310nmDFB",
-			    "expectedValue": 4,
+			    "expectedValue": 64,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "1550nmDFB",
-			    "expectedValue": 5,
+			    "expectedValue": 80,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "1310nmEML",
-			    "expectedValue": 6,
+			    "expectedValue": 96,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "1550nmEML",
-			    "expectedValue": 7,
+			    "expectedValue": 112,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "undefined",
-			    "expectedValue": 8,
+			    "expectedValue": 128,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "1490nmDFB",
-			    "expectedValue": 9,
+			    "expectedValue": 144,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "CopperUnequalized",
-			    "expectedValue": 10,
+			    "expectedValue": 160,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "CopperPassiveEqualized",
-			    "expectedValue": 11,
+			    "expectedValue": 176,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "CopperNearAndFarActive",
-			    "expectedValue": 12,
+			    "expectedValue": 192,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "CopperFarActive",
-			    "expectedValue": 13,
+			    "expectedValue": 208,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "CopperNearActive",
-			    "expectedValue": 14,
+			    "expectedValue": 224,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"
 			},
 			{
 			    "attribute": "CopperLinearActive",
-			    "expectedValue": 15,
+			    "expectedValue": 240,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
 			    "returnOperator": "AND_READ"

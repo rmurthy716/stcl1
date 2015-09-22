@@ -9,6 +9,7 @@ function createHTML()
     xmlhttp.onreadystatechange = function() {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	    var parsedJson = JSON.parse(xmlhttp.responseText);
+	    console.log(parsedJson);
             var json_arr = Object.keys(parsedJson).map(function(k) { return parsedJson[k] });
 	    var filteredPages = ["/PHY", "/FrontEnd", "/FPGA"];
 	    var arr = (filteredPages.indexOf(path) > -1) ?  filterArray(json_arr, path) : json_arr;
@@ -62,7 +63,7 @@ function filterArray(arr, path){
 	rc.push(rcSet);
     }
     console.log("return is " + rc);
-    return [arr[1], rc]
+    return [arr[0], rc]
 }
 
     
@@ -154,8 +155,7 @@ function getDeviceCounts(arr) {
 }
 /**************************************************************************************/
 
-function createTitle(arr)
-{
+function createTitle(arr) {
     // first element gives us the board family
     var title = "<h2 style=\"margin-top: 0px;\">" + arr[0] + " Port Information<br></h2>";
     document.getElementById("title").innerHTML = title;
@@ -165,8 +165,27 @@ function createTitle(arr)
     
 /**************************************************************************************/
 
+function comparisonNotEqual(actual, expected) {
+    return (actual != expected);
+}
+
+function comparisonEqual(actual, expected) {
+    return (actual == expected);
+}
+
+function comparisonGreaterEqual(actual, expected) {
+    return (actual >= expected);
+}
+
+/**************************************************************************************/
+
 function parseJson(arr) {
-    // initialize constant objects 
+    // initialize  objects
+    var comparisonFunctions = {
+	"NEQ" : comparisonNotEqual,
+	"EQ"  : comparisonEqual,
+	"GEQ" : comparisonGreaterEqual
+    };
     var outputObject = {
 	"FPGA": "",
 	"PHY": "",
@@ -203,7 +222,7 @@ function parseJson(arr) {
 	    // create row
 	    var keyIdCounter = outputCounter[htmlKeyId];
 	    
-	    if((keyIdCounter % 3) == 0) {
+	    if((keyIdCounter % 2) == 0) {
 		// if first element of our row then start
 		// a new row div
 		outputObject[htmlKeyId] += "<div class=\"row\">\n";
@@ -221,6 +240,7 @@ function parseJson(arr) {
             outputObject[htmlKeyId] += "<tr>\n";
             outputObject[htmlKeyId] += "<th>Attribute</th>\n";
             outputObject[htmlKeyId] += "<th>Value</th>\n";
+	    outputObject[htmlKeyId] += "<th>Result</th>\n";
 	    
 	    // close table head
             outputObject[htmlKeyId] += "</thead>";
@@ -233,9 +253,15 @@ function parseJson(arr) {
 		// create table reference entry
 		var curAttribute = attributes[k].attribute;
 		var curValue = attributes[k].actualValue;
+		var comparisonOperatorString = attributes[k].comparisonOperator;
+		console.log("Combo operator string is " + comparisonOperatorString);
+		console.log(comparisonFunctions[comparisonOperatorString]);
+		var status = comparisonFunctions[comparisonOperatorString](curValue, attributes[k].expectedValue);
+		    
 		outputObject[htmlKeyId] += "<tr>\n";
 		outputObject[htmlKeyId] += "<td>" + curAttribute + "</td>\n";
 		outputObject[htmlKeyId] += "<td>" + curValue + "</td>\n";
+		outputObject[htmlKeyId] += "<td>" + status + "</td>\n";
 		
 		// close table reference
 		outputObject[htmlKeyId] += "</tr>\n"; 
@@ -247,7 +273,7 @@ function parseJson(arr) {
             // close the column
             outputObject[htmlKeyId] += "</div>";
 	    
-	    if(((outputCounter[htmlKeyId] % 3) == 2) || (outputCounter[htmlKeyId] == (deviceCounts[htmlKeyId] - 1)))
+	    if(((outputCounter[htmlKeyId] % 2) == 1) || (outputCounter[htmlKeyId] == (deviceCounts[htmlKeyId] - 1)))
 	    {
 		/*
 		  If we're at an element index which is a multiple of 3
