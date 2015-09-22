@@ -1,1086 +1,1117 @@
 {
     "boardFamily": "Colossus QSFP28",
     "memoryMap": [
-        {
-            "bar1_register": {
-                "address": 512,
-                "name": "PhySfpCsr",
-		"device" : "FPGA",
-                "values": [
-                    {
-                        "attribute": "Alarm1",
-                        "defaultValue": true,
-                        "bitMap": 1,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "RxLoss",
-                        "defaultValue": false,
-                        "bitMap": 8,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "ModuleAbsent",
-                        "defaultValue": false,
-                        "bitMap": 16,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "GlobalAlarm",
-                        "defaultValue": false,
-                        "bitMap": 128,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "TxDisable",
-                        "defaultValue": false,
-                        "bitMap": 2048,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "LowPower",
-                        "defaultValue": false,
-                        "bitMap": 4096,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "CfpReset",
-                        "defaultValue": true,
-                        "bitMap": 8192,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "BcmReset",
-                        "defaultValue": true,
-                        "bitMap": 16384,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            }
-        },
-        {
-            "bar1_register": {
-                "address": 516,
-                "name": "FramerPCSPMARegister",
-		"device": "FPGA",
-                "values": [
-                    {
-                        "attribute": "LocalFault",
-                        "defaultValue": false,
-                        "bitMap": 1,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "RemoteFault",
-                        "defaultValue": false,
-                        "bitMap": 2,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            }
-        },
-        {
-            "bar1_register": {
-                "address": 520,
-                "name": "StickyRegister",
-		"device": "FPGA",
-                "values": [
-                    {
-                        "attribute": "StickyLocalFault",
-                        "defaultValue": false,
-                        "bitMap": 1,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "StickyRemoteFault",
-                        "defaultValue": false,
-                        "bitMap": 2,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "HsecError",
-                        "defaultValue": false,
-                        "bitMap": 4,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "LossOfSignal",
-                        "defaultValue": false,
-                        "bitMap": 16,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "RxLossRecovered",
-                        "defaultValue": false,
-                        "bitMap": 32,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            }
-        },
-        {
-            "devAddr": 1,
-            "mdio_register": {
-                "address": 38912,
-                "name": "RxCdrLock",
-		"device": "PHY",
-                "values": [
-                    {
-                        "attribute": "Lane1",
-                        "defaultValue": true,
-                        "bitMap": 16,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "Lane2",
-                        "defaultValue": true,
-                        "bitMap": 32,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "Lane3",
-                        "defaultValue": true,
-                        "bitMap": 64,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "Lane4",
-                        "defaultValue": true,
-                        "bitMap": 128,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            },
-            "portAddr": 0
-        },
-        {
-            "devAddr": 1,
-	    "mdio_register": {
-                "address": 49616,
-                "name": "PllStatus",
-		"device": "PHY",
-		"values": [
-                    {
-                        "attribute": "PmdPllRxSigDet",
-                        "defaultValue": true,
-                        "bitMap": 3840,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "PmdPllTxValid",
-                        "defaultValue": true,
-                        "bitMap": 240,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "PmdPllRxLock",
-                        "defaultValue": true,
-                        "bitMap": 15,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            },
-            "portAddr": 14
-        },
-        {
-            "devAddr": 1,
-	    "mdio_register": {
-                "address": 201,
-                "name": "RxFecStatus",
-		"device": "PHY",
-		"values": [
-                    {
-                        "attribute": "FecAlignStatus",
-                        "defaultValue": true,
-                        "bitMap": 16384,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "PcsAlignStatus",
-                        "defaultValue": true,
-                        "bitMap": 32768,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            },
-            "portAddr": 14
-        },
-        {
-            "devAddr": 1,
-	    "mdio_register": {
-                "address": 35330,
-                "name": "ForcedModeDecode",
-		"device": "PHY",
-                "values": [
-                    {
-                        "attribute": "FecForced",
-                        "defaultValue": true,
-                        "bitMap": 8,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            },
-            "portAddr": 14
-        },
-        {
-            "devAddr": 1,
-	    "mdio_register": {
-                "address": 35333,
-                "name": "ForcedModeDecodeValue",
-		"device": "PHY",
-                "values": [
-                    {
-                        "attribute": "FecEnabled",
-                        "defaultValue": false,
-                        "bitMap": 8,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            },
-            "portAddr": 14
-        },
-        {
-            "devAddr": 7,
-	    "mdio_register": {
-                "address": 0,
-                "name": "ANControl",
-		"device": "PHY",
-                "values": [
-                    {
-                        "attribute": "ANEnable",
-                        "defaultValue": false,
-                        "bitMap": 4096,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-		    {
-			"attribute": "AN Reset",
-			"defaultValue": false,
-			"bitMap": 32768,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    }
+	{
+	    "setName": "Bar1",
+	    "registers" : [
+		{
+		    "address": 512,
+		    "name": "PhySfpCsr",
+		    "device" : "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Alarm1",
+			    "expectedValue": true,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "RxLoss",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "ModuleAbsent",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "GlobalAlarm",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "TxDisable",
+			    "expectedValue": false,
+			    "bitMap": 2048,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "LowPower",
+			    "expectedValue": false,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "CfpReset",
+			    "expectedValue": true,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "BcmReset",
+			    "expectedValue": true,
+			    "bitMap": 16384,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 516,
+		    "name": "FramerPCSPMARegister",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "LocalFault",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "RemoteFault",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 520,
+		    "name": "StickyRegister",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "StickyLocalFault",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "StickyRemoteFault",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "HsecError",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "LossOfSignal",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "RxLossRecovered",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		}
+	    ]
+	},
+	{
+	    "setName": "MDIO",
+	    "registers": [
+		{
+		    "address": 38912,
+		    "name": "RxCdrLock",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 0
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane1",
+			    "expectedValue": true,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Lane2",
+			    "expectedValue": true,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Lane3",
+			    "expectedValue": true,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Lane4",
+			    "expectedValue": true,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 49616,
+		    "name": "PllStatus",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 14
+		    },
+		    "values": [
+			{
+			    "attribute": "PmdPllRxSigDet",
+			    "expectedValue": true,
+			    "bitMap": 3840,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "PmdPllTxValid",
+			    "expectedValue": true,
+			    "bitMap": 240,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "PmdPllRxLock",
+			    "expectedValue": true,
+			    "bitMap": 15,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 201,
+		    "name": "RxFecStatus",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 14
+		    },
+		    "values": [
+			{
+			    "attribute": "FecAlignStatus",
+			    "expectedValue": true,
+			    "bitMap": 16384,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "PcsAlignStatus",
+			    "expectedValue": true,
+			    "bitMap": 32768,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 35330,
+		    "name": "ForcedModeDecode",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 14
+		    },
+		    "values": [
+			{
+			    "attribute": "FecForced",
+			    "expectedValue": true,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 35333,
+		    "name": "ForcedModeDecodeValue",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 14
+		    },
+		    "values": [
+			{
+			    "attribute": "FecEnabled",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 0,
+		    "name": "ANControl",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 7,
+			"portAddr": 14
+		    },
+		    "values": [
+			{
+			    "attribute": "ANEnable",
+			    "expectedValue": false,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "AN Reset",
+			    "expectedValue": false,
+			    "bitMap": 32768,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+			
+		    ]
+		},
+		{
+		    "address": 1,
+		    "name": "ANStatus",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 7,
+			"portAddr": 14
+		    },
+		    "values": [
+			{
+			    "attribute": "AN Link Status",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "AN Complete",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		}
+	    ]
+	},
+	{
+	    "setName": "I2C",
+	    "registers": [
+		{
+		    "address": 147,
+		    "name": "DeviceTechnology",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "values": [
+			{
+			    "attribute": "Transmitter Tunable",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Cooled Transmitter",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Wavelength Control",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "850nmVCSEL",
+			    "expectedValue": 0,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "1310nmVCSEL",
+			    "expectedValue": 1,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "1550nmVCSEL",
+			    "expectedValue": 2,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "1310nmFP",
+			    "expectedValue": 3,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "1310nmDFB",
+			    "expectedValue": 4,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "1550nmDFB",
+			    "expectedValue": 5,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "1310nmEML",
+			    "expectedValue": 6,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "1550nmEML",
+			    "expectedValue": 7,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "undefined",
+			    "expectedValue": 8,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "1490nmDFB",
+			    "expectedValue": 9,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "CopperUnequalized",
+			    "expectedValue": 10,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "CopperPassiveEqualized",
+			    "expectedValue": 11,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "CopperNearAndFarActive",
+			    "expectedValue": 12,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "CopperFarActive",
+			    "expectedValue": 13,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "CopperNearActive",
+			    "expectedValue": 14,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			},
+			{
+			    "attribute": "CopperLinearActive",
+			    "expectedValue": 15,
+			    "bitMap": 240,
+			    "comparisonOperator": "EQ",
+			    "returnOperator": "AND_READ"
+			}
+		    ]
+		},
+		{
+		    "address": 131,
+		    "name": "SpecificationCompliance",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
 		    
-                ]
-            },
-            "portAddr": 14
-        },
-        {
-            "devAddr": 7,
-	    "mdio_register": {
-                "address": 1,
-                "name": "ANStatus",
-		"device": "PHY",
-                "values": [
-		    {
-			"attribute": "AN Link Status",
-			"defaultValue": false,
-			"bitMap": 4,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-                    {
-                        "attribute": "AN Complete",
-                        "defaultValue": false,
-                        "bitMap": 32,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            },
-            "portAddr": 14
-        },
-        {
-            "busSel": 9,
-            "devAddr": 80,
-	    "i2c_register": {
-                "address": 147,
-                "name": "DeviceTechnology",
-		"device": "Front End",
-                "values": [
-                    {
-                        "attribute": "850nmVCSEL",
-                        "defaultValue": false,
-                        "bitMap": 0,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "1310nmVCSEL",
-                        "defaultValue": false,
-                        "bitMap": 1,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "1550nmVCSEL",
-                        "defaultValue": false,
-                        "bitMap": 2,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "1310nmFP",
-                        "defaultValue": false,
-                        "bitMap": 3,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "1310nmDFB",
-                        "defaultValue": false,
-                        "bitMap": 4,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "1550nmDFB",
-                        "defaultValue": false,
-                        "bitMap": 5,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "1310nmEML",
-                        "defaultValue": false,
-                        "bitMap": 6,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "1550nmEML",
-                        "defaultValue": false,
-                        "bitMap": 7,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "undefined",
-                        "defaultValue": false,
-                        "bitMap": 8,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "1490nmDFB",
-                        "defaultValue": false,
-                        "bitMap": 9,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "CopperUnequalized",
-                        "defaultValue": false,
-                        "bitMap": 10,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "CopperPassiveEqualized",
-                        "defaultValue": false,
-                        "bitMap": 11,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "CopperNearAndFarActive",
-                        "defaultValue": false,
-                        "bitMap": 12,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "CopperFarActive",
-                        "defaultValue": false,
-                        "bitMap": 13,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "CopperNearActive",
-                        "defaultValue": false,
-                        "bitMap": 14,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    },
-                    {
-                        "attribute": "CopperLinearActive",
-                        "defaultValue": false,
-                        "bitMap": 15,
-			"comparisonOperator": "EQ",
-			"returnOperator": "EQ"
-                    }
-                ]
-            },
-            "page": 0
-        },
-        {
-            "busSel": 9,
-            "devAddr": 80,
-	    "i2c_register": {
-                "address": 131,
-                "name": "SpecificationCompliance",
-		"device": "Front End",
-                "values": [
-                    {
-                        "attribute": "ExtendedAbilitiesFound",
-                        "defaultValue": true,
-                        "bitMap": 128,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            },
-            "page": 0
-        },
-        {
-            "busSel": 9,
-            "devAddr": 80,
-	    "i2c_register": {
-                "address": 192,
-                "name": "ExtendedCompliance",
-		"device": "Front End",
-                "values": [
-                    {
-                        "attribute": "AOC",
-                        "defaultValue": false,
-                        "bitMap": 1,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "SR4",
-                        "defaultValue": false,
-                        "bitMap": 2,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "LR4",
-                        "defaultValue": false,
-                        "bitMap": 3,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "ER4",
-                        "defaultValue": false,
-                        "bitMap": 4,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "SR10",
-                        "defaultValue": false,
-                        "bitMap": 5,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "CWDM4FEC",
-                        "defaultValue": false,
-                        "bitMap": 6,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "PSM4",
-                        "defaultValue": false,
-                        "bitMap": 7,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "ACC",
-                        "defaultValue": false,
-                        "bitMap": 8,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "CWDM4NoFEC",
-                        "defaultValue": false,
-                        "bitMap": 9,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "CR4",
-                        "defaultValue": false,
-                        "bitMap": 11,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    },
-                    {
-                        "attribute": "CLR4",
-                        "defaultValue": false,
-                        "bitMap": 23,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-                    }
-                ]
-            },
-            "page": 0
-        },
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 34,
-		"name": "Rx1 Power",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Rx Power 1",
-			"defaultValue": 1000,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : {
-				"address": 35
-			    },
-			    "combinationOperator": "SLR"	    
+		    "values": [
+			{
+			    "attribute": "ExtendedAbilitiesFound",
+			    "expectedValue": true,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
 			}
-		    }
-		]	
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 36,
-		"name": "Rx2 Power",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Rx Power 2",
-			"defaultValue": 1000,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" :
-			    {
-				"address": 37
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 192,
+		    "name": "ExtendedCompliance",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "values": [
+			{
+			    "attribute": "AOC",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "SR4",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "LR4",
+			    "expectedValue": false,
+			    "bitMap": 3,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "ER4",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "SR10",
+			    "expectedValue": false,
+			    "bitMap": 5,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "CWDM4FEC",
+			    "expectedValue": false,
+			    "bitMap": 6,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "PSM4",
+			    "expectedValue": false,
+			    "bitMap": 7,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "ACC",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "CWDM4NoFEC",
+			    "expectedValue": false,
+			    "bitMap": 9,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "CR4",
+			    "expectedValue": false,
+			    "bitMap": 11,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			},
+			{
+			    "attribute": "CLR4",
+			    "expectedValue": false,
+			    "bitMap": 23,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 38,
-		"name": "Rx3 Power",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Rx Power 3",
-			"defaultValue": 1000,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 39
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 34,
+		    "name": "Rx1 Power",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 35,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Rx Power 1",
+			    "expectedValue": 1000,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 40,
-		"name": "Rx4 Power",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Rx Power 4",
-			"defaultValue": 1000,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 41
-			    },
-			    "combinationOperator": "SLR"
+		    ]	
+		},
+		{
+		    "address": 36,
+		    "name": "Rx2 Power",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 37,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Rx Power 2",
+			    "expectedValue": 1000,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 42,
-		"name": "Tx1 Bias",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Bias 1",
-			"defaultValue": 500,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 43
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 38,
+		    "name": "Rx3 Power",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 39,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Rx Power 3",
+			    "expectedValue": 1000,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 44,
-		"name": "Tx2 Bias",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Bias 2",
-			"defaultValue": 500,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 45
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 40,
+		    "name": "Rx4 Power",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 41,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Rx Power 4",
+			    "expectedValue": 1000,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 46,
-		"name": "Tx3 Bias",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Bias 3",
-			"defaultValue": 500,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 47
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 42,
+		    "name": "Tx1 Bias",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 43,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Tx Bias 1",
+			    "expectedValue": 500,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 48,
-		"name": "Tx4 Bias",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Bias 4",
-			"defaultValue": 500,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 49
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 44,
+		    "name": "Tx2 Bias",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 45,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Tx Bias 2",
+			    "expectedValue": 500,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 50,
-		"name": "Tx1 Power",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Power 1",
-			"defaultValue": 1000,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 51
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 46,
+		    "name": "Tx3 Bias",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 47,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Tx Bias 3",
+			    "expectedValue": 500,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 52,
-		"name": "Tx2 Power",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Power 2",
-			"defaultValue": 1000,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 53
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 48,
+		    "name": "Tx4 Bias",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 49,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Tx Bias 4",
+			    "expectedValue": 500,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 54,
-		"name": "Tx3 Power",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Power 3",
-			"defaultValue": 1000,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 55
-			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 50,
+		    "name": "Tx1 Power",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 51,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Tx Power 1",
+			    "expectedValue": 1000,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 56,
-		"name": "Tx4 Power",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Power 4",
-			"defaultValue": 1000,
-			"bitMap": 255,
-			"comparisonOperator": "GEQ",
-			"returnOperator": "READ",
-			"links": {
-			    "register" : 
-			    {
-				"address": 57
- 			    },
-			    "combinationOperator": "SLR"
+		    ]
+		},
+		{
+		    "address": 52,
+		    "name": "Tx2 Power",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
+		    },
+		    "linkedRegister" : {
+			"address" : 53,
+			"combinationOperator": "SLR"
+		    },
+		    "values": [
+			{
+			    "attribute": "Tx Power 2",
+			    "expectedValue": 1000,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
 			}
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 86,
-		"name": "Tx Enable",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx Enable",
-			"defaultValue": true,
-			"bitMap": 0,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "EQ"
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 3,
-		"name": "Loss of Signal Tx/Rx",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx LOS 1",
-			"defaultValue": false,
-			"bitMap": 16,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
+		    ]
+		},
+		{
+		    "address": 54,
+		    "name": "Tx3 Power",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
 		    },
-		    {
-			"attribute": "Tx LOS 2",
-			"defaultValue": false,
-			"bitMap": 32,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
+		    "linkedRegister" : {
+			"address" : 55,
+			"combinationOperator": "SLR"
 		    },
-		    {
-			"attribute": "Tx LOS 3",
-			"defaultValue": false,
-			"bitMap": 64,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
+		    "values": [
+			{
+			    "attribute": "Tx Power 3",
+			    "expectedValue": 1000,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
+			}
+		    ]
+		},
+		{
+		    "address": 56,
+		    "name": "Tx4 Power",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
 		    },
-		    {
-			"attribute": "Tx LOS 4",
-			"defaultValue": false,
-			"bitMap": 128,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
+		    "linkedRegister" : {
+			"address" : 57,
+			"combinationOperator": "SLR"
 		    },
-		    {
-			"attribute": "Rx LOS 1",
-			"defaultValue": false,
-			"bitMap": 1,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
+		    "values": [
+			{
+			    "attribute": "Tx Power 4",
+			    "expectedValue": 1000,
+			    "bitMap": 255,
+			    "comparisonOperator": "GEQ",
+			    "returnOperator": "READ"
+			}
+		    ]
+		},
+		{
+		    "address": 86,
+		    "name": "Tx Enable",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
 		    },
-		    {
-			"attribute": "Rx LOS 2",
-			"defaultValue": false,
-			"bitMap": 2,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
+		    "values": [
+			{
+			    "attribute": "Tx Enable",
+			    "expectedValue": true,
+			    "bitMap": 0,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "EQ"
+			}
+		    ]
+		},
+		{
+		    "address": 3,
+		    "name": "Loss of Signal Tx/Rx",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
 		    },
-		    {
-			"attribute": "Rx LOS 3",
-			"defaultValue": false,
-			"bitMap": 4,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
+		    "values": [
+			{
+			    "attribute": "Tx LOS 1",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx LOS 2",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx LOS 3",
+			    "expectedValue": false,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx LOS 4",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx LOS 1",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx LOS 2",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx LOS 3",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx LOS 4",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 5,
+		    "name": "Loss of Lock Tx/Rx",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
 		    },
-		    {
-			"attribute": "Rx LOS 4",
-			"defaultValue": false,
-			"bitMap": 8,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 5,
-		"name": "Loss of Lock Tx/Rx",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx LOL 1",
-			"defaultValue": false,
-			"bitMap": 16,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
+		    "values": [
+			{
+			    "attribute": "Tx LOL 1",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx LOL 2",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx LOL 3",
+			    "expectedValue": false,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx LOL 4",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx LOL 1",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx LOL 2",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx LOL 3",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx LOL 4",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		},
+		{
+		    "address": 98,
+		    "name": "CDR Control",
+		    "device": "Front End",
+		    "protocolInterface": {
+			"protocol": "I2C",
+			"devAddr": 80,
+			"busSel": 9,
+			"page": 0
 		    },
-		    {
-			"attribute": "Tx LOL 2",
-			"defaultValue": false,
-			"bitMap": 32,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Tx LOL 3",
-			"defaultValue": false,
-			"bitMap": 64,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Tx LOL 4",
-			"defaultValue": false,
-			"bitMap": 128,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Rx LOL 1",
-			"defaultValue": false,
-			"bitMap": 1,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Rx LOL 2",
-			"defaultValue": false,
-			"bitMap": 2,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Rx LOL 3",
-			"defaultValue": false,
-			"bitMap": 4,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Rx LOL 4",
-			"defaultValue": false,
-			"bitMap": 8,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    }
-		]
-	    },
-	    "page": 0
-	},
-	{
-	    "busSel": 9,
-	    "devAddr": 80,
-	    "i2c_register": {
-		"address": 98,
-		"name": "CDR Control",
-		"device": "Front End",
-		"values": [
-		    {
-			"attribute": "Tx1 CDR",
-			"defaultValue": true,
-			"bitMap": 16,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Tx2 CDR",
-			"defaultValue": true,
-			"bitMap": 32,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Tx3 CDR",
-			"defaultValue": true,
-			"bitMap": 64,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Tx4 CDR",
-			"defaultValue": true,
-			"bitMap": 128,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Rx1 CDR",
-			"defaultValue": true,
-			"bitMap": 1,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Rx2 CDR",
-			"defaultValue": true,
-			"bitMap": 2,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Rx3 CDR",
-			"defaultValue": true,
-			"bitMap": 4,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    },
-		    {
-			"attribute": "Rx4 CDR",
-			"defaultValue": true,
-			"bitMap": 8,
-			"comparisonOperator": "NEQ",
-			"returnOperator": "AND"
-		    }
-		]
-	    },
-	    "page": 0
+		    "values": [
+			{
+			    "attribute": "Tx1 CDR",
+			    "expectedValue": true,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx2 CDR",
+			    "expectedValue": true,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx3 CDR",
+			    "expectedValue": true,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Tx4 CDR",
+			    "expectedValue": true,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx1 CDR",
+			    "expectedValue": true,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx2 CDR",
+			    "expectedValue": true,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx3 CDR",
+			    "expectedValue": true,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			},
+			{
+			    "attribute": "Rx4 CDR",
+			    "expectedValue": true,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND"
+			}
+		    ]
+		}
+	    ]
 	}
     ]
 }

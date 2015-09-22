@@ -1,78 +1,39 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "bar0": {
-            "additionalProperties": false,
-            "properties": {
-                "bar0_register": {
-                    "$ref": "#/definitions/register"
-                }
-            },
-            "required": [
-                "bar0_register"
-            ],
-            "type": "object"
-        },
-        "bar1": {
-            "additionalProperties": false,
-            "properties": {
-                "bar1_register": {
-                    "$ref": "#/definitions/register"
-                }
-            },
-            "required": [
-                "bar1_register"
-            ],
-            "type": "object"
-        },
-        "bits": {
+	"bits": {
             "additionalProperties": false,
             "properties": {
                 "attribute": {
                     "type": "string"
                 },
-                "defaultValue": {
+                "expectedValue": {
                     "type": [
                         "boolean",
                         "number",
                         "string"
                     ]
                 },
+		"actualValue": {
+		    "type": [
+			"boolean",
+			"number",
+			"string"
+		    ]
+		},
                 "bitMap": {
                     "minimum": 0,
                     "type": "number"
                 },
 		"comparisonOperator": {
-		    "type": "string"
+		    "type": "string",
+		    "enum": ["NEQ", "EQ", "GEQ"]
 		},
 		"returnOperator": {
-		    "type": "string"
+		    "type": "string",
+		    "enum": ["AND", "AND_READ", "EQ", "READ"]
 		},
-		"links": {
-		    "type": "object",
-		    "properties": {
-			"register": {
-			    "type": "object",
-			    "properties": {
-				"address" : {
-				    "type" : "number",
-				    "minimum": 0
-				}
-			    },
-			    "required": [
-				"address"
-			    ]
-			},
-			"combinationOperator": {
-			    "type": "string"
-			}
-		    },
-		    "required": [
-			"register",
-			"combinationOperator"
-			]
-		},	    
-                "value": {
+		"value": {
                     "type": [
                         "boolean",
                         "number",
@@ -83,24 +44,67 @@
             "required": [
                 "attribute",
                 "bitMap",
-                "defaultValue",
+                "expectedValue",
 		"comparisonOperator",
 		"returnOperator"
             ],
             "type": "object"
         },
-        "i2c": {
+	"bar": {
+            "additionalProperties": false,
+            "properties": {
+                "protocol": {
+                    "type": "string",
+		    "enum": ["Bar1", "Bar0"]
+                }
+            },
+            "required": [
+                "protocol"
+            ],
+            "type": "object"
+        },
+	"mdio": {
+            "additionalProperties": false,
+            "properties": {
+		"protocol": {
+		    "type": "string",
+		    "enum": ["MDIO"]
+		},
+                "devAddr": {
+                    "type": "number",
+		    "minimum": 0
+                },
+                "portAddr": {
+                    "type": "number",
+		    "minimum": 0
+                },
+		"slice": {
+		    "type": "number",
+		    "minimum": 0
+		}
+            },
+            "required": [
+                "protocol",
+                "devAddr",
+                "portAddr"
+            ],
+            "type": "object"
+        },
+	"i2c": {
             "additionalProperties": false,
             "properties": {
                 "busSel": {
-                    "type": "number"
+                    "type": "number",
+		    "minimum": 0
                 },
                 "devAddr": {
-                    "type": "number"
+                    "type": "number",
+		    "minimum": 0
                 },
-                "i2c_register": {
-                    "$ref": "#/definitions/register"
-                },
+                "protocol": {
+		    "type": "string",
+		    "enum" : ["I2C"]
+		},
                 "page": {
                     "maximum": 3,
                     "minimum": 0,
@@ -108,49 +112,10 @@
                 }
             },
             "required": [
-                "i2c_register",
+                "protocol",
                 "devAddr",
                 "busSel"
             ]
-        },
-        "interfaces": {
-            "oneOf": [
-                {
-                    "$ref": "#/definitions/bar0"
-                },
-                {
-                    "$ref": "#/definitions/bar1"
-                },
-                {
-                    "$ref": "#/definitions/mdio"
-                },
-                {
-                    "$ref": "#/definitions/i2c"
-                }
-            ]
-        },
-        "mdio": {
-            "additionalProperties": false,
-            "properties": {
-                "devAddr": {
-                    "type": "number"
-                },
-                "mdio_register": {
-                    "$ref": "#/definitions/register"
-                },
-                "portAddr": {
-                    "type": "number"
-                },
-		"slice": {
-		    "type": "number"
-		}
-            },
-            "required": [
-                "mdio_register",
-                "devAddr",
-                "portAddr"
-            ],
-            "type": "object"
         },
         "register": {
             "additionalProperties": false,
@@ -165,20 +130,72 @@
 		"device": {
 		    "type": "string"
 		},
+		"protocolInterface": {
+		    "oneOf": [
+			{
+			    "$ref": "#/definitions/bar"
+			},
+			{
+			    "$ref": "#/definitions/mdio"
+			},
+			{
+			    "$ref": "#/definitions/i2c"
+			}
+		    ]
+		},
                 "values": {
                     "items": {
                         "$ref": "#/definitions/bits"
                     },
                     "type": "array"
-                }
+                },
+		"linkedRegister": {
+		    "type": "object",
+		    "properties": {
+			"address" : {
+			    "type" : "number",
+			    "minimum": 0
+			}, 
+			"combinationOperator": {
+			    "type": "string",
+			    "enum": ["SLR"]
+			}
+		    },
+		    "required": [
+			"address",
+			"combinationOperator"
+			]
+		}
             },
             "required": [
                 "address",
                 "name",
-                "values"
+                "values",
+		"protocolInterface",
+		"device"
             ],
             "type": "object"
-        }
+        },
+	"registerSet": {
+	    "additionalProperties": false,
+	    "properties": {
+		"setName" : {
+		    "type" : "string",
+		    "enum": ["Bar1", "Bar0", "MDIO", "I2C"]
+		},
+		"registers" : {
+		    "items": {
+			"$ref": "#/definitions/register"
+		    },
+		    "type": "array"
+		}
+	    },
+	    "required": [
+		"setName",
+		"registers"
+	    ],
+	    "type": "object"
+	}
     },
     "description": "Schema for a board memory map",
     "properties": {
@@ -187,7 +204,7 @@
         },
         "memoryMap": {
             "items": {
-                "$ref": "#/definitions/interfaces"
+                "$ref": "#/definitions/registerSet"
             },
             "type": "array"
         }

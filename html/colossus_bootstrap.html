@@ -47,13 +47,19 @@ img {
     <div class="navbar-header">
       <a class="navbar-brand">STC L1 GUI</a>
     </div>
-    <div>
+    <div id="NavBar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="/PHY">PHY</a></li>
-        <li><a href="/FrontEnd">Front End</a></li>
-        <li><a href="/FPGA">FPGA</a></li>
-        <li><a href="/All">All</a></li>
+	<li class="active"><a href="/">Home</a></li>
+	<li class="dropdown">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Devices <span class="caret"></span></a>
+	  <ul class="dropdown-menu">
+	    <li id="FrontEndPageId"><a href="/FrontEnd">FrontEnd</a></li>
+	    <li id="FrontEndPageId"><a href="/PHY">PHY</a></li>
+	    <li id="FPGAPageId"><a href="/FPGA">FPGA</a></li>
+	    <li id="AllPageId"><a href="/AllPage">All</a></li>
+	  </ul>
+	</li>
+	<!-- <li><a href="/DeveloperMode">Developer Mode</a></li> -->
       </ul>
     </div>
   </div>
