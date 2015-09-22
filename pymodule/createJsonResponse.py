@@ -72,7 +72,7 @@ def get_hw_info(register_set, protocol, hw_access_handle):
     rc["registers"] = register_set
     return rc
 
-def createJsonResponse(data):
+def createJsonResponse(data, hw_access_handle):
     """
     main function to create JSON response
     to HTTP GET requests
@@ -89,10 +89,6 @@ def createJsonResponse(data):
     if not logger.handlers:
         setupLogging()
     logger.info("Running createJsonResponse")
-
-    from hwAccess import hw_access
-    # intialize hw access object
-    hw_access_handle = hw_access()
 
     threads = {}
     protocols = ['Bar1', 'MDIO', 'I2C']
@@ -137,7 +133,8 @@ class get_hw_info_thread(threading.Thread):
         self.handle = hw_access_handle
         self.ret_val = None
 
-    def get_register_set(self, json_data):
+
+    def get_register_set(self, data):
         """
         parse json data to get protocol specific
         register set

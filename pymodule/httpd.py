@@ -11,6 +11,7 @@ import json
 from urlparse import urlparse, parse_qs
 from cgi import parse_header, parse_multipart
 from createJsonResponse import LAYER1_PATH, createJsonResponse
+from hwAccess import hw_access
 from l1constants import *
 import time
 
@@ -54,7 +55,7 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         if self.path == "/parseJson.js":
 	    response = open("../js/parseJson.js").read()
         elif self.path == "/colossus.json":
-            response = createJsonResponse(json_data)
+            response = createJsonResponse(json_data, self.server.hw_handle)
         elif self.path == "/spirentx.jpg":
             response = open("../jpg/spirentx.jpg").read()
         else:
@@ -118,6 +119,7 @@ HOST, PORT = get_ip_address('admin0'), 40006
 Handler = MyHTTPHandler
 
 httpd = MyTCPServer((HOST, PORT), Handler)
+httpd.hw_handle = hw_access()
 
 print "serving at port", PORT
 httpd.serve_forever()
