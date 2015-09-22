@@ -22,7 +22,7 @@ def setupLogging(loglevel='INFO'):
     if not os.path.exists(LOGFILE_PATH):
         # create log path if first time calling script
         os.mkdir(LOGFILE_PATH)
-        
+
     logLevelNum = getattr(logging, loglevel, None)
     logFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -38,15 +38,12 @@ def setupLogging(loglevel='INFO'):
     fileHandler.setLevel(logging.ERROR)
     logger.addHandler(fileHandler)
 
-def get_hw_info(register_set, protocol):
+def get_hw_info(register_set, protocol, hw_access_handle):
     """
     main thread function to retrieve data
     @param protocol to filter
     @param json_data to indicate which registers to read
     """
-    from hwAccess import hw_access
-    # intialize hw access object
-    hw_access_handle = hw_access()
 
     # initialize return operator dictionary
     # return types correspond to types specified in default value of bits
@@ -92,6 +89,11 @@ def createJsonResponse(data):
     if not logger.handlers:
         setupLogging()
     logger.info("Running createJsonResponse")
+
+    from hwAccess import hw_access
+    # intialize hw access object
+    hw_access_handle = hw_access()
+
     threads = {}
     protocols = ['Bar1', 'MDIO', 'I2C']
     while True:
@@ -99,7 +101,7 @@ def createJsonResponse(data):
         for protocol in protocols:
             # start each protocol thread
             logger.info("Starting thread for protocol %s" % protocol)
-            thread = get_hw_info_thread(protocol, data)
+            thread = get_hw_info_thread(protocol, data, hw_access_handle)
             thread.start()
             threads[protocol] = thread
 
@@ -124,7 +126,7 @@ class get_hw_info_thread(threading.Thread):
     """
     Thread class implementation for hardware access
     """
-    def __init__(self, protocol, data):
+    def __init__(self, protocol, data, hw_access_handle):
         """
         Init thread with base class
         set protocol class member
@@ -132,6 +134,7 @@ class get_hw_info_thread(threading.Thread):
         threading.Thread.__init__(self)
         self.protocol = protocol
         self.register_set = self.get_register_set(data)
+        self.handle = hw_access_handle
         self.ret_val = None
 
     def get_register_set(self, json_data):
@@ -151,7 +154,7 @@ class get_hw_info_thread(threading.Thread):
         """
         for attempts in xrange(0, 3):
             try:
-                self.ret_val = get_hw_info(self.register_set, self.protocol)
+                self.ret_val = get_hw_info(self.register_set, self.protocol, self.handle)
                 if self.ret_val:
                     logger.info("Thread for protocol %s is finished!" % self.protocol)
                     break
