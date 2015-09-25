@@ -58,12 +58,12 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         print message_parts
         if self.path == "/parseJson.js":
 	    response = open(JS_SCRIPT_PATH + "/parseJson.js").read()
-        elif self.path == "/colossus.json":
+        elif self.path == "/portInfo.json":
             response = createJsonResponse(json_data, self.server.hw_handle)
         elif self.path == "/spirentx.jpg":
             response = open(JPG_PATH + "spirentx.jpg").read()
         else:
-            response = open(HTML_PATH + "colossus_bootstrap.html").read()
+            response = open(HTML_PATH + "portInfo.html").read()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.send_header("Content-Length", "%d" % len(response))

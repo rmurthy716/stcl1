@@ -3,7 +3,7 @@ function createHTML()
 {
     var xmlhttp = new XMLHttpRequest();
     var current_url = window.location;
-    var url = current_url.protocol + "//" + current_url.host + "/colossus.json";
+    var url = current_url.protocol + "//" + current_url.host + "/portInfo.json";
     var path = current_url.pathname;
     console.log(path);
     xmlhttp.onreadystatechange = function() {
@@ -99,6 +99,10 @@ function initializeButtons(arr)
     for(var i = 0; i < arr.length; i++) {
 	var registerSet = arr[i];
 	console.log(registerSet);
+	if(registerSet == null) {
+	    console.log("registerSet is Null!")
+	    continue;
+	}
 	var registers = registerSet["registers"];
 	console.log(registers);
 	for(var j = 0; j < registers.length; j++) {
@@ -142,6 +146,10 @@ function getDeviceCounts(arr) {
     {
 	registerSets = arr[i];
 	console.log(registerSets);
+	if(registerSets == null) {
+	    console.log("registerSets is Null!")
+	    continue;
+	}
 	registers = registerSets["registers"];
 	for(var j = 0; j < registers.length; j++) { 
 	    register = registers[j];
@@ -220,6 +228,10 @@ function parseJson(arr) {
     {
 	var registerSet = registerSets[i];
 	console.log(registerSet);
+	if(registerSet == null) {
+	    console.log("registerSet is Null!")
+	    continue;
+	}
 	var registers = registerSet["registers"];
 	for(var j = 0; j < registers.length; j++) {
 	    console.log(registers[j]);

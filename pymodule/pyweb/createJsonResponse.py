@@ -148,17 +148,18 @@ class get_hw_info_thread(threading.Thread):
         run method for thread
         goes to get hardware information for respective protocol
         """
-        for attempts in xrange(0, 3):
-            try:
-                self.ret_val = get_hw_info(self.register_set, self.protocol, self.handle)
-                if self.ret_val:
-                    logger.info("Thread for protocol %s is finished!" % self.protocol)
-                    break
-            except ZeroDivisionError, e:
-                logger.error("Caught error %s" % str(e))
-                pass
+        if self.register_set != None: 
+            for attempts in xrange(0, 3):
+                try:
+                    self.ret_val = get_hw_info(self.register_set, self.protocol, self.handle)
+                    if self.ret_val:
+                        logger.info("Thread for protocol %s is finished!" % self.protocol)
+                        break
+                except ZeroDivisionError, e:
+                    logger.error("Caught error %s" % str(e))
+                    pass
 
-            time.sleep(0.1)
+                time.sleep(0.1)
 
     def join(self):
         """

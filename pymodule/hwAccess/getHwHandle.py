@@ -3,14 +3,12 @@ helper class to retrieve board specific
 hardware object handles
 """
 import sys
-sys.path.append("/usr/spirent/bin/pysysmgr")
 import portColossus
 import portProteus
 #import iceman
 #import wraith
 import phxhal
-
-boardFamily = phxhal.getBoardFamilyName()
+from l1constants import boardFamily
 
 def getBar0Handle(port):
     """
