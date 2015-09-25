@@ -11,11 +11,11 @@ function createHTML()
 	    var parsedJson = JSON.parse(xmlhttp.responseText);
 	    console.log(parsedJson);
             var json_arr = Object.keys(parsedJson).map(function(k) { return parsedJson[k] });
-	    var filteredPages = ["/PHY", "/FrontEnd", "/FPGA"];
-	    var arr = (filteredPages.indexOf(path) > -1) ?  filterArray(json_arr, path) : json_arr;
-            console.log(arr);
+	    //var filteredPages = ["/PHY", "/FrontEnd", "/FPGA"];
+	    //var arr = (filteredPages.indexOf(path) > -1) ?  filterArray(json_arr, path) : json_arr;
+            //console.log(arr);
 	    initializeButtons(json_arr[1])
-	    parseJson(arr);
+	    parseJson(json_arr);
 	}
     }
 
@@ -40,7 +40,7 @@ function filterArray(arr, path){
     var pathToDevice = {
 	"/PHY" : "PHY",
 	"/FPGA" : "FPGA",
-	"/FrontEnd" : "Front End"
+	"/FrontEnd" : "Front_End"
     };
     var device = pathToDevice[path];
     var registerSetsArr = arr[1];
@@ -92,8 +92,8 @@ function initializeButtons(arr)
 {
     console.log(arr);
     var buttons = {
-	"FecEnabled": "#FEC",
-	"ANEnable" : "#AN"
+	"FEC Enabled": "#FEC",
+	"AN Enable" : "#AN"
     };
     
     for(var i = 0; i < arr.length; i++) {
@@ -106,7 +106,7 @@ function initializeButtons(arr)
 	    var attributes = register["values"];
 	    for(var k = 0; k < attributes.length; k++) {
 		var curAttribute = attributes[k].attribute;
-		var curValue = attributes[k].expectedValue;
+		var curValue = attributes[k].actualValue;
 		if(buttons.hasOwnProperty(curAttribute)) {
 		    button = buttons[curAttribute]
 		    // get current state and possible new state
@@ -173,8 +173,8 @@ function comparisonEqual(actual, expected) {
     return (actual == expected);
 }
 
-function comparisonGreaterEqual(actual, expected) {
-    return (actual >= expected);
+function comparisonLessEqual(actual, expected) {
+    return (actual <= expected);
 }
 
 /**************************************************************************************/
@@ -184,17 +184,25 @@ function parseJson(arr) {
     var comparisonFunctions = {
 	"NEQ" : comparisonNotEqual,
 	"EQ"  : comparisonEqual,
-	"GEQ" : comparisonGreaterEqual
+	"LEQ" : comparisonLessEqual
     };
     var outputObject = {
 	"FPGA": "",
 	"PHY": "",
-	"Front End": ""
+	"Front_End": ""
     };
     var outputCounter = {
 	"FPGA": 0,
 	"PHY": 0,
-	"Front End": 0
+	"Front_End": 0
+    };
+
+    var contextRows = {
+	"success": "<tr class=\"success\">",
+	"danger":  "<tr class=\"danger\">",
+	"warning": "<tr class=\"warning\">",
+	"info":    "<tr class=\"info\">",
+	"":        "<tr>"
     };
 
     // create title element
@@ -222,7 +230,7 @@ function parseJson(arr) {
 	    // create row
 	    var keyIdCounter = outputCounter[htmlKeyId];
 	    
-	    if((keyIdCounter % 2) == 0) {
+	    if((keyIdCounter % 3) == 0) {
 		// if first element of our row then start
 		// a new row div
 		outputObject[htmlKeyId] += "<div class=\"row\">\n";
@@ -235,12 +243,12 @@ function parseJson(arr) {
             outputObject[htmlKeyId] += '<h4>' + register["name"] + '</h4>\n';
 	    
             // create table for our attributes
-            outputObject[htmlKeyId] += "<table class=\"table table-hover\">\n";
+            outputObject[htmlKeyId] += "<table class=\"table table-hover table-bordered\">\n";
             outputObject[htmlKeyId] += "<thead>\n";
             outputObject[htmlKeyId] += "<tr>\n";
             outputObject[htmlKeyId] += "<th>Attribute</th>\n";
-            outputObject[htmlKeyId] += "<th>Value</th>\n";
-	    outputObject[htmlKeyId] += "<th>Result</th>\n";
+	    outputObject[htmlKeyId] += "<th>Value</th>\n";
+            outputObject[htmlKeyId] += "<th>Status</th>\n";
 	    
 	    // close table head
             outputObject[htmlKeyId] += "</thead>";
@@ -257,14 +265,26 @@ function parseJson(arr) {
 		console.log("Combo operator string is " + comparisonOperatorString);
 		console.log(comparisonFunctions[comparisonOperatorString]);
 		var status = comparisonFunctions[comparisonOperatorString](curValue, attributes[k].expectedValue);
+		var statusMessages = attributes[k].statusMessages;
+		if(status) {
+		    var statusObject = statusMessages.trueStatus;
+		   
+		}
+		else {
+		    var statusObject = statusMessages.falseStatus;
+		}
+
+		var message = statusObject.message;
+		var level = statusObject.level;
+		if(message != "") {
+		    outputObject[htmlKeyId] += contextRows[level];
+		    outputObject[htmlKeyId] += "<td>" + curAttribute + "</td>\n";
+		    outputObject[htmlKeyId] += "<td>" + curValue + "</td>\n";
+		    outputObject[htmlKeyId] += "<td>" + message + "</td>\n";
 		    
-		outputObject[htmlKeyId] += "<tr>\n";
-		outputObject[htmlKeyId] += "<td>" + curAttribute + "</td>\n";
-		outputObject[htmlKeyId] += "<td>" + curValue + "</td>\n";
-		outputObject[htmlKeyId] += "<td>" + status + "</td>\n";
-		
-		// close table reference
-		outputObject[htmlKeyId] += "</tr>\n"; 
+		    // close table reference
+		    outputObject[htmlKeyId] += "</tr>\n";
+		}
             }
             // close table body
             outputObject[htmlKeyId] += "</tbody>\n";
@@ -273,7 +293,7 @@ function parseJson(arr) {
             // close the column
             outputObject[htmlKeyId] += "</div>";
 	    
-	    if(((outputCounter[htmlKeyId] % 2) == 1) || (outputCounter[htmlKeyId] == (deviceCounts[htmlKeyId] - 1)))
+	    if(((outputCounter[htmlKeyId] % 3) == 2) || (outputCounter[htmlKeyId] == (deviceCounts[htmlKeyId] - 1)))
 	    {
 		/*
 		  If we're at an element index which is a multiple of 3

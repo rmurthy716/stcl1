@@ -27,7 +27,7 @@
                 },
 		"comparisonOperator": {
 		    "type": "string",
-		    "enum": ["NEQ", "EQ", "GEQ"]
+		    "enum": ["NEQ", "EQ", "LEQ"]
 		},
 		"returnOperator": {
 		    "type": "string",
@@ -39,14 +39,59 @@
                         "number",
                         "string"
                     ]
-                }
+                },
+		"statusMessages": {
+		    "type": "object",
+		    "additionalProperties": false,
+		    "properties": {
+			"falseStatus": {
+			    "type": "object",
+			    "additionalProperties": false,
+			    "properties": {
+				"message": {
+				    "type": "string"
+				},
+				"level": {
+				    "type": "string",
+				    "enum": ["success", "info", "warning", "danger", ""]
+				}
+			    },
+			    "required": [
+				"message",
+				"level"
+			    ]
+			},
+			"trueStatus": {
+			    "type": "object",
+			    "additionalProperties": false,
+			    "properties": {
+				"message": {
+				    "type": "string"
+				},
+				"level": {
+				    "type": "string",
+				    "enum": ["success", "info", "warning", "danger", ""]
+				}
+			    },
+			    "required": [
+				"message",
+				"level"
+			    ]
+			}
+		    },
+		    "required": [
+			"falseStatus",
+			"trueStatus"
+		    ]
+		}
             },
             "required": [
                 "attribute",
                 "bitMap",
                 "expectedValue",
 		"comparisonOperator",
-		"returnOperator"
+		"returnOperator",
+		"statusMessages"
             ],
             "type": "object"
         },

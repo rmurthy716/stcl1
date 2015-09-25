@@ -6,136 +6,269 @@
 	    "registers" : [
 		{
 		    "address": 512,
-		    "name": "PhySfpCsr",
+		    "name": "CFP2 Status",
 		    "device" : "FPGA",
 		    "protocolInterface": {
 			"protocol": "Bar1"
 		    },
 		    "values": [
 			{
-			    "attribute": "Alarm1",
+			    "attribute": "Alarm 1",
 			    "expectedValue": true,
 			    "bitMap": 1,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "CFP2 module power up complete",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "CFP2 module not high power up!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "RxLoss",
+			    "attribute": "Rx Loss of Signal",
 			    "expectedValue": false,
 			    "bitMap": 8,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "CFP2 Rx Signal Detected",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "CFP2 Rx Loss of Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "ModuleAbsent",
+			    "attribute": "Module Absent",
 			    "expectedValue": false,
 			    "bitMap": 16,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "CFP2 Module Present",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "CFP2 Module Absent!",
+				    "level": "warning"
+				}
+			    }
 			},
 			{
-			    "attribute": "GlobalAlarm",
-			    "expectedValue": false,
-			    "bitMap": 128,
-			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
-			},
-			{
-			    "attribute": "TxDisable",
+			    "attribute": "Tx Disable",
 			    "expectedValue": false,
 			    "bitMap": 2048,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "CFP2 Tx Laser Enabled",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "CFP2 Tx Laser Disabled!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "LowPower",
+			    "attribute": "Low Power",
 			    "expectedValue": false,
 			    "bitMap": 4096,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "CFP2 not in Low Power mode",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "CFP2 in Low Power Mode!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "CfpReset",
+			    "attribute": "Cfp Reset",
 			    "expectedValue": true,
 			    "bitMap": 8192,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"trueStatus": {
+				    "message": "CFP2 Module in Reset!",
+				    "level": "danger"
+				},
+				"falseStatus": {
+				    "message": "CFP2 Module out of Reset",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "BcmReset",
+			    "attribute": "Bcm Reset",
 			    "expectedValue": true,
 			    "bitMap": 16384,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"trueStatus": {
+				    "message": "BCM Gearbox Disabled!",
+				    "level": "danger"
+				},
+				"falseStatus": {
+				    "message": "BCM Gearbox Enabled",
+				    "level": "info"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 516,
-		    "name": "FramerPCSPMARegister",
+		    "name": "Framer PCS/PMA Status",
 		    "device": "FPGA",
 		    "protocolInterface": {
 			"protocol": "Bar1"
 		    },
 		    "values": [
 			{
-			    "attribute": "LocalFault",
+			    "attribute": "Local Fault",
 			    "expectedValue": false,
 			    "bitMap": 1,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Local Fault Detected",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Local Fault Detected!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "RemoteFault",
+			    "attribute": "Remote Fault",
 			    "expectedValue": false,
 			    "bitMap": 2,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Remote Fault Detected",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Remote Fault Detected!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 520,
-		    "name": "StickyRegister",
+		    "name": "Sticky Bits",
 		    "device": "FPGA",
 		    "protocolInterface": {
 			"protocol": "Bar1"
 		    },
 		    "values": [
 			{
-			    "attribute": "StickyLocalFault",
+			    "attribute": "Sticky Local Fault",
 			    "expectedValue": false,
 			    "bitMap": 1,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Sticky Local Fault Detected",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Sticky Local Fault Detected!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "StickyRemoteFault",
+			    "attribute": "Sticky Remote Fault",
 			    "expectedValue": false,
 			    "bitMap": 2,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Sticky Remote Fault Detected",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Sticky Remote Fault Detected!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "HsecError",
+			    "attribute": "Hsec Core Error",
 			    "expectedValue": false,
 			    "bitMap": 4,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No HSEC Errors Detected",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "HSEC Errors Detected!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "LossOfSignal",
+			    "attribute": "Sticky Loss Of Signal",
 			    "expectedValue": false,
 			    "bitMap": 16,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No FPGA Loss of Signal Detected",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "FPGA Loss of Signal Detected!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "RxLossRecovered",
+			    "attribute": "Rx Loss Recovered",
 			    "expectedValue": false,
 			    "bitMap": 32,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Rx Loss Recovery Detected",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Loss Recovery Detected!",
+				    "level": "success"
+				}
+			    }
 			}
 		    ]
 		}
@@ -146,7 +279,7 @@
 	    "registers": [
 		{
 		    "address": 38912,
-		    "name": "RxCdrLock",
+		    "name": "Rx CDR Lock Status",
 		    "device": "PHY",
 		    "protocolInterface": {
 			"protocol": "MDIO",
@@ -155,71 +288,142 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Lane1",
+			    "attribute": "Lane 1",
 			    "expectedValue": true,
 			    "bitMap": 16,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 1 CDR Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 1 CDR not locked!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Lane2",
+			    "attribute": "Lane 2",
 			    "expectedValue": true,
 			    "bitMap": 32,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 2 CDR Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 2 CDR not locked!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Lane3",
+			    "attribute": "Lane 3",
 			    "expectedValue": true,
 			    "bitMap": 64,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 3 CDR Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 3 CDR not locked!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Lane4",
+			    "attribute": "Lane 4",
 			    "expectedValue": true,
 			    "bitMap": 128,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 4 CDR Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 4 CDR not locked!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 49616,
-		    "name": "PllStatus",
+		    "name": "PLL Status",
 		    "device": "PHY",
 		    "protocolInterface": {
 			"protocol": "MDIO",
 			"devAddr": 1,
-			"portAddr": 14
+			"portAddr": 14,
+			"slice": 2944
 		    },
 		    "values": [
 			{
-			    "attribute": "PmdPllRxSigDet",
+			    "attribute": "PMD/PLL Rx Signal Detect",
 			    "expectedValue": true,
 			    "bitMap": 3840,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PMD PLL Signal Detected",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PMD PLL Loss of Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "PmdPllTxValid",
+			    "attribute": "PMD/PLL Tx Valid",
 			    "expectedValue": true,
 			    "bitMap": 240,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PMD PLL Tx Signal is Valid",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PMD PLL Tx Signal is Invalid!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "PmdPllRxLock",
+			    "attribute": "PMD/PLL Rx Lock",
 			    "expectedValue": true,
 			    "bitMap": 15,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PMD PLL Rx Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PMD PLL Rx Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 201,
-		    "name": "RxFecStatus",
+		    "name": "Rx FEC Status",
 		    "device": "PHY",
 		    "protocolInterface": {
 			"protocol": "MDIO",
@@ -228,24 +432,44 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "FecAlignStatus",
+			    "attribute": "FEC Alignment Status",
 			    "expectedValue": true,
 			    "bitMap": 16384,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "FEC Rx lanes locked and aligned!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "FEC Rx lanes not locked and aligned!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "PcsAlignStatus",
+			    "attribute": "Pcs Alignment Status",
 			    "expectedValue": true,
 			    "bitMap": 32768,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "FEC Tx locked and aligned on PCS lanes!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "FEC Tx not locked and aligned on PCS lanes!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 35330,
-		    "name": "ForcedModeDecode",
+		    "name": "FEC Forced Mode Decode",
 		    "device": "PHY",
 		    "protocolInterface": {
 			"protocol": "MDIO",
@@ -254,17 +478,27 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "FecForced",
+			    "attribute": "Fec Forced",
 			    "expectedValue": true,
 			    "bitMap": 8,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "FEC forced mode enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "FEC forced mode disabled!",
+				    "level": "warning"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 35333,
-		    "name": "ForcedModeDecodeValue",
+		    "name": "FEC Control",
 		    "device": "PHY",
 		    "protocolInterface": {
 			"protocol": "MDIO",
@@ -273,49 +507,81 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "FecEnabled",
+			    "attribute": "FEC Enabled",
 			    "expectedValue": false,
 			    "bitMap": 8,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "FEC is disabled",
+				    "level": "warning"
+				},
+				"trueStatus": {
+				    "message": "FEC is enabled!",
+				    "level": "success"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 0,
-		    "name": "ANControl",
+		    "name": "AN Control",
 		    "device": "PHY",
 		    "protocolInterface": {
 			"protocol": "MDIO",
 			"devAddr": 7,
-			"portAddr": 14
+			"portAddr": 14,
+			"slice": 15232
 		    },
 		    "values": [
 			{
-			    "attribute": "ANEnable",
+			    "attribute": "AN Enable",
 			    "expectedValue": false,
 			    "bitMap": 4096,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "AN is disabled",
+				    "level": "warning"
+				},
+				"trueStatus": {
+				    "message": "AN is enabled!",
+				    "level": "success"
+				}
+			    }
 			},
 			{
 			    "attribute": "AN Reset",
 			    "expectedValue": false,
 			    "bitMap": 32768,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "AN is not in reset",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "AN in reset!",
+				    "level": "warning"
+				}
+			    }
 			}
 			
 		    ]
 		},
 		{
 		    "address": 1,
-		    "name": "ANStatus",
+		    "name": "AN Status",
 		    "device": "PHY",
 		    "protocolInterface": {
 			"protocol": "MDIO",
 			"devAddr": 7,
-			"portAddr": 14
+			"portAddr": 14,
+			"slice": 15232
 		    },
 		    "values": [
 			{
@@ -323,14 +589,34 @@
 			    "expectedValue": false,
 			    "bitMap": 4,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "AN Link Up",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "AN Link Down!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
 			    "attribute": "AN Complete",
 			    "expectedValue": false,
 			    "bitMap": 32,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "AN not completed",
+				    "level": "warning"
+				},
+				"trueStatus": {
+				    "message": "AN completed!",
+				    "level": "success"
+				}
+			    }
 			}
 		    ]
 		}
@@ -341,8 +627,8 @@
 	    "registers": [
 		{
 		    "address": 147,
-		    "name": "DeviceTechnology",
-		    "device": "Front End",
+		    "name": "QSFP Device Technology",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -355,140 +641,330 @@
 			    "expectedValue": false,
 			    "bitMap": 1,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter is tunable",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "Cooled Transmitter",
 			    "expectedValue": false,
 			    "bitMap": 4,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter is Cooled",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "Wavelength Control",
 			    "expectedValue": false,
 			    "bitMap": 8,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter has Wavelength Control",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "850nmVCSEL",
+			    "attribute": "850 nm VCSEL",
 			    "expectedValue": 0,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 850 nm VCSEL",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "1310nmVCSEL",
+			    "attribute": "1310 nm VCSEL",
 			    "expectedValue": 16,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 1310 nm VCSEL",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "1550nmVCSEL",
+			    "attribute": "1550 nm VCSEL",
 			    "expectedValue": 32,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 1550 nm VCSEL",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "1310nmFP",
+			    "attribute": "1310 nm FP",
 			    "expectedValue": 48,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 1310 nm FP",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "1310nmDFB",
+			    "attribute": "1310 nm DFB",
 			    "expectedValue": 64,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 1310 nm DFB",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "1550nmDFB",
+			    "attribute": "1550 nm DFB",
 			    "expectedValue": 80,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 1550 nm DFB",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "1310nmEML",
+			    "attribute": "1310 nm EML",
 			    "expectedValue": 96,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 1310 nm EML",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "1550nmEML",
+			    "attribute": "1550 nm EML",
 			    "expectedValue": 112,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 1550 nm EML",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "undefined",
 			    "expectedValue": 128,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is undefined",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "1490nmDFB",
+			    "attribute": "1490 nm DFB",
 			    "expectedValue": 144,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is 1490 nm DFB",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "CopperUnequalized",
+			    "attribute": "Copper Unequalized",
 			    "expectedValue": 160,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is Copper Unequalized",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "CopperPassiveEqualized",
+			    "attribute": "Copper Passive Equalized",
 			    "expectedValue": 176,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is Copper Passive Equalized",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "CopperNearAndFarActive",
+			    "attribute": "Copper Near And Far Active",
 			    "expectedValue": 192,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is Copper Near and Far End Active Equalized",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "CopperFarActive",
+			    "attribute": "Copper Far Active",
 			    "expectedValue": 208,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is Far End Active Equalized",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "CopperNearActive",
+			    "attribute": "Copper Near Active",
 			    "expectedValue": 224,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is Copper Near End Active Equalized",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "CopperLinearActive",
+			    "attribute": "Copper Linear Active",
 			    "expectedValue": 240,
 			    "bitMap": 240,
 			    "comparisonOperator": "EQ",
-			    "returnOperator": "AND_READ"
+			    "returnOperator": "AND_READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Transmitter Technology is Copper Linear Active Equalized",
+				    "level": "info"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 131,
-		    "name": "SpecificationCompliance",
-		    "device": "Front End",
+		    "name": "Specification Compliance",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -498,18 +974,28 @@
 		    
 		    "values": [
 			{
-			    "attribute": "ExtendedAbilitiesFound",
+			    "attribute": "Extended Abilities Found",
 			    "expectedValue": true,
 			    "bitMap": 128,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Extended Abilities found on the QSFP",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Extended Abilities not found!",
+				    "level": "warning"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 192,
-		    "name": "ExtendedCompliance",
-		    "device": "Front End",
+		    "name": "Extended Compliance",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -522,84 +1008,194 @@
 			    "expectedValue": false,
 			    "bitMap": 1,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is AOC",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "SR4",
 			    "expectedValue": false,
 			    "bitMap": 2,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is SR4",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "LR4",
 			    "expectedValue": false,
 			    "bitMap": 3,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is LR4",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "ER4",
 			    "expectedValue": false,
 			    "bitMap": 4,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is ER4",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "SR10",
 			    "expectedValue": false,
 			    "bitMap": 5,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is SR10",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "CWDM4FEC",
+			    "attribute": "CWDM4 with FEC",
 			    "expectedValue": false,
 			    "bitMap": 6,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is CWDM4 with FEC",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "PSM4",
 			    "expectedValue": false,
 			    "bitMap": 7,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is PSM4",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "ACC",
 			    "expectedValue": false,
 			    "bitMap": 8,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is ACC",
+				    "level": "info"
+				}
+			    }
 			},
 			{
-			    "attribute": "CWDM4NoFEC",
+			    "attribute": "CWDM4 without FEC",
 			    "expectedValue": false,
 			    "bitMap": 9,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is CWDM4 without FEC",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "CR4",
 			    "expectedValue": false,
 			    "bitMap": 11,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is CR4",
+				    "level": "info"
+				}
+			    }
 			},
 			{
 			    "attribute": "CLR4",
 			    "expectedValue": false,
 			    "bitMap": 23,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "",
+				    "level": ""
+				},
+				"trueStatus": {
+				    "message": "Subtype ability is CLR4",
+				    "level": "info"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 34,
-		    "name": "Rx1 Power",
-		    "device": "Front End",
+		    "name": "Rx Lane 1 Power",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -612,18 +1208,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Rx Power 1",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 1000,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 1 Power is Good!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 1 Power is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]	
 		},
 		{
 		    "address": 36,
-		    "name": "Rx2 Power",
-		    "device": "Front End",
+		    "name": "Rx Lane 2 Power",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -636,18 +1242,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Rx Power 2",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 1000,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Power 2 is Good!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Rx Power 2 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 38,
-		    "name": "Rx3 Power",
-		    "device": "Front End",
+		    "name": "Rx Lane 3 Power",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -660,18 +1276,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Rx Power 3",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 1000,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Power 3 is Good!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Rx Power 3 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 40,
-		    "name": "Rx4 Power",
-		    "device": "Front End",
+		    "name": "Rx Lane 4 Power",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -684,18 +1310,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Rx Power 4",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 1000,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Power 4 is Good!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Rx Power 4 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 42,
-		    "name": "Tx1 Bias",
-		    "device": "Front End",
+		    "name": "Tx Lane 1 Bias",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -708,18 +1344,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx Bias 1",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 500,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Bias 1 is Good!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Bias 1 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 44,
-		    "name": "Tx2 Bias",
-		    "device": "Front End",
+		    "name": "Tx Lane 2 Bias",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -732,18 +1378,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx Bias 2",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 500,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Bias 2 is Good!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Bias 2 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 46,
-		    "name": "Tx3 Bias",
-		    "device": "Front End",
+		    "name": "Tx Lane 3 Bias",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -756,18 +1412,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx Bias 3",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 500,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Bias 3 is Good!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Bias 3 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 48,
-		    "name": "Tx4 Bias",
-		    "device": "Front End",
+		    "name": "Tx Lane 4 Bias",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -780,18 +1446,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx Bias 4",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 500,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Bias 4 is Good!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Bias 4 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 50,
-		    "name": "Tx1 Power",
-		    "device": "Front End",
+		    "name": "Tx Lane 1 Power",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -804,18 +1480,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx Power 1",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 1000,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Power 1 is Good!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Tx Power 1 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 52,
-		    "name": "Tx2 Power",
-		    "device": "Front End",
+		    "name": "Tx Lane 2 Power",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -828,18 +1514,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx Power 2",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 1000,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Power 2 is Good!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Tx Power 2 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 54,
-		    "name": "Tx3 Power",
-		    "device": "Front End",
+		    "name": "Tx Lane 3 Power",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -852,18 +1548,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx Power 3",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 1000,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Power 3 is Good!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Tx Power 3 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 56,
-		    "name": "Tx4 Power",
-		    "device": "Front End",
+		    "name": "Tx Lane 4 Power",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -876,18 +1582,28 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx Power 4",
+			    "attribute": "Power(uW)",
 			    "expectedValue": 1000,
 			    "bitMap": 255,
-			    "comparisonOperator": "GEQ",
-			    "returnOperator": "READ"
+			    "comparisonOperator": "LEQ",
+			    "returnOperator": "READ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Power 4 is Good!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Tx Power 4 is Low!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 86,
-		    "name": "Tx Enable",
-		    "device": "Front End",
+		    "name": "Tx Transmitter Enable",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -900,14 +1616,24 @@
 			    "expectedValue": true,
 			    "bitMap": 0,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "EQ"
+			    "returnOperator": "EQ",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Laser is Enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Laser is Disabled!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 3,
 		    "name": "Loss of Signal Tx/Rx",
-		    "device": "Front End",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -916,67 +1642,147 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx LOS 1",
+			    "attribute": "Tx LOS Lane 1",
 			    "expectedValue": false,
 			    "bitMap": 16,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 1 has valid Signal!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 1 Lost Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx LOS 2",
+			    "attribute": "Tx LOS Lane 2",
 			    "expectedValue": false,
 			    "bitMap": 32,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 2 has valid Signal!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 2 Lost Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx LOS 3",
+			    "attribute": "Tx LOS Lane 3",
 			    "expectedValue": false,
 			    "bitMap": 64,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 3 has valid Signal!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 3 Lost Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx LOS 4",
+			    "attribute": "Tx LOS Lane 4",
 			    "expectedValue": false,
 			    "bitMap": 128,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 4 has valid Signal!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 4 Lost Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx LOS 1",
+			    "attribute": "Rx LOS Lane 1",
 			    "expectedValue": false,
 			    "bitMap": 1,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 1 has valid Signal!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 1 Lost Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx LOS 2",
+			    "attribute": "Rx LOS Lane 2",
 			    "expectedValue": false,
 			    "bitMap": 2,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 2 has valid Signal!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 2 Lost Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx LOS 3",
+			    "attribute": "Rx LOS Lane 3",
 			    "expectedValue": false,
 			    "bitMap": 4,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 3 has valid Signal!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 3 Lost Signal!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx LOS 4",
+			    "attribute": "Rx LOS Lane 4",
 			    "expectedValue": false,
 			    "bitMap": 8,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 4 has valid Signal!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 4 Lost Signal!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 5,
 		    "name": "Loss of Lock Tx/Rx",
-		    "device": "Front End",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -985,67 +1791,147 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx LOL 1",
+			    "attribute": "Tx LOL Lane 1",
 			    "expectedValue": false,
 			    "bitMap": 16,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 1 is Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 1 Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx LOL 2",
+			    "attribute": "Tx LOL Lane 2",
 			    "expectedValue": false,
 			    "bitMap": 32,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 2 is Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 2 Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx LOL 3",
+			    "attribute": "Tx LOL Lane 3",
 			    "expectedValue": false,
 			    "bitMap": 64,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 3 is Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 3 Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx LOL 4",
+			    "attribute": "Tx LOL Lane 4",
 			    "expectedValue": false,
 			    "bitMap": 128,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 4 is Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 4 Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx LOL 1",
+			    "attribute": "Rx LOL Lane 1",
 			    "expectedValue": false,
 			    "bitMap": 1,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 1 is Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 1 Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx LOL 2",
+			    "attribute": "Rx LOL Lane 2",
 			    "expectedValue": false,
 			    "bitMap": 2,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 2 is Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 2 Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx LOL 3",
+			    "attribute": "Rx LOL Lane 3",
 			    "expectedValue": false,
 			    "bitMap": 4,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 3 is Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 3 Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx LOL 4",
+			    "attribute": "Rx LOL Lane 4",
 			    "expectedValue": false,
 			    "bitMap": 8,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 4 is Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 4 Lost Lock!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		},
 		{
 		    "address": 98,
 		    "name": "CDR Control",
-		    "device": "Front End",
+		    "device": "Front_End",
 		    "protocolInterface": {
 			"protocol": "I2C",
 			"devAddr": 80,
@@ -1054,60 +1940,140 @@
 		    },
 		    "values": [
 			{
-			    "attribute": "Tx1 CDR",
+			    "attribute": "Tx Lane 1 CDR",
 			    "expectedValue": true,
 			    "bitMap": 16,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 1 CDR is enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 1 CDR is diabled!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx2 CDR",
+			    "attribute": "Tx Lane 2 CDR",
 			    "expectedValue": true,
 			    "bitMap": 32,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 2 CDR is enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 2 CDR is diabled!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx3 CDR",
+			    "attribute": "Tx Lane 3 CDR",
 			    "expectedValue": true,
 			    "bitMap": 64,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 3 CDR is enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 3 CDR is diabled!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Tx4 CDR",
+			    "attribute": "Tx Lane 4 CDR",
 			    "expectedValue": true,
 			    "bitMap": 128,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Tx Lane 4 CDR is enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Tx Lane 4 CDR is diabled!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx1 CDR",
+			    "attribute": "Rx Lane 1 CDR",
 			    "expectedValue": true,
 			    "bitMap": 1,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 1 CDR is enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 1 CDR is diabled!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx2 CDR",
+			    "attribute": "Rx Lane 2 CDR",
 			    "expectedValue": true,
 			    "bitMap": 2,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 2 CDR is enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 2 CDR is diabled!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx3 CDR",
+			    "attribute": "Rx Lane 3 CDR",
 			    "expectedValue": true,
 			    "bitMap": 4,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 3 CDR is enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 3 CDR is diabled!",
+				    "level": "danger"
+				}
+			    }
 			},
 			{
-			    "attribute": "Rx4 CDR",
+			    "attribute": "Rx Lane 4 CDR",
 			    "expectedValue": true,
 			    "bitMap": 8,
 			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND"
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx Lane 4 CDR is enabled!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Rx Lane 4 CDR is diabled!",
+				    "level": "danger"
+				}
+			    }
 			}
 		    ]
 		}

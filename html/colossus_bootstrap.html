@@ -53,10 +53,10 @@ img {
 	<li class="dropdown">
 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Devices <span class="caret"></span></a>
 	  <ul class="dropdown-menu">
-	    <li id="FrontEndPageId"><a href="/FrontEnd">FrontEnd</a></li>
-	    <li id="FrontEndPageId"><a href="/PHY">PHY</a></li>
-	    <li id="FPGAPageId"><a href="/FPGA">FPGA</a></li>
-	    <li id="AllPageId"><a href="/AllPage">All</a></li>
+	    <li id="FrontEndPageId"><a href="#FrontEnd">FrontEnd</a></li>
+	    <li id="PHYPageId"><a href="#PHY">PHY</a></li>
+	    <li id="FPGAPageId"><a href="#FPGA">FPGA</a></li>
+	    <li id="AllPageId"><a href="#All">All</a></li>
 	  </ul>
 	</li>
 	<!-- <li><a href="/DeveloperMode">Developer Mode</a></li> -->
@@ -79,14 +79,13 @@ img {
   <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
       <h3><b><u> Layer 1 Controls</u></b> </h3>
-      <li><h4> Layer 1 Spirent Firmware</h4><input id="hwmgrd" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
       <li><h4> Auto Negotiation</h4><input id="AN" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
       <li><h4> Forward Error Correction</h4><input id="FEC" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
       <li><h4> Layer 1 Polling</h4><input id="poll" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
     </ul>
   </div>
   <div class="container">
-    <div id="Front End">
+    <div id="Front_End">
     </div>
     <div id="PHY">
     </div>
@@ -101,33 +100,66 @@ img {
 <script src="parseJson.js"></script>
 <script>
   $(function() {
-     $('#poll').change(function() {
+     $("#poll").change(function() {
       createHTML();
     })
   })
 </script>
 <script>
   $(function() {
-    $('#AN').change(function() {
-      $.post("AN", {"ANEnable": ($("#AN").is(":checked"))});
+    $("#AN").change(function() {
+      $.post("AN", {"Attribute": "AN", "Value": ($("#AN").is(":checked"))});
 		   })
            })
 </script>
 <script>
   $(function() {
-    $('#hwmgrd').change(function() {
-      $.post("hwmgrd", {"hwmgrd": ($("#hwmgrd").is(":checked"))});
+    $("#FEC").change(function() {
+      $.post("FEC", {"Attribute": "FEC", "Value": ($("#FEC").is(":checked"))});
                    })
            })
 </script>
 <script>
-  $(function() {
-    $('#FEC').change(function() {
-      $.post("FEC", {"FEC": ($("#FEC").is(":checked"))});
-                   })
-           })
+   $(function() {
+   $("#FrontEndPageId").click(function() {
+   $("#Front_End").hide();
+   $("#PHY").hide();
+   $("#FPGA").hide();
+   $("#Front_End").fadeIn(600);
+   })
+   })
 </script>
-
-
+<script>
+  $(function() {
+  $("#PHYPageId").click(function() {
+  $("#Front_End").hide();
+  $("#PHY").hide();
+  $("#FPGA").hide();
+  $("#PHY").fadeIn(600);
+  })
+  })
+</script>
+<script>
+  $(function() {
+  $("#FPGAPageId").click(function() {
+  $("#Front_End").hide();
+  $("#PHY").hide();
+  $("#FPGA").hide();
+  $("#FPGA").fadeIn(600);
+  })
+  })
+</script>
+<script>
+  $(function() {
+  $("#AllPageId").click(function() {
+  $("#Front_End").hide();
+  $("#PHY").hide();
+  $("#FPGA").hide();
+  $("#Front_End").fadeIn(600);
+  $("#PHY").fadeIn(600);
+  $("#FPGA").fadeIn(600);
+  })
+  })
+</script>
 </body>
 </html>

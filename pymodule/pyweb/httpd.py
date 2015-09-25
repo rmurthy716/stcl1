@@ -10,9 +10,13 @@ import struct
 import json
 from urlparse import urlparse, parse_qs
 from cgi import parse_header, parse_multipart
-from createJsonResponse import LAYER1_PATH, createJsonResponse
+from createJsonResponse import createJsonResponse
+from handlePostRequest import handlePostRequest
+import sys
+sys.path.append("/usr/spirent/stcl1/pymodule/hwAccess")
 from hwAccess import hw_access
 from l1constants import *
+import psutil
 import time
 
 class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
@@ -53,13 +57,13 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         message = '\r\n'.join(message_parts)
         print message_parts
         if self.path == "/parseJson.js":
-	    response = open("../js/parseJson.js").read()
+	    response = open(JS_SCRIPT_PATH + "/parseJson.js").read()
         elif self.path == "/colossus.json":
             response = createJsonResponse(json_data, self.server.hw_handle)
         elif self.path == "/spirentx.jpg":
-            response = open("../jpg/spirentx.jpg").read()
+            response = open(JPG_PATH + "spirentx.jpg").read()
         else:
-            response = open("../html/colossus_bootstrap.html").read()
+            response = open(HTML_PATH + "colossus_bootstrap.html").read()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.send_header("Content-Length", "%d" % len(response))
@@ -80,6 +84,7 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
                     keep_blank_values=1)
         else:
             postvars = {}
+        print postvars
         return postvars
 
     def do_POST(self):
@@ -87,6 +92,7 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         POST request handler function
         """
         postvars = self.parse_POST()
+        handlePostRequest(postvars, self.server.hw_handle)
         response = ""
         self.send_response(200)
         self.send_header("Content-type", "text/html")
@@ -120,6 +126,20 @@ Handler = MyHTTPHandler
 
 httpd = MyTCPServer((HOST, PORT), Handler)
 httpd.hw_handle = hw_access()
-
+# suspend hardware manager
+for proc in psutil.process_iter():
+    if proc.name == PROCNAME:
+        proc.suspend()
+        time.sleep(0.5)
+        break
+            
 print "serving at port", PORT
-httpd.serve_forever()
+try:
+    httpd.serve_forever()
+except:
+    for proc in psutil.process_iter():
+        if proc.name == PROCNAME:
+            #proc.resume()
+            time.sleep(0.5)
+            break
+    print "Httpd is exiting!"

@@ -13,6 +13,7 @@ import threading
 import logging
 import logging.handlers
 import os
+sys.path.append("/usr/spirent/stcl1/pymodule/hwAccess")
 from l1constants import *
 
 def setupLogging(loglevel='INFO'):
@@ -79,9 +80,7 @@ def createJsonResponse(data, hw_access_handle):
 
     -Implements retrieval of information from FPGA, PHY, and FrontEnd
     -There will be one thread per protocol (Bar1, MDIO, I2C)
-    -Locking of MDIO and I2C buses will be handled by httpd to handle concurrency
-    -Necessary for Multiport configurations (multiple ports and on one FPGA)
-
+    
     The http server will handle the suspension of hardware manager as well
     """
     global logger

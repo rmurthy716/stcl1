@@ -1,15 +1,10 @@
 #!/mnt/spirent/ccpu/bin/python
-from __future__ import with_statement
-
 import os
 import time
 import sys
 import exceptions
-from iceman import pspam
-
-def bit(x):
-    return 0x1 << x
-
+from pci import Pci
+from l1constants import bit
 
 # Bar 0 Registers
 
@@ -42,14 +37,13 @@ i2cErrorBit = bit(29)
 i2cDoneMask = i2cDoneBit | i2cErrorBit
 
 
-class Colossus(pspam.Pci):
+class Colossus(Pci):
     #
     # Some register addresses.
     #
     VERSION        = 0x00
     MAX_POLL_COUNT = 10
-    DEVICE         = '/dev/pspam1'
-
+    
     # Spirent FPGA PCI device IDs
     DEVICE_IDs = {
         "STC_DX2_100G" : '174a:0a05',     # 1x100GbE image
@@ -62,10 +56,10 @@ class Colossus(pspam.Pci):
         "NIC_DX2_10G"  : '174a:0a0e',     # 8x10GbE  image
     }
 
-    def __init__ (self, bar = 1, port = 0):
+    def __init__ (self, bar, port):
         for key, ids in Colossus.DEVICE_IDs.items():
             try:
-                pspam.Pci.__init__ (self, Colossus.DEVICE, ids, bar, port)
+                Pci.__init__ (self, ids, bar, port)
                 #print "Detected ", key, " ID ", ids
                 break
             except:
@@ -89,12 +83,13 @@ class Colossus(pspam.Pci):
         time.sleep( 1 / 10000.0 )    # sleep for 100 us
 
 class Mdio():
-    def __init__ (self, bar = 0, port = 1):
+    def __init__ (self, port, bar=0):
+        # MDIO for Colossus on BAR0
         self.spam = Colossus(bar, port)
 
     def wait_done(self):
         for attempt in xrange(Colossus.MAX_POLL_COUNT):
-            time.sleep(0.0001)
+            time.sleep(0.01)
             data = self.spam.read (MDIO_CMD_REG)
             if  data & mdioDoneBit:
                 return
@@ -122,25 +117,26 @@ class Mdio():
         self.wait_done()
 
     def cfp_read(self, devAddr, regAddr):
-        return self.MdioRead(CFP_PORT_ADDR, devAddr, regAddr)
+        return self.read(CFP_PORT_ADDR, devAddr, regAddr)
 
     def cfp_write(self, devAddr, regAddr, data):
-        self.MdioWrite(CFP_PORT_ADDR, devAddr, regAddr, data)
+        self.write(CFP_PORT_ADDR, devAddr, regAddr, data)
 
     def gearbox_read(self, devAddr, regAddr):
-        return self.MdioRead(GEARBOX_PORT_ADDR, devAddr, regAddr)
+        return self.read(GEARBOX_PORT_ADDR, devAddr, regAddr)
 
     def gearbox_write(self, devAddr, regAddr, data):
-        return self.MdioWrite(GEARBOX_PORT_ADDR, devAddr, regAddr, data)
+        return self.write(GEARBOX_PORT_ADDR, devAddr, regAddr, data)
 
     def cfp_adaptor_read(self, devAddr, regAddr):
-        return self.MdioRead(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr)
+        return self.read(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr)
 
     def cfp_adaptor_write(self, devAddr, regAddr, data):
-        self.MdioWrite(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr, data)
+        self.write(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr, data)
 
 class I2c():
-    def __init__(self, bar = 0, port = 1):
+    def __init__(self, port, bar=0):
+        # I2C for colossus on BAR0
         self.spam = Colossus(bar, port)
 
     def buildReadCmd(self, devAddr, regAddr, busSel):

@@ -3,11 +3,10 @@ Define hardware access class
 """
 import logging
 import sys
-sys.path.append("/usr/spirent/pymodule")
 import os
 import stat
-from colossus import Mdio, I2c, Colossus
-from l1constants import * 
+from getHwHandle import *
+from l1constants import *
 
 logger = logging.getLogger('hwaccess')
 
@@ -17,14 +16,15 @@ class hw_access(object):
     """
 
     def __init__(self, port=0):
-        self.bar0 = Colossus(0, 1)
-        self.bar1 = Colossus(1, 1)
-        self.mdio = Mdio()
-        self.i2c = I2c()
+        self.bar0 = getBar0Handle(port)
+        self.bar1 = getBar1Handle(port)
+        self.mdio = getMdioHandle(port)
+        self.i2c  = getI2cHandle(port)
         # initialize combination operator dictionary
         # currently only used to combine numeric data (Power, Counters, etc)
         self.combination_operator_dict = {}
-        self.combination_operator_dict['SLR'] = lambda data, link_data: ((data << 8) + link_data) * 0.1
+        self.combination_operator_dict['SLR'] = lambda data, link_data: round(((data << 8) + link_data) * 0.1, 2)
+
 
     def read(self, register):
         data = None
@@ -36,13 +36,14 @@ class hw_access(object):
                 devAddr = protocolInterface["devAddr"]
                 portAddr = protocolInterface["portAddr"]
                 if "slice" in protocolInterface.keys():
-                    self.mdio.cfp_adaptor_write(0x1, 0x8000, protocolInterface["slice"])
+                    self.mdio.write(portAddr, devAddr, 0x8000, protocolInterface["slice"])
+                    logger.info("Setting slice register to 0x%x!" % protocolInterface["slice"])
                 data = self.mdio.read(portAddr, devAddr, address)
                 logger.info("Mdio Read of address 0x%x with data of 0x%x" % (address, data))
                 if "linkedRegister" in register.keys():
                     linked_register = register["linkedRegister"]
                     linked_address = linked_register["address"]
-                    linked_data = self.i2c.read(portAddr, devAddr, linked_address)
+                    linked_data = self.mdio.read(portAddr, devAddr, linked_address)
                     logger.info("Mdio Read of address 0x%x with data of 0x%x" % (linked_address, linked_data))
                     combination_operator = self.combination_operator_dict[linked_register["combinationOperator"]]
                     data = combination_operator(data, linked_data)
