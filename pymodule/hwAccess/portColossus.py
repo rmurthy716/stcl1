@@ -1,30 +1,17 @@
-#!/mnt/spirent/ccpu/bin/python
-import os
+"""
+Port Colossus Module
+"""
 import time
-import sys
-import exceptions
 from pci import Pci
-from l1constants import bit
-
+from Mdio import Mdio
+from I2c import I2c
 # Bar 0 Registers
 
-MDIO_CMD_REG  = 0x0078
+MDIO_CMD_REG = 0x0078
 MDIO_DATA_REG = 0x007c
-
-I2C_CMD_REG   = 0x0044
+I2C_CMD_REG = 0x0044
 
 # MDIO and I2C Constants
-READ_WRITE_BIT = bit(30)
-PORT_ADDR_MASK = 0x1f
-PORT_ADDR_SHIFT = 21
-DEV_ADDR_MASK = 0x1f
-DEV_ADDR_SHIFT = 16
-REG_ADDR_MASK = 0xffff
-DATA_MASK = 0x1ffff
-
-mdioDoneBit = bit(31)
-mdioWriteBit = bit(16)
-
 CFP_PORT_ADDR = 0x1
 GEARBOX_PORT_ADDR = 0x0
 CFP_ADAPTOR_PORT_ADDR = 0xe
@@ -32,18 +19,10 @@ CFP_ADAPTOR_PORT_ADDR = 0xe
 QSFP_DEV_ADDR = 0x50
 QSFP_BUS_SEL = 0x9
 
-i2cDoneBit = bit(31)
-i2cErrorBit = bit(29)
-i2cDoneMask = i2cDoneBit | i2cErrorBit
-
-
 class Colossus(Pci):
-    #
-    # Some register addresses.
-    #
-    VERSION        = 0x00
-    MAX_POLL_COUNT = 10
-    
+    """
+    Colossus PCI class
+    """
     # Spirent FPGA PCI device IDs
     DEVICE_IDs = {
         "STC_DX2_100G" : '174a:0a05',     # 1x100GbE image
@@ -56,148 +35,83 @@ class Colossus(Pci):
         "NIC_DX2_10G"  : '174a:0a0e',     # 8x10GbE  image
     }
 
-    def __init__ (self, bar, port):
+    def __init__(self, bar, port):
+        """
+        find the PCI id corresponding to Colossus
+        """
         for key, ids in Colossus.DEVICE_IDs.items():
             try:
-                Pci.__init__ (self, ids, bar, port)
-                #print "Detected ", key, " ID ", ids
+                Pci.__init__(self, ids, bar, port)
                 break
             except:
                 continue
         self.port = port
-        
-    def __str__ (self):
-        version = self.read (Colossus.VERSION)
-        return "  FPGA version (%06X = 0x%08X)/" % (Colossus.VERSION, version)
 
-    def read( self, address ):
+    def read(self, address):
+        """
+        basic spam read
+        """
         value = self._read_32(address)
 
-        time.sleep( 1 / 10000.0 )    # sleep for 100 us
+        time.sleep(1 / 10000.0)    # sleep for 100 us
         return value
 
-    def write( self,address, value ):
+    def write(self, address, value):
+        """
+        basic spam write
+        """
         if value >= 0x80000000:
             value -= 0x100000000
         self._write_32(address, value)
-        time.sleep( 1 / 10000.0 )    # sleep for 100 us
+        time.sleep(1 / 10000.0)    # sleep for 100 us
 
-class Mdio():
-    def __init__ (self, port, bar=0):
+class MdioAccess():
+    def __init__(self, port, bar=0):
+        """
+        initialize MDIO Bar0 Class
+        """
         # MDIO for Colossus on BAR0
-        self.spam = Colossus(bar, port)
+        self.mdio = Mdio(port, bar, MDIO_CMD_REG, MDIO_DATA_REG)
 
-    def wait_done(self):
-        for attempt in xrange(Colossus.MAX_POLL_COUNT):
-            time.sleep(0.01)
-            data = self.spam.read (MDIO_CMD_REG)
-            if  data & mdioDoneBit:
-                return
-        raise Exception("MDIO failure")
+    def read(self, devAddr, portAddr, regAddr):
+        return self.mdio.read(devAddr, portAddr, regAddr)
 
-    def read(self, portAddr, devAddr, regAddr):
-        # implicit assumption for clause 45
-        cmd = 0x0
-        cmd |= READ_WRITE_BIT # read/write bit
-        cmd |= ((portAddr & PORT_ADDR_MASK) << PORT_ADDR_SHIFT)
-        cmd |= ((devAddr & DEV_ADDR_MASK) << DEV_ADDR_SHIFT)
-        cmd |= (regAddr & REG_ADDR_MASK)
-        self.spam.write(MDIO_CMD_REG, cmd)
-        self.wait_done()
-        data = self.spam.read(MDIO_DATA_REG)
-        return data & DATA_MASK
-
-    def write(self, portAddr, devAddr, regAddr, data):
-        cmd = 0x0
-        cmd |= ((portAddr & PORT_ADDR_MASK) << PORT_ADDR_SHIFT)
-        cmd |= ((devAddr & DEV_ADDR_MASK) << DEV_ADDR_SHIFT)
-        cmd |= (regAddr & REG_ADDR_MASK)
-        self.spam.write(MDIO_DATA_REG, data)
-        self.spam.write(MDIO_CMD_REG, cmd)
-        self.wait_done()
+    def write(self, devAddr, portAddr, regAddr, data):
+        self.mdio.write(devAddr, portAddr, regAddr, data)
 
     def cfp_read(self, devAddr, regAddr):
-        return self.read(CFP_PORT_ADDR, devAddr, regAddr)
+        return self.mdio.read(CFP_PORT_ADDR, devAddr, regAddr)
 
     def cfp_write(self, devAddr, regAddr, data):
-        self.write(CFP_PORT_ADDR, devAddr, regAddr, data)
+        self.mdio.write(CFP_PORT_ADDR, devAddr, regAddr, data)
 
     def gearbox_read(self, devAddr, regAddr):
-        return self.read(GEARBOX_PORT_ADDR, devAddr, regAddr)
+        return self.mdio.read(GEARBOX_PORT_ADDR, devAddr, regAddr)
 
     def gearbox_write(self, devAddr, regAddr, data):
-        return self.write(GEARBOX_PORT_ADDR, devAddr, regAddr, data)
+        return self.mdio.write(GEARBOX_PORT_ADDR, devAddr, regAddr, data)
 
     def cfp_adaptor_read(self, devAddr, regAddr):
-        return self.read(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr)
+        return self.mdio.read(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr)
 
     def cfp_adaptor_write(self, devAddr, regAddr, data):
-        self.write(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr, data)
+        self.mdio.write(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr, data)
 
-class I2c():
+class I2cAccess():
     def __init__(self, port, bar=0):
-        # I2C for colossus on BAR0
-        self.spam = Colossus(bar, port)
-
-    def buildReadCmd(self, devAddr, regAddr, busSel):
-        cmd =  0x0 | 1 << 30 | ((busSel & 0xf) << 23) | ((devAddr & 0x7f) << 16) | (regAddr & 0xff)
-        return cmd
-
-    def buildWriteCmd(self, devAddr, regAddr, regData, busSel):
-        cmd = 0x0 | ((busSel & 0xf) << 23) | ((devAddr & 0x7f) << 16) | ((regData & 0xff) << 8) | (regAddr & 0xff)
-        return cmd
-
-    def cmdDone(self, cmdData):
-        # or the done bit and error bit
-        return True if ((cmdData & i2cDoneMask) == i2cDoneBit) else False
-
-    def waitForWriteDone(self):
-        for i in range(10):
-            if i >= 10:
-                print "I2C Failure"
-                break
-            time.sleep(0.0005)
-            bar0Data = self.spam.read(I2C_CMD_REG)
-            if(self.cmdDone(bar0Data)):
-                break
-
-    def waitForReadDone(self):
-        bar0Data = 0x0
-        for i in range(10):
-            if i >= 10:
-                print "I2C Failure"
-                break
-            time.sleep(0.0005)
-            bar0Data = self.spam.read(I2C_CMD_REG)
-            if(self.cmdDone(bar0Data)):
-                break
-
-        return bar0Data
-
-    def cmdRtrvData(self, cmdData):
-        return ((cmdData >> 8) & 0xff)
-
-    def write(self, devAddr,  busSel, regAddr, regData):
-        bar0Data = self.buildWriteCmd(devAddr, regAddr, regData, busSel)
-        self.spam.write(I2C_CMD_REG, bar0Data)
-        # The QSFP+ data sheet mentions that the time needed for a write to be done is 40ms (up to 4 Bytes)
-        time.sleep(0.004)
-        self.waitForWriteDone()
+        """
+        I2C for colossus on BAR0
+        """
+        self.i2c = I2c(port, bar, I2C_CMD_REG)
 
     def read(self, devAddr, busSel, regAddr):
-        bar0Data = self.buildReadCmd(devAddr, regAddr, busSel)
-        self.spam.write(I2C_CMD_REG, bar0Data)
-        bar0Data = self.waitForReadDone()
-        return self.cmdRtrvData(bar0Data)
+        return self.i2c.read(devAddr, busSel, regAddr)
+
+    def write(self, devAddr, busSel, regAddr, regData):
+        return self.i2c.write(devAddr, busSel, regAddr, regData)
 
     def qsfp_read(self, regAddr):
         return self.read(QSFP_DEV_ADDR, QSFP_BUS_SEL, regAddr)
 
     def qsfp_write(self, regAddr, regData):
         self.write(QSFP_DEV_ADDR, QSFP_BUS_SEL, regAddr, regData)
-
-# This is mainly meant as a library module but can be run stand-alone
-# to display version information about the card.
-#
-if __name__ == "__main__":
-        print Colossus(0)

@@ -1,9 +1,5 @@
-from __future__ import with_statement
 import mmap
 import os
-import time
-import struct
-
 import mmap_spirent
 import popen2
 

@@ -13,14 +13,14 @@ class Proteus(Pci):
         Pci.__init__(self, '174a:0a0f', bar, port)
 
 
-class Mdio(portColossus.Mdio):
+class MdioAccess(portColossus.MdioAccess):
     """
     Proteus Mdio implementation
     """
     def __init__(self, port, bar=0):
         self.spam = Proteus(bar, port)
 
-class I2c(portColossus.I2c):
+class I2cAccess(portColossus.I2cAccess):
     """
     Proteus I2c implementation
     """
