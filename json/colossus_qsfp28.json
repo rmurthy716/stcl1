@@ -278,8 +278,181 @@
 	    "setName": "MDIO",
 	    "registers": [
 		{
+		    "address": 49616,
+		    "name": "Retimer PLL Status",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 14,
+			"slice": 2944
+		    },
+		    "values": [
+			{
+			    "attribute": "PMD/PLL Rx Signal Detect",
+			    "expectedValue": true,
+			    "bitMap": 3840,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PMD PLL Signal Detected",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PMD PLL Loss of Signal!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "PMD/PLL Tx Valid",
+			    "expectedValue": true,
+			    "bitMap": 240,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PMD PLL Tx Signal is Valid",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PMD PLL Tx Signal is Invalid!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "PMD/PLL Rx Lock",
+			    "expectedValue": true,
+			    "bitMap": 15,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PMD PLL Rx Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PMD PLL Rx Lost Lock!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 1,
+		    "name": "IEEE Retimer PMA/PMD Status 1",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 14
+		    },
+		    "values": [
+			{
+			    "attribute": "Fault Detected",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No fault detected on retimer",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Fault detected on retimer!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 8,
+		    "name": "IEEE Retimer PMA/PMD Status 2",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 14
+		    },
+		    "values": [
+			{
+			    "attribute": "Transmit Local Fault Ability",
+			    "expectedValue": true,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Retimer can detect transmit local fault conditions",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Retimer cannot detect transmit local fault conditions",
+				    "level": "warning"
+				}
+			    }
+			},
+			{
+			    "attribute": "Receive Local Fault Ability",
+			    "expectedValue": true,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Retimer can detect receive local fault conditions",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Retimer cannot detect receive local fault conditions",
+				    "level": "warning"
+				}
+			    }
+			},
+			{
+			    "attribute": "PMD Transmit Link",
+			    "expectedValue": true,
+			    "bitMap": 2048,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PMD transmit link is up!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PMD transmit link is down!",
+				    "level": "warning"
+				}
+			    }
+			},
+			{
+			    "attribute": "PMD Receive Link",
+			    "expectedValue": true,
+			    "bitMap": 1024,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PMD receive link is up!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PMD receive link is down!",
+				    "level": "warning"
+				}
+			    }
+			}
+		    ]
+		},
+		{
 		    "address": 38912,
-		    "name": "Rx CDR Lock Status",
+		    "name": "Gearbox Rx CDR Lock Status",
 		    "device": "PHY",
 		    "protocolInterface": {
 			"protocol": "MDIO",
@@ -351,70 +524,6 @@
 				},
 				"trueStatus": {
 				    "message": "Rx Lane 4 CDR not locked!",
-				    "level": "danger"
-				}
-			    }
-			}
-		    ]
-		},
-		{
-		    "address": 49616,
-		    "name": "PLL Status",
-		    "device": "PHY",
-		    "protocolInterface": {
-			"protocol": "MDIO",
-			"devAddr": 1,
-			"portAddr": 14,
-			"slice": 2944
-		    },
-		    "values": [
-			{
-			    "attribute": "PMD/PLL Rx Signal Detect",
-			    "expectedValue": true,
-			    "bitMap": 3840,
-			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND",
-			    "statusMessages": {
-				"falseStatus": {
-				    "message": "PMD PLL Signal Detected",
-				    "level": "info"
-				},
-				"trueStatus": {
-				    "message": "PMD PLL Loss of Signal!",
-				    "level": "danger"
-				}
-			    }
-			},
-			{
-			    "attribute": "PMD/PLL Tx Valid",
-			    "expectedValue": true,
-			    "bitMap": 240,
-			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND",
-			    "statusMessages": {
-				"falseStatus": {
-				    "message": "PMD PLL Tx Signal is Valid",
-				    "level": "info"
-				},
-				"trueStatus": {
-				    "message": "PMD PLL Tx Signal is Invalid!",
-				    "level": "danger"
-				}
-			    }
-			},
-			{
-			    "attribute": "PMD/PLL Rx Lock",
-			    "expectedValue": true,
-			    "bitMap": 15,
-			    "comparisonOperator": "NEQ",
-			    "returnOperator": "AND",
-			    "statusMessages": {
-				"falseStatus": {
-				    "message": "PMD PLL Rx Locked!",
-				    "level": "info"
-				},
-				"trueStatus": {
-				    "message": "PMD PLL Rx Lost Lock!",
 				    "level": "danger"
 				}
 			    }
@@ -1209,7 +1318,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1243,7 +1352,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1277,7 +1386,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1311,7 +1420,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1345,7 +1454,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 500,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1379,7 +1488,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 500,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1413,7 +1522,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 500,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1447,7 +1556,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 500,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1481,7 +1590,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1515,7 +1624,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1549,7 +1658,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1583,7 +1692,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",

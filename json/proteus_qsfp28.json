@@ -146,6 +146,310 @@
 	    ]
 	},
 	{
+	    "setName": "MDIO",
+	    "registers": [
+		{
+		    "address": 53612,
+		    "name": "PMD Lock Status Lane 1",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7,
+			"slice": 1
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 1",
+			    "expectedValue": true,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 1 PMD Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 1 PMD lost Lock!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 53612,
+		    "name": "PMD Lock Status Lane 2",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7,
+			"slice": 17
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 2",
+			    "expectedValue": true,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 2 PMD Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 2 PMD lost Lock!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 53612,
+		    "name": "PMD Lock Status Lane 3",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7,
+			"slice": 33
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 3",
+			    "expectedValue": true,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 3 PMD Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 3 PMD lost Lock!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 53612,
+		    "name": "PMD Lock Status Lane 4",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7,
+			"slice": 49
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 4",
+			    "expectedValue": true,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 4 PMD Locked!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 4 PMD lost Lock!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 41217,
+		    "name": "FEC Control",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7
+		    },
+		    "values": [
+			{
+			    "attribute": "FEC Enabled",
+			    "expectedValue": false,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "FEC is disabled",
+				    "level": "warning"
+				},
+				"trueStatus": {
+				    "message": "FEC is enabled",
+				    "level": "success"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 0,
+		    "name": "AN Control",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 7,
+			"portAddr": 7,
+			"slice": 1
+		    },
+		    "values": [
+			{
+			    "attribute": "AN Enable",
+			    "expectedValue": false,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "AN is disabled",
+				    "level": "warning"
+				},
+				"trueStatus": {
+				    "message": "AN is enabled",
+				    "level": "success"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 53576,
+		    "name": "PLL Status Lane 1",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7,
+			"slice": 1
+		    },
+		    "values": [
+			{
+			    "attribute": "PLL Lock Lane 1",
+			    "expectedValue": true,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PLL is locked for Lane 1!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PLL lost lock for Lane 1!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 53576,
+		    "name": "PLL Status Lane 2",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7,
+			"slice": 17
+		    },
+		    "values": [
+			{
+			    "attribute": "PLL Lock Lane 2",
+			    "expectedValue": true,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PLL is locked for Lane 2!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PLL lost lock for Lane 2!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 53576,
+		    "name": "PLL Status Lane 3",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7,
+			"slice": 33
+		    },
+		    "values": [
+			{
+			    "attribute": "PLL Lock Lane 3",
+			    "expectedValue": true,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PLL is locked for Lane 3!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PLL lost lock for Lane 3!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 53576,
+		    "name": "PLL Status Lane 4",
+		    "device": "PHY",
+		    "protocolInterface": {
+			"protocol": "MDIO",
+			"devAddr": 1,
+			"portAddr": 7,
+			"slice": 49
+		    },
+		    "values": [
+			{
+			    "attribute": "PLL Lock Lane 4",
+			    "expectedValue": true,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "PLL is locked for Lane 4!",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "PLL lost lock for Lane 4!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		}
+	    ]
+	},   
+	{
 	    "setName": "I2C",
 	    "registers": [
 		{
@@ -732,7 +1036,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -766,7 +1070,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -800,7 +1104,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -834,7 +1138,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -868,7 +1172,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 500,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -902,7 +1206,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 500,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -936,7 +1240,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 500,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -970,7 +1274,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 500,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1004,7 +1308,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1038,7 +1342,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1072,7 +1376,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",
@@ -1106,7 +1410,7 @@
 		    "values": [
 			{
 			    "attribute": "Power(uW)",
-			    "expectedValue": 1000,
+			    "expectedValue": 200,
 			    "bitMap": 255,
 			    "comparisonOperator": "LEQ",
 			    "returnOperator": "READ",

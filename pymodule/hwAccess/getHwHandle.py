@@ -32,17 +32,17 @@ def getBar1Handle(port):
     """
     if boardFamily == 'COLOSSUS':
         return portColossus.Colossus(1, port)
-    
+
     elif boardFamily == 'PROTEUS':
         return portProteus.Proteus(1, port)
-    
+
     elif boardFamily == 'WRAITH':
-        # Wraith is weird and uses bar2 
+        # Wraith is weird and uses bar2
         return portWraith.Wraith(2, port)
-    
+
     elif boardFamily == 'ICEMAN':
         return portIceman.Iceman(1, port)
-            
+
 def getMdioHandle(port):
     """
     function to get Mdio handle
@@ -58,7 +58,7 @@ def getMdioHandle(port):
 
     elif boardFamily == 'ICEMAN':
         return portIceman.MdioAccess(port)
-            
+
 def getI2cHandle(port):
     """
     function to get I2c handle
@@ -68,10 +68,27 @@ def getI2cHandle(port):
 
     elif boardFamily == 'PROTEUS':
         return portProteus.I2cAccess(port)
-    
+
     elif boardFamily == 'WRAITH':
         return portWraith.I2cAccess(port)
 
     elif boardFamily == 'ICEMAN':
         return portIceman.I2cAccess(port)
-            
+
+
+def getPort(port):
+    """
+    function to get port handle
+    """
+
+    if boardFamily == 'COLOSSUS':
+        return portColossus.Port(port)
+
+    elif boardFamily == 'PROTEUS':
+        return portProteus.Port(port)
+
+    elif boardFamily == 'WRAITH':
+        return portWraith.Port(port)
+
+    elif boardFamily == 'ICEMAN':
+        return portIceman.Port(port)

@@ -5,16 +5,35 @@ import time
 from pci import Pci
 from Mdio import Mdio
 from I2c import I2c
+from l1constants import bit, invert
 # Bar 0 Registers
 
 MDIO_CMD_REG = 0x0078
 MDIO_DATA_REG = 0x007c
 I2C_CMD_REG = 0x0044
 
+# Bar 1 Registers
+FRAMER_PCS_PMA = 0x204
+LOCAL_FAULT = bit(0)
+REMOTE_FAULT = bit(1)
+RX_GTH_RESET = bit(11)
+RX_CORE_RESET = bit(12)
+
+STICKY_REGISTER = 0x208
+HSEC_ERROR = bit(2)
 # MDIO and I2C Constants
 CFP_PORT_ADDR = 0x1
 GEARBOX_PORT_ADDR = 0x0
 CFP_ADAPTOR_PORT_ADDR = 0xe
+DEVICE_1 = 0x1
+DEVICE_7 = 0x7
+FEC_CONTROL = 0x8a05
+GEARBOX_LOOPBACK = 0xf457
+GEARBOX_COMMON_CTRL1 = 0xf402
+RX_GB_RESET = bit(8)
+RPTR_SYNC = 0xd0a0
+SYNC_STATUS = bit(0)
+SLICE_REGISTER = 0x8000
 
 QSFP_DEV_ADDR = 0x50
 QSFP_BUS_SEL = 0x9
@@ -65,6 +84,20 @@ class Colossus(Pci):
         self._write_32(address, value)
         time.sleep(1 / 10000.0)    # sleep for 100 us
 
+    def writeSelectedBits(self, address, mask, data):
+        """
+        function to write only selected bits
+        """
+        # read back value first
+        value = self.read(address)
+        # get all bits that are high and not in mask
+        value &= invert(mask)
+        # get bits that are high in mask
+        value |= (data & mask)
+        # write back what we want
+        self.write(address, value)
+
+
 class MdioAccess():
     def __init__(self, port, bar=0):
         """
@@ -85,17 +118,25 @@ class MdioAccess():
     def cfp_write(self, devAddr, regAddr, data):
         self.mdio.write(CFP_PORT_ADDR, devAddr, regAddr, data)
 
-    def gearbox_read(self, devAddr, regAddr):
-        return self.mdio.read(GEARBOX_PORT_ADDR, devAddr, regAddr)
+    def gearbox_read(self, regAddr):
+        return self.mdio.read(GEARBOX_PORT_ADDR, DEVICE_1, regAddr)
 
-    def gearbox_write(self, devAddr, regAddr, data):
-        return self.mdio.write(GEARBOX_PORT_ADDR, devAddr, regAddr, data)
+    def gearbox_write(self, regAddr, data):
+        return self.mdio.write(GEARBOX_PORT_ADDR, DEVICE_1, regAddr, data)
 
     def cfp_adaptor_read(self, devAddr, regAddr):
         return self.mdio.read(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr)
 
     def cfp_adaptor_write(self, devAddr, regAddr, data):
         self.mdio.write(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr, data)
+
+    def writeSelectedBits(self, devAddr, portAddr, regAddr, mask, data):
+        mdio_data = self.read(devAddr, portAddr, regAddr)
+        mdio_data &= invert(mask)
+        mdio_data |= data
+        # mdio data is only 16 bits in width
+        mdio_data &= 0xffff
+        self.write(devAddr, portAddr, regAddr, mdio_data)
 
 class I2cAccess():
     def __init__(self, port, bar=0):
@@ -115,3 +156,109 @@ class I2cAccess():
 
     def qsfp_write(self, regAddr, regData):
         self.write(QSFP_DEV_ADDR, QSFP_BUS_SEL, regAddr, regData)
+
+
+class Port():
+    def __init__(self, port):
+        """
+        port class for Colossus
+        """
+        self.bar1 = Colossus(1, port)
+        self.i2c = I2cAccess(port)
+        self.mdio = MdioAccess(port)
+
+
+    def setFEC(self, enable):
+        """
+        set FEC configuration
+        """
+        # get back data first
+        data = self.mdio.cfp_adaptor_read(DEVICE_1, FEC_CONTROL)
+        status = bool(data & bit(3))
+        if status != enable:
+            # only set the configuration if it has changed
+            value = (data | bit(3)) if enable else (data & invert(bit(3)))
+            self.mdio.cfp_adaptor_write(DEVICE_1, FEC_CONTROL, value)
+
+        return ""
+
+    def recoverLink(self):
+        """
+        link recovery method
+        """
+        retStatus = {}
+        self.gearboxLoopback(True)
+        self.repeaterSync()
+        self.gearboxLoopback(False)
+
+        self.gearboxLoopback(True)
+        self.resetRxDatapath()
+        self.gearboxLoopback(False)
+
+        # check link status and return it
+        link_data = self.bar1.read(FRAMER_PCS_PMA)
+        hsec_error = self.bar1.read(STICKY_REGISTER) & HSEC_ERROR
+        if link_data & LOCAL_FAULT:
+            retStatus["data"] = "Link Recovery failed! Detected Local Fault!"
+            retStatus["level"] = "danger"
+        elif link_data & REMOTE_FAULT:
+            retStatus["data"] = "Link Recovery done! Detected Remote Fault!"
+            retStatus["level"] = "danger"
+        elif hsec_error:
+            retStatus["data"] = "Link Recovery done! Detected Fpga Core Errors!"
+            retStatus["level"] = "danger"
+        else:
+            retStatus["data"] = "Link Recovery done! Link is UP"
+            retStatus["level"] = "success"
+
+        return retStatus
+
+    def gearboxLoopback(self, enable):
+        """
+        method to put gearbox in and out of loopback
+        """
+        value = 0x3ff if enable else 0
+        print "Setting gearbox loopback to %s" % enable
+        self.mdio.gearbox_write(GEARBOX_LOOPBACK, value)
+
+    def repeaterSync(self):
+        """
+        method to synchronize lanes
+        """
+        data = self.mdio.cfp_adaptor_read(DEVICE_1, RPTR_SYNC)
+        if not data & SYNC_STATUS:
+            # lanes are not synced
+            print "Lanes not synced! Syncing lanes!"
+            self.mdio.cfp_adaptor_write(DEVICE_1, SLICE_REGISTER, 0x0bf0)
+            self.mdio.cfp_adaptor_write(DEVICE_1, RPTR_SYNC, 0x7083)
+
+    def resetRxDatapath(self):
+        """
+        method to reset rx datapath
+        """
+        # clear initial resets
+        self.mdio.writeSelectedBits(0x1, 0x0, GEARBOX_COMMON_CTRL1, RX_GB_RESET, RX_GB_RESET)
+        self.bar1.writeSelectedBits(FRAMER_PCS_PMA, (RX_GTH_RESET | RX_CORE_RESET), 0x0)
+
+        '''
+        Reset Sequence:
+        1) assert Xilinx HSEC Rx reset
+        2) assert Broadcom Rx datapath reset
+        3) deassert Broadcom Rx datapath reset
+        4) deassert Xilinx HSEC Rx Reset
+        '''
+        # put Rx Core in Reset
+        self.bar1.writeSelectedBits(FRAMER_PCS_PMA, RX_CORE_RESET, RX_CORE_RESET)
+        time.sleep(0.001)
+        # put Gearbox in Rx Reset
+        self.mdio.writeSelectedBits(0x1, 0x0, GEARBOX_COMMON_CTRL1, RX_GB_RESET, 0x0)
+        time.sleep(0.1)
+        # take GB out of Rx Reset
+        self.mdio.writeSelectedBits(0x1, 0x0, GEARBOX_COMMON_CTRL1, RX_GB_RESET, RX_GB_RESET)
+        time.sleep(0.2)
+        print "Resetting Rx Gearbox Done!"
+        # take Rx Core out of Reset
+        self.bar1.writeSelectedBits(FRAMER_PCS_PMA, RX_CORE_RESET, 0x0)
+        # basically waiting for GTH Done bit
+        time.sleep(0.8)
+        print "Resetting HSEC Rx Core done!"

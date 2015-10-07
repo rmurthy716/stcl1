@@ -20,6 +20,7 @@ class hw_access(object):
         self.bar1 = getBar1Handle(port)
         self.mdio = getMdioHandle(port)
         self.i2c  = getI2cHandle(port)
+        self.port = getPort(port)
         # initialize combination operator dictionary
         # currently only used to combine numeric data (Power, Counters, etc)
         self.combination_operator_dict = {}
@@ -36,7 +37,7 @@ class hw_access(object):
                 devAddr = protocolInterface["devAddr"]
                 portAddr = protocolInterface["portAddr"]
                 if "slice" in protocolInterface.keys():
-                    self.mdio.write(portAddr, devAddr, 0x8000, protocolInterface["slice"])
+                    self.mdio.write(portAddr, 0x1, 0x8000, protocolInterface["slice"])
                     logger.info("Setting slice register to 0x%x!" % protocolInterface["slice"])
                 data = self.mdio.read(portAddr, devAddr, address)
                 logger.info("Mdio Read of address 0x%x with data of 0x%x" % (address, data))

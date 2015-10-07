@@ -18,6 +18,7 @@ from hwAccess import hw_access
 from l1constants import *
 import psutil
 import time
+import phxhal
 
 class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
@@ -58,6 +59,8 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         print message_parts
         if self.path == "/parseJson.js":
 	    response = open(JS_SCRIPT_PATH + "/parseJson.js").read()
+        elif self.path == "/handleReadWrite.js":
+            response = open(JS_SCRIPT_PATH + "/handleReadWrite.js").read()
         elif self.path == "/portInfo.json":
             response = createJsonResponse(json_data, self.server.hw_handle)
         elif self.path == "/spirentx.jpg":
@@ -92,8 +95,10 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         POST request handler function
         """
         postvars = self.parse_POST()
-        handlePostRequest(postvars, self.server.hw_handle)
-        response = ""
+        try:
+            response = handlePostRequest(postvars, self.server.hw_handle)
+        except:
+            response = ""
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.send_header("Content-Length", "%d" % len(response))
@@ -120,7 +125,7 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-HOST, PORT = get_ip_address('admin0'), 40006
+HOST, PORT = get_ip_address('admin0'), (40006 + (vm_num - 1) * 2)
 
 Handler = MyHTTPHandler
 

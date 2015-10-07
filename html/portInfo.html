@@ -9,6 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
   <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 </head>
@@ -39,6 +40,9 @@ h2 {
 img {
     float: right;
 }
+
+input { margin-bottom: 10px; }
+
 </style>
 
 <body>
@@ -49,17 +53,25 @@ img {
     </div>
     <div id="NavBar">
       <ul class="nav navbar-nav">
-	<li class="active"><a href="/">Home</a></li>
+	<li><a href="/">Home</a></li>
 	<li class="dropdown">
-	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Devices <span class="caret"></span></a>
+	  <a href="#Devices" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Devices <span class="caret"></span></a>
 	  <ul class="dropdown-menu">
 	    <li id="FrontEndPageId"><a href="#FrontEnd">FrontEnd</a></li>
-	    <li id="PHYPageId"><a href="#PHY">PHY</a></li>
+	    <li id="PHYPageId"><a href="#Phy">PHY</a></li>
 	    <li id="FPGAPageId"><a href="#FPGA">FPGA</a></li>
 	    <li id="AllPageId"><a href="#All">All</a></li>
 	  </ul>
 	</li>
-	<!-- <li><a href="/DeveloperMode">Developer Mode</a></li> -->
+	<li class="dropdown">
+	  <a href="#Protocols" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developer Mode <span class="caret"></span></a>
+	  <ul class="dropdown-menu">
+	    <li id="MdioPageId"><a href="#Mdio">MDIO</a></li>
+	    <li id="I2CPageId"><a href="#I2C">I2C</a></li>
+	    <li id="Bar1PageId"><a href="#Bar1">Bar 1</a></li>
+	    <li id="AllProtocolsPageId"><a href="#AllProtocols"> All</a></li>
+	  </ul>
+	</li>
       </ul>
     </div>
   </div>
@@ -82,22 +94,141 @@ img {
       <li><h4> Auto Negotiation</h4><input id="AN" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
       <li><h4> Forward Error Correction</h4><input id="FEC" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
       <li><h4> Layer 1 Polling</h4><input id="poll" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
+      <li><input id="RecoverLink" type="button" class="btn btn-info" value="Recover Link" style="margin-top: 20px;"></li>   
     </ul>
+ </div>
+ <div class="container"> 
+  <div id="Front_End">
   </div>
-  <div class="container">
-    <div id="Front_End">
-    </div>
-    <div id="PHY">
-    </div>
-    <div id="FPGA">
-    </div>
+  <div id="PHY">
   </div>
+  <div id="FPGA">
+  </div>
+  <div id="Mdio">
+      <h3><u>Management Device Input/Output(MDIO)</u></h3>
+      <form id="mdioForm" name="MdioForm" class="form-vertical" action="" method="post" role="form">
+	<div class="form-group">
+	  <label for="sel1">Select device:</label>
+	  <select class="form-control" id="mdiosel">
+	    <option>None</option>
+	    <option>Broadcom Retimer</option>
+	    <option>Broadcom Gearbox</option>	   
+	  </select>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-success">Device Address</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="mdioDevAddr" name="mdioDevAddr" type="text" pattern="0[xX][0-9a-fA-F]+" value="" placeholder="Enter Device Address(hex)" required>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-info">Port Address</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="mdioPortAddr" name="mdioPortAddr" type="text" pattern="0[xX][0-9a-fA-F]+" value="" placeholder="Enter Port Address(hex)" required>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-warning">Register Address</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="mdioRegAddr" name="mdioRegAddr" type="text"  pattern="0[xX][0-9a-fA-F]+" value="" placeholder="Enter Register Address(hex)" required>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-danger">Data</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="mdioData" name="mdioData" type="text"  pattern="0[xX][0-9a-fA-F]+" value="" placeholder="Enter Data Value to Write(hex)">
+	  </div>
+	</div>
+	<div class="col-sm-offset-2 col-sm-10">
+	  <input type="submit" id="MdioRead" name="MdioRead" class="btn btn-success btn-lg" style="margin-bottom: 20px;" value="Read">
+	  <input type="submit"  id="MdioWrite" name="MdioWrite" class="btn btn-info btn-lg" style="margin-bottom: 20px;" value="Write">
+	</div>
+      </form>
+      <div id="MdioStatus">
+      </div>
+    </div>
+    <div id="I2C">
+      <h3><u>Inter-Integrated Circuit(I2C)</u></h3>
+      <form id="i2cForm" class="form-vertical" role="form">
+	<div class="form-group">
+	  <label for="sel1">Select device:</label>
+	  <select class="form-control" id="i2csel">
+	    <option>None</option>
+	    <option>QSFP Module</option>
+	  </select>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-success">Device Address</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="i2cDevAddr" name="i2cDevAddr" type="text" pattern="0[xX][0-9a-fA-F]+" value="" placeholder="Enter Device Address(hex)" required>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-info">Bus Select</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="i2cBusSel" name="i2cBusSel" type="text"  pattern="0[xX][0-9a-fA-F]+" value="" placeholder="Enter Bus Select(hex)" required>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-warning">Register Address</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="i2cRegAddr" name="i2cRegAddr" type="number" min="0"  value="" placeholder="Enter Register Address(decimal)" required>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-danger">Data</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="i2cData" name="i2cData" type="text" pattern="0[xX][0-9a-fA-F]+" value=""  placeholder="Enter Data Value to Write(hex)">
+	  </div>
+	</div>
+	<div class="form-group">
+	  <div class="col-sm-offset-2 col-sm-10">
+	    <input type="submit" id="I2cRead" name="I2cRead" class="btn btn-success btn-lg" style="margin-bottom: 20px;" value="Read">
+	    <input type="submit"  id="I2cWrite" name="I2cWrite" class="btn btn-info btn-lg" style="margin-bottom: 20px;" value="Write">
+	  </div>
+	</div>
+      </form>
+      <div id="I2cStatus">
+      </div>
+    </div>
+    <div id="Bar1">
+      <h3><u>PCI Express Bar 1(FPGA)</u></h3>
+      <form id="bar1Form" class="form-vertical" role="form">
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-success">Register Address</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="bar1Addr" name="bar1Addr" type="text" pattern="0[xX][0-9a-fA-F]+" value="" placeholder="Enter Register Address(hex)" required>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-2 control-label label-info">Data</label>
+	  <div class="col-sm-10">
+	    <input class="form-control" id="bar1Data" name="bar1Data" type="text" pattern="0[xX][0-9a-fA-F]+" value="" placeholder="Enter Data Value to Write(hex)">
+	  </div>
+	</div>
+	<div class="form-group">
+	  <div class="col-sm-offset-2 col-sm-10">
+	    <input type="submit" id="Bar1Read" name="Bar1Read" class="btn btn-success btn-lg" style="margin-bottom: 20px;" value="Read">
+	    <input type="submit"  id="Bar1Write" name="Bar1Write" class="btn btn-info btn-lg" style="margin-bottom: 20px;" value="Write">
+	  </div>
+	</div>
+      </form>
+      <div id="Bar1Status">
+      </div>
+    </div>
+ </div> 
 </div>
 
 <footer>
   <p>&copy; Spirent Communications 2015</p>
 </footer>
 <script src="parseJson.js"></script>
+<script src="handleReadWrite.js"></script>
+<script>
+  $("#Mdio").hide();
+  $("#I2C").hide();
+  $("#Bar1").hide();
+</script>
 <script>
   $(function() {
      $("#poll").change(function() {
@@ -120,11 +251,21 @@ img {
            })
 </script>
 <script>
+  $(function() {
+  $("#RecoverLink").click(function() {
+  $.post("Recover Link", {"Attribute": "RecoverLink"});
+  })
+  })
+</script>
+<script>
    $(function() {
    $("#FrontEndPageId").click(function() {
    $("#Front_End").hide();
    $("#PHY").hide();
    $("#FPGA").hide();
+   $("#Mdio").hide();
+   $("#I2C").hide();
+   $("#Bar1").hide();
    $("#Front_End").fadeIn(600);
    })
    })
@@ -135,6 +276,9 @@ img {
   $("#Front_End").hide();
   $("#PHY").hide();
   $("#FPGA").hide();
+  $("#Mdio").hide();
+  $("#I2C").hide();
+  $("#Bar1").hide();
   $("#PHY").fadeIn(600);
   })
   })
@@ -145,6 +289,9 @@ img {
   $("#Front_End").hide();
   $("#PHY").hide();
   $("#FPGA").hide();
+  $("#Mdio").hide();
+  $("#I2C").hide();
+  $("#Bar1").hide();
   $("#FPGA").fadeIn(600);
   })
   })
@@ -155,9 +302,66 @@ img {
   $("#Front_End").hide();
   $("#PHY").hide();
   $("#FPGA").hide();
+  $("#Mdio").hide();
+  $("#I2C").hide();
+  $("#Bar1").hide();
   $("#Front_End").fadeIn(600);
   $("#PHY").fadeIn(600);
   $("#FPGA").fadeIn(600);
+  })
+  })
+</script>
+<script>
+  $(function() {
+  $("#MdioPageId").click(function() {
+  $("#Front_End").hide();
+  $("#PHY").hide();
+  $("#FPGA").hide();
+  $("#Mdio").hide();
+  $("#I2C").hide();
+  $("#Bar1").hide();
+  $("#Mdio").fadeIn(600);
+  })
+  })
+</script>
+<script>
+  $(function() {
+  $("#I2CPageId").click(function() {
+  $("#Front_End").hide();
+  $("#PHY").hide();
+  $("#FPGA").hide();
+  $("#Mdio").hide();
+  $("#I2C").hide();
+  $("#Bar1").hide();
+  $("#I2C").fadeIn(600);
+  })
+  })
+</script>
+<script>
+  $(function() {
+  $("#Bar1PageId").click(function() {
+  $("#Front_End").hide();
+  $("#PHY").hide();
+  $("#FPGA").hide();
+  $("#Mdio").hide();
+  $("#I2C").hide();
+  $("#Bar1").hide();
+  $("#Bar1").fadeIn(600);
+  })
+  })
+</script>
+<script>
+  $(function() {
+  $("#AllProtocolsPageId").click(function() {
+  $("#Front_End").hide();
+  $("#PHY").hide();
+  $("#FPGA").hide();
+  $("#Mdio").hide();
+  $("#I2C").hide();
+  $("#Bar1").hide();
+  $("#Mdio").fadeIn(600);
+  $("#I2C").fadeIn(600);
+  $("#Bar1").fadeIn(600);
   })
   })
 </script>
