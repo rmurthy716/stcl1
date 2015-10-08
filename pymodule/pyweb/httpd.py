@@ -61,6 +61,8 @@ class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	    response = open(JS_SCRIPT_PATH + "/parseJson.js").read()
         elif self.path == "/handleReadWrite.js":
             response = open(JS_SCRIPT_PATH + "/handleReadWrite.js").read()
+        elif self.path == "/clickMgr.js":
+            response = open(JS_SCRIPT_PATH + "/clickMgr.js").read()
         elif self.path == "/portInfo.json":
             response = createJsonResponse(json_data, self.server.hw_handle)
         elif self.path == "/spirentx.jpg":
