@@ -27,3 +27,12 @@ class I2cAccess(portColossus.I2cAccess):
     """
     def __init__(self, port, bar=0):
         self.i2c = I2c(port, bar, portColossus.I2C_CMD_REG)
+
+class Port(portColossus.Port):
+    """
+    Proteus Port implementation
+    """
+    def __init__(self, port):
+        self.bar1 = Proteus(1, port)
+        self.i2c = I2cAccess(port)
+        self.mdio = MdioAccess(port)
