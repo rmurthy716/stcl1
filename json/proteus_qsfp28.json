@@ -142,7 +142,170 @@
 			    }
 			}
 		    ]
-		}
+		},
+		{
+		    "address": 576,
+		    "name": "Latched Rx Core Statuses",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Sync Errors",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Sync Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected Sync Errors!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "Tx FIFO Errors",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Tx FIFO Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected Tx FIFO Errors!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "Rx Alignment Errors",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Alignment Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected Alignment Errors!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "Rx FIFO Error",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Rx FIFO Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected Rx FIFO Errors!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "Lane Marker Errors",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Lane Marker Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected Lane Marker Errors!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "Length Errors",
+			    "expectedValue": false,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected Length Errors!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "Repeat Errors",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected Repeat Errors!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "BIP Errors",
+			    "expectedValue": false,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected BIP Errors!",
+				    "level": "danger"
+				}
+			    }
+			},
+			{
+			    "attribute": "BER Errors",
+			    "expectedValue": false,
+			    "bitMap": 512,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No BER Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected BER Errors!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		}	
 	    ]
 	},
 	{
