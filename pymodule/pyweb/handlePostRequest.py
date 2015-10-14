@@ -21,7 +21,9 @@ def setAN(hw_access_handle, data):
     """
     set Auto Negotiation Configuration
     """
-    return ""
+    enableString = data["Value"][0]
+    enable = True if enableString == "true" else False
+    return hw_access_handle.port.setAN(enable)
 
 def mdioRead(hw_access_handle, data):
     """

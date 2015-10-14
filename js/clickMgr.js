@@ -6,6 +6,9 @@ function initializeView()
     $("#Mdio").hide();
     $("#I2C").hide();
     $("#Bar1").hide();
+    $("#PCSDiag").hide();
+    $("#PHYDiag").hide();
+    $("#FrontEndDiag").hide();
 }
     
 function manageClicks()
@@ -13,6 +16,8 @@ function manageClicks()
     handlePollChange();
     handleANChange();
     handleFECChange();
+    handleAutoRecovery();
+    handleAutoRecoveryChange();
     handleRecoverLink();
     handlePageChange();
 }
@@ -23,6 +28,17 @@ function handlePollChange()
 	  $("#poll").change(function() {
 	 createHTML();
 	  })
+    })
+}
+
+function handleAutoRecoveryChange()
+{
+    $(function() {
+	$("#AutoRecovery").change(function() {
+	    if($('#AutoRecovery').is(":checked")) {
+		handleAutoRecovery();
+	    }
+	})
     })
 }
 
@@ -42,6 +58,15 @@ function handleFECChange()
 	    $.post("FEC", {"Attribute": "FEC", "Value": ($("#FEC").is(":checked"))});
         })
     })
+}
+
+function handleAutoRecovery()
+{
+    if($('#AutoRecovery').is(":checked")) {
+	$.post("Recover Link", {"Attribute": "RecoverLink"});
+	setTimeout(handleAutoRecovery, 3000);
+    }
+
 }
 
 function handleRecoverLink()
@@ -66,6 +91,10 @@ function handlePageChange()
     handleI2cPage();
     handleBar1Page();
     handleAllProtocolsPage();
+
+    handlePCSDiagnosisPage();
+    handlePHYDiagnosisPage();
+    handleFrontEndDiagnosisPage();
 }
 
 function handleFrontEndPage()
@@ -78,6 +107,9 @@ function handleFrontEndPage()
 	    $("#Mdio").hide();
 	    $("#I2C").hide();
 	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
 	    $("#Front_End").fadeIn(600);
 	})
     })
@@ -93,6 +125,9 @@ function handlePhyPage()
 	    $("#Mdio").hide();
 	    $("#I2C").hide();
 	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
 	    $("#PHY").fadeIn(600);
 	})
     })
@@ -108,6 +143,9 @@ function handleFpgaPage()
 	    $("#Mdio").hide();
 	    $("#I2C").hide();
 	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
 	    $("#FPGA").fadeIn(600);
 	})
     })
@@ -123,6 +161,9 @@ function handleAllDevicesPage()
 	    $("#Mdio").hide();
 	    $("#I2C").hide();
 	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
 	    $("#Front_End").fadeIn(600);
 	    $("#PHY").fadeIn(600);
 	    $("#FPGA").fadeIn(600);
@@ -140,6 +181,9 @@ function handleMdioPage()
 	    $("#Mdio").hide();
 	    $("#I2C").hide();
 	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
 	    $("#Mdio").fadeIn(600);
 	})
     })
@@ -155,6 +199,9 @@ function handleI2cPage()
 	    $("#Mdio").hide();
 	    $("#I2C").hide();
 	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
 	    $("#I2C").fadeIn(600);
 	})
     })
@@ -170,6 +217,9 @@ function handleBar1Page()
 	    $("#Mdio").hide();
 	    $("#I2C").hide();
 	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
 	    $("#Bar1").fadeIn(600);
 	})
     })
@@ -185,12 +235,74 @@ function handleAllProtocolsPage()
 	    $("#Mdio").hide();
 	    $("#I2C").hide();
 	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
 	    $("#Mdio").fadeIn(600);
 	    $("#I2C").fadeIn(600);
 	    $("#Bar1").fadeIn(600);
 	})
     })
 }
+
+function handlePCSDiagnosisPage()
+{
+    $(function() {
+	$("#PCSDiagnosis").click(function() {
+	    $("#Front_End").hide();
+	    $("#PHY").hide();
+	    $("#FPGA").hide();
+	    $("#Mdio").hide();
+	    $("#I2C").hide();
+	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
+	    $("#PCSDiag").fadeIn(600);
+	})
+    })
+}
+
+function handlePHYDiagnosisPage()
+{
+    $(function() {
+	$("#PHYDiagnosis").click(function() {
+	    $("#Front_End").hide();
+	    $("#PHY").hide();
+	    $("#FPGA").hide();
+	    $("#Mdio").hide();
+	    $("#I2C").hide();
+	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
+	    $("#PHYDiag").fadeIn(600);
+	})
+    })
+}
+
+function handleFrontEndDiagnosisPage()
+{
+    $(function() {
+	$("#FrontEndDiagnosis").click(function() {
+	    $("#Front_End").hide();
+	    $("#PHY").hide();
+	    $("#FPGA").hide();
+	    $("#Mdio").hide();
+	    $("#I2C").hide();
+	    $("#Bar1").hide();
+	    $("#PCSDiag").hide();
+	    $("#PHYDiag").hide();
+	    $("#FrontEndDiag").hide();
+	    $("#FrontEndDiag").fadeIn(600);
+	})
+    })
+}
+
+
+    
+
+
 
 
 

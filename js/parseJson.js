@@ -5,11 +5,11 @@ function createHTML()
     var current_url = window.location;
     var url = current_url.protocol + "//" + current_url.host + "/portInfo.json";
     var path = current_url.pathname;
-    console.log(path);
+    //console.log(path);
     xmlhttp.onreadystatechange = function() {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	    var parsedJson = JSON.parse(xmlhttp.responseText);
-	    console.log(parsedJson);
+	    //console.log(parsedJson);
             var json_arr = Object.keys(parsedJson).map(function(k) { return parsedJson[k] });
 	    //var filteredPages = ["/PHY", "/FrontEnd", "/FPGA"];
 	    //var arr = (filteredPages.indexOf(path) > -1) ?  filterArray(json_arr, path) : json_arr;
@@ -45,7 +45,7 @@ function filterArray(arr, path){
     var device = pathToDevice[path];
     var registerSetsArr = arr[1];
     var rc = [];
-    console.log("Path to device is " + device);
+    //console.log("Path to device is " + device);
     for(var i = 0; i < registerSetsArr.length; i++) {
 	// get register array from json array
 	var registerSet = registerSetsArr[i];
@@ -53,16 +53,16 @@ function filterArray(arr, path){
 	var rcSet = {};
 	rcSet["setName"] = registerSet["setName"];
 	rcSet["registers"] = [];
-	console.log("Registers are " + registers);
+	//console.log("Registers are " + registers);
 	// filter on devices
 	var filteredRegisters = registers.filter(function(register) {
 	    return register["device"] == device;
 	});
-	console.log("filtered registers are " + filteredRegisters);
+	//console.log("filtered registers are " + filteredRegisters);
 	rcSet["registers"] = filteredRegisters;
 	rc.push(rcSet);
     }
-    console.log("return is " + rc);
+    //console.log("return is " + rc);
     return [arr[0], rc]
 }
 
@@ -90,7 +90,7 @@ function isTrue(value){
 
 function initializeButtons(arr)
 {
-    console.log(arr);
+    //console.log(arr);
     var buttons = {
 	"FEC Enabled": "#FEC",
 	"AN Enable" : "#AN"
@@ -98,13 +98,13 @@ function initializeButtons(arr)
     
     for(var i = 0; i < arr.length; i++) {
 	var registerSet = arr[i];
-	console.log(registerSet);
+	//console.log(registerSet);
 	if(registerSet == null) {
-	    console.log("registerSet is Null!")
+	    //console.log("registerSet is Null!")
 	    continue;
 	}
 	var registers = registerSet["registers"];
-	console.log(registers);
+	//console.log(registers);
 	for(var j = 0; j < registers.length; j++) {
 	    var register = registers[j];
 	    var attributes = register["values"];
@@ -141,24 +141,24 @@ function getDeviceCounts(arr) {
 	"PHY" : 0,
 	"Front End": 0
     };
-    console.log(arr);
+    //console.log(arr);
     for(var i = 0 ; i < arr.length; i++)
     {
 	registerSets = arr[i];
-	console.log(registerSets);
+	//console.log(registerSets);
 	if(registerSets == null) {
-	    console.log("registerSets is Null!")
+	    //console.log("registerSets is Null!")
 	    continue;
 	}
 	registers = registerSets["registers"];
 	for(var j = 0; j < registers.length; j++) { 
 	    register = registers[j];
-	    console.log(register);
+	    //console.log(register);
 	    var htmlKeyId = register["device"];
 	    deviceCounts[htmlKeyId] += 1;
 	}
     }
-    console.log(deviceCounts);
+    //console.log(deviceCounts);
     return deviceCounts;
 }
 /**************************************************************************************/
@@ -167,7 +167,7 @@ function createTitle(arr) {
     // first element gives us the board family
     var title = "<h2 style=\"margin-top: 0px;\">" + arr[0] + " Port Information<br></h2>";
     document.getElementById("title").innerHTML = title;
-    console.log(title);
+    //console.log(title);
 }
     
     
@@ -222,21 +222,22 @@ function parseJson(arr) {
     }
     // second element gives us the port data
     var registerSets = arr[1];
+    createDiagnosisPage(registerSets);
     var deviceCounts = getDeviceCounts(registerSets);
-    console.log(registerSets)
+    //console.log(registerSets)
     for (var i = 0; i < registerSets.length; i++)
     {
 	var registerSet = registerSets[i];
-	console.log(registerSet);
+	//console.log(registerSet);
 	if(registerSet == null) {
 	    console.log("registerSet is Null!")
 	    continue;
 	}
 	var registers = registerSet["registers"];
 	for(var j = 0; j < registers.length; j++) {
-	    console.log(registers[j]);
+	    //console.log(registers[j]);
 	    var register = registers[j];
-	    console.log(register);
+	    //console.log(register);
             var htmlKeyId = register["device"];
 	
 	    // create row
@@ -274,8 +275,8 @@ function parseJson(arr) {
 		var curAttribute = attributes[k].attribute;
 		var curValue = attributes[k].actualValue;
 		var comparisonOperatorString = attributes[k].comparisonOperator;
-		console.log("Combo operator string is " + comparisonOperatorString);
-		console.log(comparisonFunctions[comparisonOperatorString]);
+		//console.log("Combo operator string is " + comparisonOperatorString);
+		//console.log(comparisonFunctions[comparisonOperatorString]);
 		var status = comparisonFunctions[comparisonOperatorString](curValue, attributes[k].expectedValue);
 		var statusMessages = attributes[k].statusMessages;
 		if(status) {
@@ -324,8 +325,183 @@ function parseJson(arr) {
 	// only set html if there are attributes
 	if(outputCounter[key] > 0) {
 	    document.getElementById(key).innerHTML = outputObject[key];
-	    console.log(outputObject[key]);
+	    //console.log(outputObject[key]);
 	}
     }
 }
 
+function createDiagnosisPage(registerSets)
+{
+    var deviceToHtmlTag = {
+	"FPGA": "PCSDiag",
+	"Front_End": "FrontEndDiag",
+	"PHY": "PHYDiag"
+    }
+    
+    var comparisonFunctions = {
+	"NEQ" : comparisonNotEqual,
+	"EQ"  : comparisonEqual,
+	"LEQ" : comparisonLessEqual
+    };
+
+    var outputObject = {
+	"FPGA": "",
+	"PHY": "",
+	"Front_End" : ""
+    };
+
+    var fpgaLedValues = {
+	"Block Lock" : {},
+	"Sync": {},
+	"BIP8" : {},
+	"Length Errors": {},
+	"Repeat Errors": {},
+	"Marker Errors": {}
+    }
+
+    var phyLedValues = {
+	"PMD Lock" : {},
+	"PMD Signal" : {}
+    }
+
+    var frontEndLedValues = {
+	"Tx Power": {},
+	"Tx Signal": {},
+	"Tx Lock": {},
+	"Rx Power": {},
+	"Rx Signal": {},
+	"Rx Lock": {}
+    }
+
+    var deviceToLed = {
+	"FPGA": fpgaLedValues,
+	"PHY": phyLedValues,
+	"Front_End": frontEndLedValues
+    }
+    
+    // create our tables
+    outputObject["FPGA"] += "<div class=\"row\">\n";
+    outputObject["FPGA"] += "<div class=\"col-md-12\">\n";
+    outputObject["FPGA"] += "<h4> <b><u>PCS Diagnosis </b></u></h4>\n";
+    outputObject["FPGA"] += "<table class=\"table table-hover\">\n";
+    outputObject["FPGA"] += "<thead>\n";
+    outputObject["FPGA"] += "<tr>\n";
+    outputObject["FPGA"] += "<th>Lane</th>\n";
+    outputObject["FPGA"] += "<th>Block Lock</th>\n";
+    outputObject["FPGA"] += "<th>Sync</th>\n";
+    outputObject["FPGA"] += "<th> BIP8 </th>\n";
+    outputObject["FPGA"] += "<th> Length Errors</th>\n";
+    outputObject["FPGA"] += "<th> Repeat Errors</th>\n";
+    outputObject["FPGA"] += "<th> Marker Errors</th>\n";
+    outputObject["FPGA"] += "</tr>\n";
+    outputObject["FPGA"] += "</thead>";
+    outputObject["FPGA"] += "<tbody>\n";
+
+    outputObject["PHY"] += "<div class=\"row\">\n";
+    outputObject["PHY"] += "<div class=\"col-md-12\">\n";
+    outputObject["PHY"] += "<h4> <b><u>PHY Diagnosis</b></u> </h4>\n";
+    outputObject["PHY"] += "<table class=\"table table-hover\">\n";
+    outputObject["PHY"] += "<thead>\n";
+    outputObject["PHY"] += "<tr>\n";
+    outputObject["PHY"] += "<th>PMD Lock</th>\n";
+    outputObject["PHY"] += "<th>PMD Signal</th>\n";
+    outputObject["PHY"] += "</tr>\n";
+    outputObject["PHY"] += "</thead>";
+    outputObject["PHY"] += "<tbody>\n";
+
+    outputObject["Front_End"] += "<div class=\"row\">\n";
+    outputObject["Front_End"] += "<div class=\"col-md-12\">\n";
+    outputObject["Front_End"] += "<h4> Front End Diagnosis </h4>\n";
+    outputObject["Front_End"] += "<table class=\"table table-hover\">\n";
+    outputObject["Front_End"] += "<thead>\n";
+    outputObject["Front_End"] += "<tr>\n";
+    outputObject["Front_End"] += "<th>Lane</th>\n";
+    outputObject["Front_End"] += "<th>Tx Power</th>\n";
+    outputObject["Front_End"] += "<th>Tx Signal</th>\n";
+    outputObject["Front_End"] += "<th>Tx Lock</th>\n";
+    outputObject["Front_End"] += "<th>Rx Power</th>\n";
+    outputObject["Front_End"] += "<th>Rx Signal</th>\n";
+    outputObject["Front_End"] += "<th>Rx Lock</th>\n";
+    outputObject["Front_End"] += "</tr>\n";
+    outputObject["Front_End"] += "</thead>";
+    outputObject["Front_End"] += "<tbody>\n";
+
+    for(var i = 0; i < registerSets.length; i++)
+    {
+	var registerSet = registerSets[i];
+	if(registerSet == null) {
+	    continue;
+	}
+
+	var registers = registerSet["registers"];
+	for(var j = 0; j < registers.length; j++)
+	{
+	    var register = registers[j];
+	    var htmlkeyId = register["device"];
+	    var attributes = register["values"];
+	    var ledValues = deviceToLed[htmlkeyId];
+
+	    for(var k = 0; k < attributes.length; k++)
+	    {
+		if("diagnosis" in attributes[k])
+		{
+		    var curValue = attributes[k].actualValue;
+		    var comparisonOperatorString = attributes[k].comparisonOperator;
+		    var status = comparisonFunctions[comparisonOperatorString](curValue, attributes[k].expectedValue);
+		    var attribute = ledValues[attributes[k].diagnosis["attribute"]];
+		    attribute[attributes[k].diagnosis["lane"]] = status;
+		}
+	    }
+	}
+    }
+
+    // create PCS rows
+    // kinda hard coded to 20 but lets try and be dynamic in future
+    for(var c = 1; c <= 20; c++)
+    {
+	outputObject["FPGA"] += "<tr>";
+	outputObject["FPGA"] += "<td>" + c + "</td>";
+	outputObject["FPGA"] += "<td>" + boolToLed(fpgaLedValues["Block Lock"][c]) + "</td>";
+	outputObject["FPGA"] += "<td>" + boolToLed(fpgaLedValues["Sync"][c]) + "</td>";
+	outputObject["FPGA"] += "<td>" + boolToLed(fpgaLedValues["BIP8"][c]) + "</td>";
+	outputObject["FPGA"] += "<td>" + boolToLed(fpgaLedValues["Length Errors"][c]) + "</td>";
+	outputObject["FPGA"] += "<td>" + boolToLed(fpgaLedValues["Repeat Errors"][c]) + "</td>";
+	outputObject["FPGA"] += "<td>" + boolToLed(fpgaLedValues["Marker Errors"][c]) + "</td>";
+    }
+
+    for(var b = 1; b <=4; b++)
+    {
+	outputObject["Front_End"] += "<tr>";
+	outputObject["Front_End"] += "<td>" + b + "</td>";
+	outputObject["Front_End"] += "<td>" + boolToLed(frontEndLedValues["Tx Power"][b]) + "</td>";
+	outputObject["Front_End"] += "<td>" + boolToLed(frontEndLedValues["Tx Signal"][b]) + "</td>";
+	outputObject["Front_End"] += "<td>" + boolToLed(frontEndLedValues["Tx Lock"][b]) + "</td>";
+	outputObject["Front_End"] += "<td>" + boolToLed(frontEndLedValues["Rx Power"][b]) + "</td>";
+	outputObject["Front_End"] += "<td>" + boolToLed(frontEndLedValues["Rx Signal"][b]) + "</td>";
+	outputObject["Front_End"] += "<td>" + boolToLed(frontEndLedValues["Rx Lock"][b]) + "</td>";
+    }
+    console.log(frontEndLedValues);
+
+    for(var key in outputObject) {
+	var htmlId = deviceToHtmlTag[key];
+	outputObject[key] += "</tbody></table></div>";
+	document.getElementById(htmlId).innerHTML = outputObject[key];
+    }
+}
+    
+    
+function boolToLed(value)
+{
+    var output = ""
+    if(!value)
+    {
+	output += "<button type=\"button\" class=\"btn-circle-green\"></button>";
+    }
+    else
+    {
+	output += "<button type=\"button\" class=\"btn-circle-red\"></button>";
+    }
+    return output;
+}
+
+    

@@ -34,6 +34,14 @@ RX_GB_RESET = bit(8)
 RPTR_SYNC = 0xd0a0
 SYNC_STATUS = bit(0)
 SLICE_REGISTER = 0x8000
+LOGIC_TO_PHY_LANE0_MAP = 0x8a08
+AN_ADVERTISEMENT_3 = 0x12
+AN_ADVERTISEMENT_2 = 0x11
+AN_ADVERTISEMENT_1 = 0x10
+AN_CONTROL = 0x0
+FRONT_PANEL = 0x8a03
+AN_TRIGGER = 0x8235
+MAX_FW_READ_COUNT = 30
 
 QSFP_DEV_ADDR = 0x50
 QSFP_BUS_SEL = 0x9
@@ -99,6 +107,9 @@ class Colossus(Pci):
 
 
 class MdioAccess():
+    """
+    Mdio Access Class
+    """
     def __init__(self, port, bar=0):
         """
         initialize MDIO Bar0 Class
@@ -122,7 +133,7 @@ class MdioAccess():
         return self.mdio.read(GEARBOX_PORT_ADDR, DEVICE_1, regAddr)
 
     def gearbox_write(self, regAddr, data):
-        return self.mdio.write(GEARBOX_PORT_ADDR, DEVICE_1, regAddr, data)
+        self.mdio.write(GEARBOX_PORT_ADDR, DEVICE_1, regAddr, data)
 
     def cfp_adaptor_read(self, devAddr, regAddr):
         return self.mdio.read(CFP_ADAPTOR_PORT_ADDR, devAddr, regAddr)
@@ -139,6 +150,9 @@ class MdioAccess():
         self.write(devAddr, portAddr, regAddr, mdio_data)
 
 class I2cAccess():
+    """
+    I2c Access Class
+    """
     def __init__(self, port, bar=0):
         """
         I2C for colossus on BAR0
@@ -159,6 +173,9 @@ class I2cAccess():
 
 
 class Port():
+    """
+    Port Handle Class
+    """
     def __init__(self, port):
         """
         port class for Colossus
@@ -174,11 +191,58 @@ class Port():
         """
         # get back data first
         data = self.mdio.cfp_adaptor_read(DEVICE_1, FEC_CONTROL)
-        status = bool(data & bit(3))
-        if status != enable:
-            # only set the configuration if it has changed
-            value = (data | bit(3)) if enable else (data & invert(bit(3)))
-            self.mdio.cfp_adaptor_write(DEVICE_1, FEC_CONTROL, value)
+        # only set the configuration if it has changed
+        value = (data | bit(3)) if enable else (data & invert(bit(3)))
+        self.mdio.cfp_adaptor_write(DEVICE_1, FEC_CONTROL, value)
+        time.sleep(0.5)
+        return ""
+
+    def setAN(self, enable):
+        """
+        set AN configuration
+        """
+        # select lane 0
+        self.mdio.cfp_adaptor_write(DEVICE_7, SLICE_REGISTER, 0x3b80)
+        # set lane0 for AN DME
+        self.mdio.cfp_adaptor_write(DEVICE_1, LOGIC_TO_PHY_LANE0_MAP, 0x203)
+
+        if enable:
+            # AN Adv3 bit14=1 FEC Ability
+            self.mdio.cfp_adaptor_write(DEVICE_7, AN_ADVERTISEMENT_3, 0x4000)
+            # AN Adv2 bit13=1 100G-CR4
+            self.mdio.cfp_adaptor_write(DEVICE_7, AN_ADVERTISEMENT_2, 0x2000)
+            # AN Adv1
+            self.mdio.cfp_adaptor_write(DEVICE_7, AN_ADVERTISEMENT_1, 0x1)
+            # Enable/Restart AN process
+            self.mdio.cfp_adaptor_write(DEVICE_7, AN_CONTROL, 0x1200)
+            # PHY= Front Panel
+            self.mdio.cfp_adaptor_write(DEVICE_1, FRONT_PANEL, 0x1)
+            # trigger FW changes
+            self.mdio.cfp_adaptor_write(DEVICE_1, AN_TRIGGER, 0x1)
+            data = 0xffff
+            read_count = 0
+            while (data & bit(0) != 0x0) and read_count < MAX_FW_READ_COUNT:
+                data = self.mdio.cfp_adaptor_read(DEVICE_1, AN_TRIGGER)
+                read_count += 1
+            time.sleep(1)
+
+        else:
+            # reset and disable AN
+            self.mdio.cfp_adaptor_write(DEVICE_7, AN_CONTROL, 0x8000)
+            # trigger changes
+            self.mdio.cfp_adaptor_write(DEVICE_1, AN_TRIGGER, 0x1)
+            while (data & bit(0) != 0x0) and read_count < MAX_FW_READ_COUNT:
+                data = self.mdio.cfp_adaptor_read(DEVICE_1, AN_TRIGGER)
+                read_count += 1
+            time.sleep(0.01)
+            # disable AN
+            self.mdio.cfp_adaptor_write(DEVICE_7, AN_CONTROL, 0x0)
+            # trigger changes
+            self.mdio.cfp_adaptor_write(DEVICE_1, AN_TRIGGER, 0x1)
+            while (data & bit(0) != 0x0) and read_count < MAX_FW_READ_COUNT:
+                data = self.mdio.cfp_adaptor_read(DEVICE_1, AN_TRIGGER)
+                read_count += 1
+            time.sleep(0.2)
 
         return ""
 
@@ -187,6 +251,16 @@ class Port():
         link recovery method
         """
         retStatus = {}
+        # first check link and only recovery if there are any local faults
+        link_data = self.bar1.read(FRAMER_PCS_PMA)
+        sticky_data = self.bar1.read(STICKY_REGISTER)
+        if not bool(link_data & LOCAL_FAULT) and not bool(sticky_data & LOCAL_FAULT):
+            # link is up don't recover
+            retStatus["data"] = "Link Recovery done! Link is UP"
+            retStatus["level"] = "success"
+            return retStatus
+
+        # link is down proceed with recovery
         self.gearboxLoopback(True)
         self.repeaterSync()
         self.gearboxLoopback(False)
@@ -240,13 +314,13 @@ class Port():
         self.mdio.writeSelectedBits(0x1, 0x0, GEARBOX_COMMON_CTRL1, RX_GB_RESET, RX_GB_RESET)
         self.bar1.writeSelectedBits(FRAMER_PCS_PMA, (RX_GTH_RESET | RX_CORE_RESET), 0x0)
 
-        '''
+        """
         Reset Sequence:
         1) assert Xilinx HSEC Rx reset
         2) assert Broadcom Rx datapath reset
         3) deassert Broadcom Rx datapath reset
         4) deassert Xilinx HSEC Rx Reset
-        '''
+        """
         # put Rx Core in Reset
         self.bar1.writeSelectedBits(FRAMER_PCS_PMA, RX_CORE_RESET, RX_CORE_RESET)
         time.sleep(0.001)

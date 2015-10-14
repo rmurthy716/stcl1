@@ -458,6 +458,10 @@
 				    "message": "Lane 1 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -475,7 +479,12 @@
 				    "message": "Lane 2 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Block Lock"
 			    }
+			    
 			},
 			{
 			    "attribute": "Lane 3 Rx Block",
@@ -492,7 +501,12 @@
 				    "message": "Lane 3 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Block Lock"
 			    }
+			    
 			},
 			{
 			    "attribute": "Lane 4 Rx Block",
@@ -509,6 +523,10 @@
 				    "message": "Lane 4 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -526,6 +544,10 @@
 				    "message": "Lane 5 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -543,6 +565,10 @@
 				    "message": "Lane 6 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -560,6 +586,10 @@
 				    "message": "Lane 7 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -577,6 +607,10 @@
 				    "message": "Lane 8 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -594,6 +628,10 @@
 				    "message": "Lane 9 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -611,6 +649,10 @@
 				    "message": "Lane 10 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -628,6 +670,10 @@
 				    "message": "Lane 11 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -645,6 +691,10 @@
 				    "message": "Lane 12 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -662,6 +712,10 @@
 				    "message": "Lane 13 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -679,6 +733,10 @@
 				    "message": "Lane 14 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -696,6 +754,10 @@
 				    "message": "Lane 15 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -713,6 +775,10 @@
 				    "message": "Lane 16 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -730,6 +796,10 @@
 				    "message": "Lane 17 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -747,6 +817,10 @@
 				    "message": "Lane 18 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -764,6 +838,10 @@
 				    "message": "Lane 19 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -781,6 +859,10 @@
 				    "message": "Lane 20 lost Rx Block Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Block Lock"
 			    }
 			},
 			{
@@ -825,6 +907,10 @@
 				    "message": "Lane 1 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -842,6 +928,10 @@
 				    "message": "Lane 2 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -859,6 +949,10 @@
 				    "message": "Lane 3 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -876,6 +970,10 @@
 				    "message": "Lane 4 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -893,6 +991,10 @@
 				    "message": "Lane 5 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -910,6 +1012,10 @@
 				    "message": "Lane 6 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -927,6 +1033,10 @@
 				    "message": "Lane 7 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -944,6 +1054,10 @@
 				    "message": "Lane 8 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -961,6 +1075,10 @@
 				    "message": "Lane 9 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -978,6 +1096,10 @@
 				    "message": "Lane 10 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -995,6 +1117,10 @@
 				    "message": "Lane 11 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1012,6 +1138,10 @@
 				    "message": "Lane 12 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1029,6 +1159,10 @@
 				    "message": "Lane 13 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1046,6 +1180,10 @@
 				    "message": "Lane 14 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1063,6 +1201,10 @@
 				    "message": "Lane 15 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1080,6 +1222,10 @@
 				    "message": "Lane 16 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1097,6 +1243,10 @@
 				    "message": "Lane 17 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1114,6 +1264,10 @@
 				    "message": "Lane 18 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1131,6 +1285,10 @@
 				    "message": "Lane 19 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Sync"
 			    }
 			},
 			{
@@ -1148,13 +1306,17 @@
 				    "message": "Lane 20 not Synced!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Sync"
 			    }
-			}
+			}                       
 		    ]
 		},
 		{
 		    "address": 556,
-		    "name": "PCS Lane Marker Word Error",
+		    "name": "HSEC Core Lane Marker Word Error",
 		    "device": "FPGA",
 		    "protocolInterface": {
 			"protocol": "Bar1"
@@ -1175,6 +1337,10 @@
 				    "message": "Lane 1 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1192,6 +1358,10 @@
 				    "message": "Lane 2 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1209,6 +1379,10 @@
 				    "message": "Lane 3 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1226,6 +1400,10 @@
 				    "message": "Lane 4 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1243,6 +1421,10 @@
 				    "message": "Lane 5 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1260,6 +1442,10 @@
 				    "message": "Lane 6 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1277,6 +1463,10 @@
 				    "message": "Lane 7 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1294,6 +1484,10 @@
 				    "message": "Lane 8 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1311,6 +1505,10 @@
 				    "message": "Lane 9 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1328,6 +1526,10 @@
 				    "message": "Lane 10 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1345,6 +1547,10 @@
 				    "message": "Lane 11 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1362,6 +1568,10 @@
 				    "message": "Lane 12 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1379,6 +1589,10 @@
 				    "message": "Lane 13 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1396,6 +1610,10 @@
 				    "message": "Lane 14 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1413,6 +1631,10 @@
 				    "message": "Lane 15 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1430,6 +1652,10 @@
 				    "message": "Lane 16 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1447,6 +1673,10 @@
 				    "message": "Lane 17 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1464,6 +1694,10 @@
 				    "message": "Lane 18 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1481,6 +1715,10 @@
 				    "message": "Lane 19 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Marker Errors"
 			    }
 			},
 			{
@@ -1498,6 +1736,10 @@
 				    "message": "Lane 20 has Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Marker Errors"
 			    }
 			}
 		    ]
@@ -1525,6 +1767,10 @@
 				    "message": "Lane 1 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1542,6 +1788,10 @@
 				    "message": "Lane 2 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1559,6 +1809,10 @@
 				    "message": "Lane 3 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1576,6 +1830,10 @@
 				    "message": "Lane 4 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1593,6 +1851,10 @@
 				    "message": "Lane 5 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1610,6 +1872,10 @@
 				    "message": "Lane 6 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1627,6 +1893,10 @@
 				    "message": "Lane 7 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1644,6 +1914,10 @@
 				    "message": "Lane 8 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1661,6 +1935,10 @@
 				    "message": "Lane 9 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1678,6 +1956,10 @@
 				    "message": "Lane 10 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1695,6 +1977,10 @@
 				    "message": "Lane 11 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1712,6 +1998,10 @@
 				    "message": "Lane 12 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1729,6 +2019,10 @@
 				    "message": "Lane 13 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1746,6 +2040,10 @@
 				    "message": "Lane 14 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1763,6 +2061,10 @@
 				    "message": "Lane 15 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1780,6 +2082,10 @@
 				    "message": "Lane 16 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1797,6 +2103,10 @@
 				    "message": "Lane 17 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1814,6 +2124,10 @@
 				    "message": "Lane 18 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1831,6 +2145,10 @@
 				    "message": "Lane 19 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Length Errors"
 			    }
 			},
 			{
@@ -1848,6 +2166,10 @@
 				    "message": "Lane 20 has Length Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Length Errors"
 			    }
 			}
 		    ]
@@ -1875,6 +2197,10 @@
 				    "message": "Lane 1 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -1892,6 +2218,10 @@
 				    "message": "Lane 2 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -1909,6 +2239,10 @@
 				    "message": "Lane 3 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -1926,6 +2260,10 @@
 				    "message": "Lane 4 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -1943,6 +2281,10 @@
 				    "message": "Lane 5 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -1960,6 +2302,10 @@
 				    "message": "Lane 6 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -1977,6 +2323,10 @@
 				    "message": "Lane 7 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -1994,6 +2344,10 @@
 				    "message": "Lane 8 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2011,6 +2365,10 @@
 				    "message": "Lane 9 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2028,6 +2386,10 @@
 				    "message": "Lane 10 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2045,6 +2407,10 @@
 				    "message": "Lane 11 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2062,6 +2428,10 @@
 				    "message": "Lane 12 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2079,6 +2449,10 @@
 				    "message": "Lane 13 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2096,6 +2470,10 @@
 				    "message": "Lane 14 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2113,6 +2491,10 @@
 				    "message": "Lane 15 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2130,6 +2512,10 @@
 				    "message": "Lane 16 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2147,6 +2533,10 @@
 				    "message": "Lane 17 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2164,6 +2554,10 @@
 				    "message": "Lane 18 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2181,6 +2575,10 @@
 				    "message": "Lane 19 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Repeat Errors"
 			    }
 			},
 			{
@@ -2198,6 +2596,10 @@
 				    "message": "Lane 20 has Repeat Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Repeat Errors"
 			    }
 			}
 		    ]
@@ -2225,6 +2627,10 @@
 				    "message": "Lane 1 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2242,6 +2648,10 @@
 				    "message": "Lane 2 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2259,6 +2669,10 @@
 				    "message": "Lane 3 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2276,6 +2690,10 @@
 				    "message": "Lane 4 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2293,6 +2711,10 @@
 				    "message": "Lane 5 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2310,6 +2732,10 @@
 				    "message": "Lane 6 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2327,6 +2753,10 @@
 				    "message": "Lane 7 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2344,6 +2774,10 @@
 				    "message": "Lane 8 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2361,6 +2795,10 @@
 				    "message": "Lane 9 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2378,6 +2816,10 @@
 				    "message": "Lane 10 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2395,6 +2837,10 @@
 				    "message": "Lane 11 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2412,6 +2858,10 @@
 				    "message": "Lane 12 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2429,6 +2879,10 @@
 				    "message": "Lane 13 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2446,6 +2900,10 @@
 				    "message": "Lane 14 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2463,6 +2921,10 @@
 				    "message": "Lane 15 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2480,6 +2942,10 @@
 				    "message": "Lane 16 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2497,6 +2963,10 @@
 				    "message": "Lane 17 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2514,6 +2984,10 @@
 				    "message": "Lane 18 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2531,6 +3005,10 @@
 				    "message": "Lane 19 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "BIP8"
 			    }
 			},
 			{
@@ -2548,6 +3026,10 @@
 				    "message": "Lane 20 has BIP Errors!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "BIP8"
 			    }
 			}
 		    ]
@@ -3638,6 +4120,11 @@
 				    "message": "Rx Lane 1 Power is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Rx Power"
 			    }
 			}
 		    ]	
@@ -3672,6 +4159,11 @@
 				    "message": "Rx Power 2 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Rx Power"
 			    }
 			}
 		    ]
@@ -3706,6 +4198,11 @@
 				    "message": "Rx Power 3 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Rx Power"
 			    }
 			}
 		    ]
@@ -3740,6 +4237,11 @@
 				    "message": "Rx Power 4 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Rx Power"
 			    }
 			}
 		    ]
@@ -3910,6 +4412,11 @@
 				    "message": "Tx Power 1 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Tx Power"
 			    }
 			}
 		    ]
@@ -3944,6 +4451,11 @@
 				    "message": "Tx Power 2 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Tx Power"
 			    }
 			}
 		    ]
@@ -3978,6 +4490,11 @@
 				    "message": "Tx Power 3 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Tx Power"
 			    }
 			}
 		    ]
@@ -4012,6 +4529,11 @@
 				    "message": "Tx Power 4 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Tx Power"
 			    }
 			}
 		    ]
@@ -4072,6 +4594,11 @@
 				    "message": "Tx Lane 1 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Tx Signal"
 			    }
 			},
 			{
@@ -4089,6 +4616,11 @@
 				    "message": "Tx Lane 2 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Tx Signal"
 			    }
 			},
 			{
@@ -4106,6 +4638,11 @@
 				    "message": "Tx Lane 3 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Tx Signal"
 			    }
 			},
 			{
@@ -4123,6 +4660,11 @@
 				    "message": "Tx Lane 4 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Tx Signal"
 			    }
 			},
 			{
@@ -4140,6 +4682,11 @@
 				    "message": "Rx Lane 1 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Rx Signal"
 			    }
 			},
 			{
@@ -4157,6 +4704,11 @@
 				    "message": "Rx Lane 2 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Rx Signal"
 			    }
 			},
 			{
@@ -4174,6 +4726,11 @@
 				    "message": "Rx Lane 3 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Rx Signal"
 			    }
 			},
 			{
@@ -4191,6 +4748,11 @@
 				    "message": "Rx Lane 4 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Rx Signal"
 			    }
 			}
 		    ]
@@ -4221,6 +4783,11 @@
 				    "message": "Tx Lane 1 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Tx Lock"
 			    }
 			},
 			{
@@ -4238,6 +4805,11 @@
 				    "message": "Tx Lane 2 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Tx Lock"
 			    }
 			},
 			{
@@ -4255,6 +4827,11 @@
 				    "message": "Tx Lane 3 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Tx Lock"
 			    }
 			},
 			{
@@ -4272,6 +4849,11 @@
 				    "message": "Tx Lane 4 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Tx Lock"
 			    }
 			},
 			{
@@ -4289,6 +4871,11 @@
 				    "message": "Rx Lane 1 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Rx Lock"
 			    }
 			},
 			{
@@ -4306,6 +4893,11 @@
 				    "message": "Rx Lane 2 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Rx Lock"
 			    }
 			},
 			{
@@ -4323,6 +4915,11 @@
 				    "message": "Rx Lane 3 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Rx Lock"
 			    }
 			},
 			{
@@ -4340,6 +4937,11 @@
 				    "message": "Rx Lane 4 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Rx Lock"
 			    }
 			}
 		    ]

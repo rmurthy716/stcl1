@@ -1,0 +1,13 @@
+#!/bin/sh
+
+PYTHON="/usr/spirent/bin/python"
+PID_FILE="/var/run/stcl1d.pid"
+MODULE_DIR="/usr/spirent/stcl1/daemon"
+
+if [ -e ${MODULE_DIR}/stcl1d.pyo ]; then
+    STCL1_MODULE=${MODULE_DIR}/stcl1d.pyo
+else
+    STCL1_MODULE=${MODULE_DIR}/stcl1d.py
+fi
+
+start-stop-daemon --start --quiet --background --pidfile $PID_FILE --exec $PYTHON -- -O $STCL1_MODULE $@

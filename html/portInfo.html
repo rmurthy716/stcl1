@@ -43,6 +43,46 @@ img {
 
 input { margin-bottom: 10px; }
 
+@-webkit-keyframes greenPulse {
+from { background-color: #00A352; -webkit-box-shadow: 0 0 9px #00A352; }
+50% { background-color: #33D685; -webkit-box-shadow: 0 0 25px #33D685; }
+to { background-color: #00A352; -webkit-box-shadow: 0 0 9px #00A352; }
+}
+
+@-webkit-keyframes redPulse {
+from { background-color: #CC1414; -webkit-box-shadow: 0 0 9px #CC1414; }
+50% { background-color: #FF3333; -webkit-box-shadow: 0 0 25px #FF3333; }
+to { background-color: #CC1414; -webkit-box-shadow: 0 0 9px #CC1414; }
+}
+
+
+.btn-circle-green {
+width: 30px;
+height: 30px;
+text-align: center;
+padding: 6px 0;
+font-size: 12px;
+line-height: 1.42;
+border-radius: 15px;
+-webkit-animation-name: greenPulse;
+-webkit-animation-duration: 2s;
+-webkit-animation-iteration-count: infinite;
+}
+
+.btn-circle-red {
+width: 30px;
+height: 30px;
+text-align: center;
+padding: 6px 0;
+font-size: 12px;
+line-height: 1.42;
+border-radius: 15px;
+-webkit-animation-name: redPulse;
+-webkit-animation-duration: 2s;
+-webkit-animation-iteration-count: infinite;
+}
+
+
 </style>
 
 <body>
@@ -61,6 +101,13 @@ input { margin-bottom: 10px; }
 	    <li id="PHYPageId"><a href="#Phy">PHY</a></li>
 	    <li id="FPGAPageId"><a href="#FPGA">FPGA</a></li>
 	    <li id="AllPageId"><a href="#All">All</a></li>
+	  </ul>
+	</li>
+	<li class="dropdown">
+	  <a href="#Diagnosis" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diagnosis <span class="caret"></span></a>
+	  <ul class="dropdown-menu">
+	    <li id="FrontEndDiagnosis"><a href="#FrontEndDiagnosis">Front End</a></li>
+	    <li id="PCSDiagnosis"><a href="#PCSDiagnosis">PCS</a></li>
 	  </ul>
 	</li>
 	<li class="dropdown">
@@ -92,9 +139,10 @@ input { margin-bottom: 10px; }
     <ul class="nav nav-sidebar">
       <h3><b><u> Layer 1 Controls</u></b> </h3>
       <li><h4> Auto Negotiation</h4><input id="AN" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
-      <li><h4> Forward Error Correction</h4><input id="FEC" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
+      <li><h4> Forward Error Correction</h4><input id="FEC" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1> 
       <li><h4> Layer 1 Polling</h4><input id="poll" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
-      <li><h4> Link Recovery</h4><input id="RecoverLink" type="button" class="btn btn-info" value="Attempt Link Recovery"></li>   
+      <li><h4> Enable Auto Recovery</h4><input id="AutoRecovery" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info"></l1>
+      <li><h4> Manual Link Recovery</h4><input id="RecoverLink" type="button" class="btn btn-info" value="Attempt Link Recovery"></li>   
     </ul>
  </div>
  <div class="container"> 
@@ -103,6 +151,12 @@ input { margin-bottom: 10px; }
   <div id="PHY">
   </div>
   <div id="FPGA">
+  </div>
+  <div id="PCSDiag">
+  </div>
+  <div id="PHYDiag">
+  </div>
+  <div id="FrontEndDiag">
   </div>
   <div id="Mdio">
       <h3><u>Management Device Input/Output(MDIO)</u></h3>

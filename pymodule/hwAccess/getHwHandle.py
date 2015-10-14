@@ -7,7 +7,6 @@ import portColossus
 import portProteus
 #import iceman
 #import wraith
-import phxhal
 from l1constants import boardFamily
 
 def getBar0Handle(port):

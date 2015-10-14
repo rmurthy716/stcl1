@@ -18,7 +18,7 @@ from hwAccess import hw_access
 from l1constants import *
 import psutil
 import time
-import phxhal
+from optparse import OptionParser
 
 class MyHTTPHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
@@ -127,26 +127,20 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-HOST, PORT = get_ip_address('admin0'), (40006 + (vm_num - 1) * 2)
 
-Handler = MyHTTPHandler
+def run():
+    HOST, PORT = get_ip_address('admin0'), (40006 + (vm_num - 1) * 2)
 
-httpd = MyTCPServer((HOST, PORT), Handler)
-httpd.hw_handle = hw_access()
-# suspend hardware manager
-for proc in psutil.process_iter():
-    if proc.name == PROCNAME:
-        proc.suspend()
-        time.sleep(0.5)
-        break
-            
-print "serving at port", PORT
-try:
-    httpd.serve_forever()
-except:
-    for proc in psutil.process_iter():
-        if proc.name == PROCNAME:
-            #proc.resume()
-            time.sleep(0.5)
-            break
-    print "Httpd is exiting!"
+    Handler = MyHTTPHandler
+    
+    httpd = MyTCPServer((HOST, PORT), Handler)
+    httpd.hw_handle = hw_access()
+    # suspend hardware manager
+    print "serving at port", PORT
+    try:
+        httpd.serve_forever()
+    except:
+        print "Httpd is exiting!"
+
+if __name__ == "__main__":
+    run()

@@ -3,11 +3,11 @@ module to store l1 constants used throughout pymodule
 """
 import json
 import sys
-sys.path.append("/usr/spirent/bin/pysysmgr")
-import phxhal
-boardFamily = phxhal.getBoardFamilyName()
-modelName = phxhal.getModelName()
-ccpuno = int(phxhal.getCPUID())
+sys.path.append("/usr/spirent/pymodule/pyhal")
+from hwinfo import HWINFO
+boardFamily = HWINFO.getBoardFamilyName()
+modelName = HWINFO.getModelName()
+ccpuno = int(HWINFO.getCpuId())
 LAYER1_PATH = "/usr/spirent/stcl1"
 LOGFILE_PATH = LAYER1_PATH + "/logs"
 LOGFILE = LOGFILE_PATH + "/hwaccess.log"
@@ -15,7 +15,6 @@ JSON_INPUT_PATH = LAYER1_PATH + "/json/"
 JS_SCRIPT_PATH = LAYER1_PATH + "/js/"
 JPG_PATH = LAYER1_PATH + "/jpg/"
 HTML_PATH = LAYER1_PATH + "/html/"
-PROCNAME = "hwmgrd"
 
 def findJsonFile(bf):
     json_file = ""

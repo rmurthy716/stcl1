@@ -40,6 +40,28 @@
                         "string"
                     ]
                 },
+		"diagnosis": {
+		    "type": "object",
+		    "additionalProperties": false,
+		    "properties": {
+			"lane": {
+			    "type": "number",
+			    "minimum": 1
+			},
+			"attribute": {
+			    "type": "string",
+			    "enum": ["Block Lock", "Sync", "BIP8", "Length Errors", "Repeat Errors", "Marker Errors", "Rx Power",
+				     "Tx Power", "Tx Signal", "Rx Signal", "Tx Lock", "Rx Lock"]
+			},
+			"value": {
+			    "type": "boolean"
+			}
+		    },
+		    "required": [
+			"lane",
+			"attribute"
+		    ]
+		},
 		"statusMessages": {
 		    "type": "object",
 		    "additionalProperties": false,

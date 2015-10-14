@@ -305,10 +305,2636 @@
 			    }
 			}
 		    ]
-		}	
+		},
+		{
+		    "address": 528,
+		    "name": "HSEC Core Rx Block Status",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 1 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 1 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 1 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 2 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 2 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 2 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Block Lock"
+			    }
+			    
+			},
+			{
+			    "attribute": "Lane 3 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 3 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 3 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Block Lock"
+			    }
+			    
+			},
+			{
+			    "attribute": "Lane 4 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 4 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 4 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 5 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 5 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 5 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 6 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 6 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 6 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 7 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 7 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 7 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 8 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 8 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 8 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 9 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 9 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 9 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 10 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 512,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 10 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 10 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 11 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 1024,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 11 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 11 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 12 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 2048,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 12 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 12 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 13 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 13 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 13 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 14 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 14 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 14 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 15 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 16384,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 15 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 15 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 16 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 32768,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 16 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 16 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 17 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 65536,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 17 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 17 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 18 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 131072,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 18 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 18 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 19 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 262144,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 19 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 19 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Lane 20 Rx Block",
+			    "expectedValue": true,
+			    "bitMap": 524288,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 20 Rx Block Locked",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 20 lost Rx Block Lock!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Block Lock"
+			    }
+			},
+			{
+			    "attribute": "Rx PCS Alignment",
+			    "expectedValue": true,
+			    "bitMap": 1073741824,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Rx PCS is Aligned!",
+				    "level": "success"
+				},
+				"trueStatus": {
+				    "message": "Rx PCS is not Aligned!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 532,
+		    "name": "HSEC Core Rx Sync Status",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 1 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 1 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 1 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 2 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 2 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 2 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 3 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 3 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 3 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 4 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 4 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 4 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 5 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 5 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 5 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 6 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 6 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 6 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 7 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 7 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 7 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 8 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 8 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 8 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 9 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 9 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 9 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 10 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 512,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 10 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 10 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 11 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 1024,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 11 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 11 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 12 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 2048,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 12 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 12 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 13 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 13 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 13 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 14 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 14 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 14 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 15 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 16384,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 15 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 15 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 16 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 32768,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 16 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 16 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 17 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 65536,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 17 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 17 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 18 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 131072,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 18 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 18 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 19 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 262144,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 19 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 19 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Sync"
+			    }
+			},
+			{
+			    "attribute": "Lane 20 Rx Sync",
+			    "expectedValue": true,
+			    "bitMap": 524288,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 20 Rx Synced",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 20 not Synced!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Sync"
+			    }
+			}                       
+		    ]
+		},
+		{
+		    "address": 556,
+		    "name": "HSEC Core Lane Marker Word Error",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 1 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 1 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 1 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 2 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 2 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 2 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 3 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 3 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 3 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 4 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 4 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 4 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 5 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 5 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 5 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 6 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 6 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 6 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 7 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 7 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 7 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 8 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 8 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 8 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 9 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 9 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 9 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 10 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 512,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 10 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 10 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 11 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 1024,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 11 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 11 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 12 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 2048,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 12 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 12 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 13 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 13 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 13 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 14 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 14 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 14 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 15 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 16384,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 15 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 15 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 16 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 32768,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 16 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 16 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 17 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 65536,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 17 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 17 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 18 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 131072,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 18 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 18 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 19 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 262144,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 19 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 19 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Marker Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 20 Word Error",
+			    "expectedValue": false,
+			    "bitMap": 524288,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 20 has no Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 20 has Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Marker Errors"
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 560,
+		    "name": "HSEC Core Rx Length Errors",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 1 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 1 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 1 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 2 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 2 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 2 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 3 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 3 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 3 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 4 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 4 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 4 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 5 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 5 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 5 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 6 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 6 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 6 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 7 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 7 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 7 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 8 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 8 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 8 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 9 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 9 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 9 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 10 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 512,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 10 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 10 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 11 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 1024,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 11 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 11 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 12 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 2048,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 12 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 12 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 13 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 13 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 13 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 14 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 14 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 14 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 15 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 16384,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 15 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 15 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 16 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 32768,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 16 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 16 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 17 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 65536,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 17 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 17 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 18 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 131072,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 18 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 18 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 19 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 262144,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 19 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 19 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Length Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 20 Length Error",
+			    "expectedValue": false,
+			    "bitMap": 524288,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 20 no Length Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 20 has Length Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Length Errors"
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 564,
+		    "name": "HSEC Core Rx Repeat Errors",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 1 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 1 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 1 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 2 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 2 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 2 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 3 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 3 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 3 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 4 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 4 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 4 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 5 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 5 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 5 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 6 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 6 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 6 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 7 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 7 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 7 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 8 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 8 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 8 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 9 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 9 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 9 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 10 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 512,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 10 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 10 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 11 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 1024,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 11 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 11 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 12 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 2048,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 12 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 12 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 13 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 13 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 13 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 14 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 14 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 14 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 15 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 16384,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 15 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 15 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 16 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 32768,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 16 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 16 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 17 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 65536,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 17 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 17 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 18 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 131072,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 18 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 18 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 19 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 262144,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 19 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 19 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "Repeat Errors"
+			    }
+			},
+			{
+			    "attribute": "Lane 20 Repeat Error",
+			    "expectedValue": false,
+			    "bitMap": 524288,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 20 no Repeat Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 20 has Repeat Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "Repeat Errors"
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 568,
+		    "name": "HSEC Core Rx BIP Errors",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Lane 1 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 1,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 1 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 1 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 1,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 2 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 2,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 2 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 2 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 2,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 3 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 4,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 3 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 3 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 3,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 4 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 8,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 4 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 4 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 4,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 5 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 16,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 5 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 5 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 5,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 6 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 32,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 6 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 6 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 6,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 7 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 64,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 7 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 7 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 7,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 8 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 128,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 8 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 8 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 8,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 9 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 256,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 9 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 9 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 9,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 10 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 512,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 10 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 10 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 10,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 11 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 1024,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 11 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 11 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 11,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 12 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 2048,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 12 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 12 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 12,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 13 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 4096,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 13 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 13 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 13,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 14 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 8192,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 14 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 14 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 14,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 15 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 16384,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 15 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 15 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 15,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 16 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 32768,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 16 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 16 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 16,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 17 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 65536,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 17 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 17 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 17,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 18 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 131072,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 18 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 18 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 18,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 19 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 262144,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 19 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 19 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 19,
+				"attribute": "BIP8"
+			    }
+			},
+			{
+			    "attribute": "Lane 20 BIP Error",
+			    "expectedValue": false,
+			    "bitMap": 524288,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "Lane 20 no BIP Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Lane 20 has BIP Errors!",
+				    "level": "danger"
+				}
+			    },
+			    "diagnosis": {
+				"lane": 20,
+				"attribute": "BIP8"
+			    }
+			}
+		    ]
+		},
+		{
+		    "address": 572,
+		    "name": "HSEC Core BER",
+		    "device": "FPGA",
+		    "protocolInterface": {
+			"protocol": "Bar1"
+		    },
+		    "values": [
+			{
+			    "attribute": "Bit Errors",
+			    "expectedValue": false,
+			    "bitMap": 4194304,
+			    "comparisonOperator": "NEQ",
+			    "returnOperator": "AND",
+			    "statusMessages": {
+				"falseStatus": {
+				    "message": "No detection of Bit Errors",
+				    "level": "info"
+				},
+				"trueStatus": {
+				    "message": "Detected high Bit Errors!",
+				    "level": "danger"
+				}
+			    }
+			}
+		    ]
+		}
 	    ]
 	},
-	{
+		{
 	    "setName": "MDIO",
 	    "registers": [
 		{
@@ -1212,6 +3838,11 @@
 				    "message": "Rx Lane 1 Power is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Rx Power"
 			    }
 			}
 		    ]	
@@ -1246,6 +3877,11 @@
 				    "message": "Rx Power 2 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Rx Power"
 			    }
 			}
 		    ]
@@ -1280,6 +3916,11 @@
 				    "message": "Rx Power 3 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Rx Power"
 			    }
 			}
 		    ]
@@ -1314,6 +3955,11 @@
 				    "message": "Rx Power 4 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Rx Power"
 			    }
 			}
 		    ]
@@ -1484,6 +4130,11 @@
 				    "message": "Tx Power 1 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Tx Power"
 			    }
 			}
 		    ]
@@ -1518,6 +4169,11 @@
 				    "message": "Tx Power 2 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Tx Power"
 			    }
 			}
 		    ]
@@ -1552,6 +4208,11 @@
 				    "message": "Tx Power 3 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Tx Power"
 			    }
 			}
 		    ]
@@ -1586,6 +4247,11 @@
 				    "message": "Tx Power 4 is Low!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Tx Power"
 			    }
 			}
 		    ]
@@ -1646,6 +4312,11 @@
 				    "message": "Tx Lane 1 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Tx Signal"
 			    }
 			},
 			{
@@ -1663,6 +4334,11 @@
 				    "message": "Tx Lane 2 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Tx Signal"
 			    }
 			},
 			{
@@ -1680,6 +4356,11 @@
 				    "message": "Tx Lane 3 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Tx Signal"
 			    }
 			},
 			{
@@ -1697,6 +4378,11 @@
 				    "message": "Tx Lane 4 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Tx Signal"
 			    }
 			},
 			{
@@ -1714,6 +4400,11 @@
 				    "message": "Rx Lane 1 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Rx Signal"
 			    }
 			},
 			{
@@ -1731,6 +4422,11 @@
 				    "message": "Rx Lane 2 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Rx Signal"
 			    }
 			},
 			{
@@ -1748,6 +4444,11 @@
 				    "message": "Rx Lane 3 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Rx Signal"
 			    }
 			},
 			{
@@ -1765,6 +4466,11 @@
 				    "message": "Rx Lane 4 Lost Signal!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Rx Signal"
 			    }
 			}
 		    ]
@@ -1795,6 +4501,11 @@
 				    "message": "Tx Lane 1 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Tx Lock"
 			    }
 			},
 			{
@@ -1812,6 +4523,11 @@
 				    "message": "Tx Lane 2 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Tx Lock"
 			    }
 			},
 			{
@@ -1829,6 +4545,11 @@
 				    "message": "Tx Lane 3 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Tx Lock"
 			    }
 			},
 			{
@@ -1846,6 +4567,11 @@
 				    "message": "Tx Lane 4 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Tx Lock"
 			    }
 			},
 			{
@@ -1863,6 +4589,11 @@
 				    "message": "Rx Lane 1 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 1,
+				"attribute": "Rx Lock"
 			    }
 			},
 			{
@@ -1880,6 +4611,11 @@
 				    "message": "Rx Lane 2 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 2,
+				"attribute": "Rx Lock"
 			    }
 			},
 			{
@@ -1897,6 +4633,11 @@
 				    "message": "Rx Lane 3 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 3,
+				"attribute": "Rx Lock"
 			    }
 			},
 			{
@@ -1914,6 +4655,11 @@
 				    "message": "Rx Lane 4 Lost Lock!",
 				    "level": "danger"
 				}
+			    },
+			    "diagnosis":
+			    {
+				"lane": 4,
+				"attribute": "Rx Lock"
 			    }
 			}
 		    ]
